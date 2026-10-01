@@ -61,7 +61,7 @@ export const heroConfig: HeroConfig = {
   leftBackground: heroLeftBg,
   rightBackground: heroRightBg,
   lawyerImage: heroLawyerCutout,
-  logo: "https://i.ibb.co/0y6bkBWj/Untitled-design-1.png",
+  logo: "/logo-tight.png",
 
   // Brand Palette
   colors: {

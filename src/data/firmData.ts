@@ -45,7 +45,7 @@ export const FIRM_CONFIG = {
   // Brand Identity
   firmName: "Qadeer Law Firm",
   tagline: "Focused legal guidance, strategic representation, and trusted counsel.",
-  logoUrl: "https://i.ibb.co/0y6bkBWj/Untitled-design-1.png",
+  logoUrl: "/logo-tight.png",
   establishedYear: "2026",
 
   // Color System Constants (for direct reference where needed)

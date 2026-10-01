@@ -9,22 +9,23 @@ interface HeroContentProps {
 
 export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) => {
   return (
-    <div className="w-full lg:w-[52%] xl:w-[50%] max-w-[540px] xl:max-w-[580px] z-[5] flex flex-col justify-center text-left py-8 lg:py-14 shrink-0">
+    <div className="w-full lg:w-[53%] xl:w-[51%] max-w-[560px] xl:max-w-[620px] z-[5] flex flex-col justify-center text-left py-4 lg:py-6 shrink-0 self-center lg:self-center transform -translate-y-8 sm:-translate-y-12 lg:-translate-y-16">
       {/* 
         Eyebrow Badge:
-        Height ~38px, pill shape, subtle translucent glass border, small gold scale icon, cream text
+        Height ~40px, pill shape, subtle translucent glass border, small gold scale icon, cream text
       */}
-      <div className="inline-flex items-center gap-2.5 px-4 h-[38px] rounded-full bg-white/12 backdrop-blur-md border border-white/20 text-[#FDF0D5] text-xs sm:text-sm font-medium tracking-wide mb-5 sm:mb-6 w-fit shadow-xs">
+      <div className="inline-flex items-center gap-2.5 px-4.5 h-[40px] rounded-full bg-white/12 backdrop-blur-md border border-white/20 text-[#FDF0D5] text-xs sm:text-sm font-semibold tracking-wide mb-5 sm:mb-6 w-fit shadow-xs">
         <Scale className="w-4 h-4 text-[#C6A15B] shrink-0" aria-hidden="true" />
         <span>{heroConfig.eyebrow.text}</span>
       </div>
 
       {/* 
-        Large Editorial Serif Headline:
-        Desktop 58–72px, Tablet 48–56px, Mobile 38–44px.
+        Editorial Serif Headline:
+        Balanced size: Mobile 36-40px, Tablet 50-54px, Desktop 64–74px.
+        Noticeably larger than original, but moderated from the oversized scale.
         Color: #FDF0D5, tight leading, authoritative & elegant.
       */}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.8rem] xl:text-[4.2rem] font-serif font-bold text-[#FDF0D5] leading-[1.09] tracking-tight mb-5 sm:mb-6 text-balance">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.95rem] xl:text-[4.35rem] 2xl:text-[4.6rem] font-serif font-bold text-[#FDF0D5] leading-[1.07] tracking-tight mb-5 sm:mb-6 text-balance">
         {heroConfig.headline.line1} <br />
         {heroConfig.headline.line2} <br />
         {heroConfig.headline.line3}
@@ -32,9 +33,9 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) 
 
       {/* 
         Supporting Text:
-        Max-width 480px, cream text, 16–18px desktop, comfortable line-height.
+        17–19px desktop, comfortable line-height.
       */}
-      <p className="text-base sm:text-lg text-[#FDF0D5]/85 max-w-[480px] leading-relaxed mb-7 sm:mb-9 font-normal">
+      <p className="text-base sm:text-lg lg:text-[1.125rem] text-[#FDF0D5]/90 max-w-[500px] leading-relaxed mb-7 sm:mb-8 font-normal">
         {heroConfig.supportingText}
       </p>
 

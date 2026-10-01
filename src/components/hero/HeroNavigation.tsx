@@ -15,68 +15,60 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
         className="w-full z-[25] relative pt-6 sm:pt-8 pb-4"
         aria-label="Hero navigation"
       >
-        <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 flex items-center justify-between">
+        <div className="w-full flex items-center">
           {/* 
             ====================================================================
-            TOP-LEFT: Qadeer Law Firm Logo
-            Positioned over the burgundy section (~70–90px from left on desktop).
-            Preserves exact proportions, framed in a clean elevated container.
+            LEFT CONTAINER SECTION (Matches 58% width of the left hero section)
             ====================================================================
           */}
-          <a
-            href="#hero"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded"
-            aria-label="Qadeer Law Firm - Home"
-          >
-            <div className="relative flex items-center justify-center p-1.5 sm:p-2 rounded-lg bg-[#FFF9EC] border border-[#C6A15B]/40 shadow-md transition-transform duration-200 group-hover:scale-102">
+          <div className="w-full lg:w-[58%] px-6 sm:px-10 lg:px-16 xl:px-20 flex items-center justify-between">
+            {/* Qadeer Law Firm Logo with matching brand typography and reduced distance */}
+            <a
+              href="#hero"
+              className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded-lg transition-transform duration-200 hover:scale-[1.02]"
+              aria-label="Qadeer Law Firm - Home"
+            >
               <img
                 src={heroConfig.logo}
                 alt="Qadeer Law Firm Logo"
-                className="h-9 sm:h-11 w-auto object-contain max-w-[160px] sm:max-w-[200px]"
+                className="h-11 sm:h-13 lg:h-15 w-auto object-contain drop-shadow-md shrink-0"
               />
+              <span className="font-serif font-bold text-xl sm:text-2xl lg:text-[1.85rem] tracking-[0.02em] text-[#FDF0D5] leading-[1.1] drop-shadow-xs group-hover:text-[#FFF9EC] transition-colors">
+                Qadeer Law Firm
+              </span>
+            </a>
+
+            {/* Mobile Hamburger Button */}
+            <div className="lg:hidden flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(true)}
+                className="p-2 rounded-lg bg-white/15 text-[#FDF0D5] hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-[#C6A15B] transition-colors cursor-pointer"
+                aria-label="Open mobile menu"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
             </div>
-          </a>
+          </div>
 
           {/* 
             ====================================================================
-            TOP-RIGHT: Navigation Links (on the Cream side)
-            Clean sans-serif font, medium weight, dark text #171313, generous spacing.
+            RIGHT SECTION: Starts where the left side container ends (at 58%)
+            Free Consultation button removed as requested.
             ====================================================================
           */}
-          <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+          <div className="hidden lg:flex items-center pl-8 xl:pl-12">
             <div className="flex items-center gap-7 xl:gap-9 text-[15px] font-medium text-[#171313]">
               {heroConfig.navigation.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="hover:text-[#5B1111] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[#5B1111] hover:after:w-full after:transition-all"
+                  className="hover:text-[#5B1111] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[#5B1111] hover:after:w-full after:transition-all whitespace-nowrap"
                 >
                   {item.label}
                 </a>
               ))}
             </div>
-
-            {/* Optional subtle CTA pill on the cream side */}
-            <button
-              type="button"
-              onClick={onOpenConsultation}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#5B1111] hover:bg-[#3E0808] text-[#FDF0D5] text-xs uppercase tracking-wider font-semibold shadow-xs hover:shadow transition-all duration-200 cursor-pointer"
-            >
-              <span>Free Consultation</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#C6A15B]" />
-            </button>
-          </div>
-
-          {/* Mobile Hamburger Button */}
-          <div className="lg:hidden flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(true)}
-              className="p-2 rounded-lg bg-white/15 text-[#FDF0D5] hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-[#C6A15B] transition-colors"
-              aria-label="Open mobile menu"
-            >
-              <Menu className="w-6 h-6" />
-            </button>
           </div>
         </div>
       </nav>
@@ -93,11 +85,16 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
           <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-[#FFF9EC] border-l border-[#5B1111]/20 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
             <div className="space-y-6 pt-6">
               <div className="flex items-center justify-between pb-4 border-b border-[#5B1111]/15">
-                <img
-                  src={heroConfig.logo}
-                  alt="Qadeer Law Firm"
-                  className="h-9 w-auto object-contain"
-                />
+                <div className="flex items-center gap-2">
+                  <img
+                    src={heroConfig.logo}
+                    alt="Qadeer Law Firm"
+                    className="h-9 sm:h-10 w-auto object-contain shrink-0"
+                  />
+                  <span className="font-serif font-bold text-base sm:text-lg text-[#5B1111] leading-tight">
+                    Qadeer Law Firm
+                  </span>
+                </div>
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}

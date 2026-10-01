@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
   return (
     <section
       id="hero"
-      className="relative z-[2] w-full min-h-[720px] sm:min-h-[780px] lg:min-h-[840px] xl:min-h-[890px] flex flex-col justify-between overflow-visible pb-10 sm:pb-14 lg:pb-20"
+      className="relative z-[2] w-full min-h-[100vh] lg:min-h-[100dvh] flex flex-col justify-between overflow-visible pb-10 sm:pb-12 lg:pb-14"
     >
       {/* 
         Two Independent Background Layers:
@@ -31,7 +31,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
         - Right Foreground Cutout: Confident Lawyer placed right beside the content, overlapping boundary
       */}
       <div className="w-full flex-1 flex flex-col justify-center relative">
-        <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-20 lg:pr-8 flex flex-col lg:flex-row items-center lg:items-end justify-start gap-4 lg:gap-6 relative min-h-[500px] lg:min-h-[580px]">
+        <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-20 lg:pr-8 flex flex-col lg:flex-row items-center lg:items-end justify-start gap-4 lg:gap-6 relative min-h-[500px] lg:min-h-[580px]">
           {/* Hero Content (Positioned over Burgundy side with 70–90px left spacing) */}
           <HeroContent onOpenConsultation={onOpenConsultation} />
 

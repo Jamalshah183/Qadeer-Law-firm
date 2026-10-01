@@ -6,18 +6,58 @@ export const HeroBackground: React.FC = () => {
     <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none">
       {/* 
         ========================================================================
-        IMAGE 1 — LEFT BACKGROUND (Desk, Paperwork, Signing) + BURGUNDY OVERLAY
-        Desktop: ~58% width with prominent smooth rounded right-side border (70px-90px).
+        IMAGE 2 — RIGHT BACKGROUND (Scales of Justice & Architectural Setting)
+        Desktop: ~52% width from the right.
         Layer hierarchy:
-          - Image (z-index 1)
-          - Independent Primary Burgundy Overlay (z-index 2, 88% opacity)
+          - Image with Scales of Justice (z-index 1)
+          - Warm Cream Gradient Overlay
+        Placed behind IMAGE 1 so IMAGE 1's right rounded corners are fully visible.
         ========================================================================
       */}
       <div
-        className="absolute top-0 left-0 bottom-0 w-full md:w-[58%] h-[58%] md:h-full rounded-b-[40px] md:rounded-b-none md:rounded-r-[70px] lg:rounded-r-[80px] xl:rounded-r-[90px] overflow-hidden z-[1] shadow-2xl transition-all duration-300"
+        className="absolute top-0 right-0 w-full md:w-[52%] h-full z-[1] hidden md:block overflow-hidden"
+      >
+        {/* Layer 1: Right warm legal / scales background photograph */}
+        <div
+          className="absolute inset-0 w-full h-full bg-cover"
+          style={{
+            backgroundImage: `url(${heroConfig.rightBackground})`,
+            backgroundPosition: '50% 50%',
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Layer 2: Warm Cream / Subtle Gold gradient overlay */}
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            background:
+              'linear-gradient(180deg, #FDF0D5 0%, rgba(253, 240, 213, 0.45) 45%, #FDF0D5 95%)',
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Soft radial highlight behind scales */}
+        <div
+          className="absolute inset-0 w-full h-full bg-radial from-transparent via-[#FDF0D5]/20 to-[#FDF0D5]/70 pointer-events-none"
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* 
+        ========================================================================
+        IMAGE 1 — LEFT BACKGROUND (Desk, Paperwork, Signing) + BURGUNDY OVERLAY
+        Desktop: ~58% width.
+        z-index: 2 (renders ON TOP of IMAGE 2).
+        Right side has rounded corners (50px) and NO shadow on the round corner.
+        ========================================================================
+      */}
+      <div
+        className="absolute top-0 left-0 bottom-0 w-full md:w-[58%] h-[58%] md:h-full rounded-b-[50px] md:rounded-b-none md:rounded-r-[50px] overflow-hidden z-[2] transition-all duration-300"
         style={{
-          borderTopRightRadius: 'clamp(50px, 6vw, 90px)',
-          borderBottomRightRadius: 'clamp(50px, 6vw, 90px)',
+          borderTopRightRadius: '50px',
+          borderBottomRightRadius: '50px',
+          boxShadow: 'none',
         }}
       >
         {/* Layer 1: Left legal desk photograph */}
@@ -39,49 +79,9 @@ export const HeroBackground: React.FC = () => {
           aria-hidden="true"
         />
 
-        {/* Subtle vignette depth gradient on left */}
+        {/* Subtle vignette depth gradient on left without shadow on the right */}
         <div
-          className="absolute inset-0 w-full h-full bg-gradient-to-r from-black/25 via-transparent to-black/15 pointer-events-none"
-          aria-hidden="true"
-        />
-      </div>
-
-      {/* 
-        ========================================================================
-        IMAGE 2 — RIGHT BACKGROUND (Scales of Justice & Architectural Setting)
-        Desktop: ~48% width from the right.
-        Layer hierarchy:
-          - Image with Scales of Justice (z-index 1)
-          - Warm Cream Gradient Overlay (z-index 2)
-          - Subtle Justice Scales Decorative Focus (z-index 3)
-        ========================================================================
-      */}
-      <div
-        className="absolute top-0 right-0 w-full md:w-[48%] h-full z-[1] hidden md:block overflow-hidden"
-      >
-        {/* Layer 1: Right warm legal / scales background photograph */}
-        <div
-          className="absolute inset-0 w-full h-full bg-cover"
-          style={{
-            backgroundImage: `url(${heroConfig.rightBackground})`,
-            backgroundPosition: '50% 50%',
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Layer 2 & 3: Warm Cream / Subtle Gold gradient overlay */}
-        <div
-          className="absolute inset-0 w-full h-full"
-          style={{
-            background:
-              'linear-gradient(180deg, #FDF0D5 0%, rgba(253, 240, 213, 0.45) 45%, #FDF0D5 95%)',
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Soft radial highlight behind scales */}
-        <div
-          className="absolute inset-0 w-full h-full bg-radial from-transparent via-[#FDF0D5]/20 to-[#FDF0D5]/70 pointer-events-none"
+          className="absolute inset-0 w-full h-full bg-gradient-to-r from-black/25 via-transparent to-transparent pointer-events-none"
           aria-hidden="true"
         />
       </div>

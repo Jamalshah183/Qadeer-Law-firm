@@ -22,12 +22,15 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#C6A15B]/20">
           {/* Column 1: Logo & Firm Summary (col-span-4) */}
           <div className="lg:col-span-4 space-y-5">
-            <div className="inline-block p-1.5 rounded bg-[#FFF9EC] border border-[#C6A15B]/40 shadow-xs">
+            <div className="flex items-center gap-2.5">
               <img
                 src={FIRM_CONFIG.logoUrl}
                 alt="Qadeer Law Firm"
-                className="h-11 w-auto object-contain max-w-[190px]"
+                className="h-12 sm:h-14 w-auto object-contain drop-shadow-md shrink-0"
               />
+              <span className="font-serif font-bold text-xl sm:text-2xl tracking-[0.02em] text-[#FDF0D5] leading-[1.1]">
+                Qadeer Law Firm
+              </span>
             </div>
 
             <p className="text-sm text-[#FDF0D5]/80 leading-relaxed font-normal max-w-sm">
