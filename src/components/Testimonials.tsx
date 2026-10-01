@@ -1,0 +1,123 @@
+import React, { useState } from 'react';
+import { ChevronLeft, ChevronRight, Quote, Info } from 'lucide-react';
+import { FIRM_CONFIG } from '../data/firmData';
+
+export const Testimonials: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? FIRM_CONFIG.testimonials.length - 1 : prev - 1
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) =>
+      prev === FIRM_CONFIG.testimonials.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const current = FIRM_CONFIG.testimonials[currentIndex];
+
+  return (
+    <section id="testimonials" className="py-20 md:py-28 bg-[#FDF0D5] rounded-[32px] sm:rounded-[40px] mx-2 sm:mx-4 md:mx-6 my-6 border border-[#5B1111]/10 relative overflow-hidden shadow-xs">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="h-[1px] w-6 bg-[#C6A15B]" aria-hidden="true" />
+            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5B1111]">
+              CLIENT TESTIMONIALS
+            </span>
+            <span className="h-[1px] w-6 bg-[#C6A15B]" aria-hidden="true" />
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#171313] leading-tight mb-4">
+            Trusted by Those We Represent
+          </h2>
+
+          <p className="text-base text-[#171313]/80 leading-relaxed font-normal">
+            Reflections from clients regarding our strategic representation, discretion, and courtroom advocacy.
+          </p>
+        </div>
+
+        {/* Carousel Container */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative bg-[#FFF9EC] rounded-2xl p-8 sm:p-12 md:p-16 border border-[#5B1111]/20 shadow-lg">
+            {/* Burgundy Quotation Mark Icon */}
+            <div className="absolute top-6 left-8 sm:top-10 sm:left-12">
+              <Quote className="w-12 h-12 sm:w-16 sm:h-16 text-[#5B1111]/25 -scale-x-100" />
+            </div>
+
+            <div className="relative z-10 pt-4 sm:pt-6">
+              {/* Testimonial Quote */}
+              <blockquote className="text-lg sm:text-xl md:text-2xl font-serif italic text-[#171313] leading-relaxed mb-8">
+                “{current.quote}”
+              </blockquote>
+
+              {/* Client Info Lockup */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-[#5B1111]/15">
+                <div>
+                  <div className="text-base font-serif font-bold text-[#5B1111]">
+                    {current.clientName}
+                  </div>
+                  <div className="text-xs text-[#6D6260] tracking-wide mt-0.5">
+                    {current.matterArea} {current.location ? `· ${current.location}` : ''}
+                  </div>
+                </div>
+
+                {/* Carousel Controls */}
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={prevSlide}
+                    className="p-2.5 rounded-full bg-[#FDF0D5] hover:bg-[#5B1111] hover:text-[#FDF0D5] text-[#5B1111] border border-[#5B1111]/20 transition-colors focus:outline-none focus:ring-2 focus:ring-[#C6A15B] cursor-pointer"
+                    aria-label="Previous testimonial"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+
+                  <span className="text-xs font-mono text-[#6D6260] px-2 tabular-nums">
+                    0{currentIndex + 1} / 0{FIRM_CONFIG.testimonials.length}
+                  </span>
+
+                  <button
+                    type="button"
+                    onClick={nextSlide}
+                    className="p-2.5 rounded-full bg-[#FDF0D5] hover:bg-[#5B1111] hover:text-[#FDF0D5] text-[#5B1111] border border-[#5B1111]/20 transition-colors focus:outline-none focus:ring-2 focus:ring-[#C6A15B] cursor-pointer"
+                    aria-label="Next testimonial"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Transparent Notice regarding placeholders */}
+          <div className="mt-4 flex items-center justify-center gap-2 text-xs text-[#6D6260]">
+            <Info className="w-3.5 h-3.5 text-[#C6A15B]" />
+            <span>
+              Client identities and reviews are structured as editable placeholders to maintain strict attorney-client privilege.
+            </span>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-6">
+            {FIRM_CONFIG.testimonials.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setCurrentIndex(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  currentIndex === i ? 'w-8 bg-[#5B1111]' : 'w-2 bg-[#5B1111]/25 hover:bg-[#5B1111]/50'
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

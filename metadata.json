@@ -1,0 +1,6 @@
+{
+  "name": "Qadeer Law Firm",
+  "description": "Premier legal counsel offering strategic representation in corporate, civil litigation, family, property, criminal, and tax law.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
