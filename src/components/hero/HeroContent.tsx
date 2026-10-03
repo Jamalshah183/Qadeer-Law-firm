@@ -9,7 +9,8 @@ interface HeroContentProps {
 
 export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) => {
   return (
-    <div className="w-full lg:w-[45%] xl:w-[46%] max-w-[640px] px-6 sm:px-10 lg:pl-16 xl:pl-20 lg:pr-6 z-[5] flex flex-col justify-start text-left pt-0 pb-6 shrink-0 self-start">
+    <div className="w-full lg:w-[52%] xl:w-[51%] px-6 sm:px-10 lg:pl-12 lg:pr-2 xl:pr-4 z-[5] flex justify-center lg:justify-end pt-0 pb-6 shrink-0 self-start">
+      <div className="w-full max-w-[520px] xl:max-w-[550px] flex flex-col justify-start text-left">
       {/* 
         Eyebrow Badge:
         Height ~40px, pill shape, subtle translucent glass border, small gold scale icon, cream text
@@ -41,6 +42,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) 
 
       {/* CTA Buttons */}
       <HeroCTA onOpenConsultation={onOpenConsultation} />
+      </div>
     </div>
   );
 };
