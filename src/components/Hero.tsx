@@ -27,12 +27,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
 
       {/* 
         Main Hero Editorial Split Composition:
-        - Positioned with a clean top gap below the navbar so nothing touches the navbar
-        - Left Content: Eyebrow badge, Large serif headline, Supporting copy, 2 CTA buttons
-        - Center-Split Statue of Justice: Straddles the 58% boundary between the 2 containers,
+        - Positioned with generous top spacing below the navbar so the writing is never close to the navbar
+        - Left Content: Eyebrow badge, 3-line serif headline, Supporting copy, 2 CTA buttons
+        - Center-Split Statue of Justice: Straddles the boundary between the 2 containers,
           top edge level with the writing, lower edge extending behind the second section.
       */}
-      <div className="w-full flex-1 flex flex-col justify-start relative pt-6 sm:pt-8 lg:pt-10">
+      <div className="w-full flex-1 flex flex-col justify-start relative pt-12 sm:pt-16 lg:pt-20 xl:pt-24">
         <div className="w-full relative flex flex-col lg:flex-row items-center lg:items-start justify-start">
           {/* Hero Content (Positioned over Burgundy side with left spacing, top-aligned) */}
           <HeroContent onOpenConsultation={onOpenConsultation} />
