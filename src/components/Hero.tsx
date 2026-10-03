@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
   return (
     <section
       id="hero"
-      className="relative z-[2] w-full min-h-[100vh] lg:min-h-[100dvh] flex flex-col justify-between overflow-visible pb-10 sm:pb-12 lg:pb-14"
+      className="relative z-[2] w-full min-h-[100vh] lg:h-[100dvh] lg:min-h-[760px] flex flex-col justify-start overflow-x-clip overflow-y-visible pb-10 sm:pb-12 lg:pb-14"
     >
       {/* 
         Two Independent Background Layers:
@@ -27,15 +27,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
 
       {/* 
         Main Hero Editorial Split Composition:
+        - Positioned with a clean top gap below the navbar so nothing touches the navbar
         - Left Content: Eyebrow badge, Large serif headline, Supporting copy, 2 CTA buttons
-        - Right Foreground Cutout: Confident Lawyer placed right beside the content, overlapping boundary
+        - Center-Split Statue of Justice: Straddles the 58% boundary between the 2 containers,
+          top edge level with the writing, lower edge extending behind the second section.
       */}
-      <div className="w-full flex-1 flex flex-col justify-center relative">
-        <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-20 lg:pr-8 flex flex-col lg:flex-row items-center lg:items-end justify-start gap-4 lg:gap-6 relative min-h-[500px] lg:min-h-[580px]">
-          {/* Hero Content (Positioned over Burgundy side with 70–90px left spacing) */}
+      <div className="w-full flex-1 flex flex-col justify-start relative pt-6 sm:pt-8 lg:pt-10">
+        <div className="w-full relative flex flex-col lg:flex-row items-center lg:items-start justify-start">
+          {/* Hero Content (Positioned over Burgundy side with left spacing, top-aligned) */}
           <HeroContent onOpenConsultation={onOpenConsultation} />
 
-          {/* Independent Foreground Lawyer Cutout (z-index 6, close to text and buttons) */}
+          {/* Foreground Statue of Justice Cutout (Positioned between the 2 containers, top-aligned with writing) */}
           <HeroLawyer />
         </div>
       </div>

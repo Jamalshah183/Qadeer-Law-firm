@@ -56,33 +56,27 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
             </div>
 
             {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#171313] leading-[1.15] mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#171313] leading-[1.15] mb-4">
               Trusted Counsel.{' '}
               <span className="italic font-normal text-[#5B1111]">
                 Strategic Representation.
               </span>
             </h2>
 
-            {/* Paragraphs */}
-            <div className="space-y-4 text-base text-[#171313]/85 leading-relaxed font-normal mb-8">
-              <p>
-                At Qadeer Law Firm, we believe that effective legal representation is founded upon meticulous preparation, sound legal doctrine, and an uncompromising commitment to our clients’ best interests. We represent individuals, family offices, and commercial enterprises with equal rigor.
-              </p>
-              <p>
-                Every matter entrusted to our chambers receives deliberate, partner-led focus. Rather than applying standard formulas, our advocates conduct in-depth analysis of evidence, examine court precedents, and structure a custom legal roadmap tailored to realistic outcomes.
-              </p>
-            </div>
+            {/* Streamlined Narrative - Understandable in 5 Seconds */}
+            <p className="text-base sm:text-lg text-[#171313]/85 leading-relaxed font-normal mb-5">
+              Qadeer Law Firm provides authoritative, partner-led legal counsel and courtroom advocacy for businesses, individuals, and family offices. We combine rigorous preparation with strategic insight to deliver decisive outcomes in civil, corporate, and property matters.
+            </p>
 
-            {/* Values / Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+            {/* Scannable Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-6">
               {[
-                'Individualized case strategy & procedural clarity',
-                'Comprehensive pre-litigation risk assessments',
-                'Ethical, confidential, and partner-driven advocacy',
-                'Transparent billing & structured fee schedules',
+                'Direct Partner Advocacy',
+                'Pre-Litigation Risk Audit',
+                'Strict Chambers Confidentiality',
               ].map((item, index) => (
-                <div key={index} className="flex items-start gap-2.5">
-                  <div className="w-4 h-4 rounded-full bg-[#5B1111]/10 flex items-center justify-center mt-1 shrink-0">
+                <div key={index} className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-[#5B1111]/10 flex items-center justify-center shrink-0">
                     <Check className="w-3 h-3 text-[#5B1111]" />
                   </div>
                   <span className="text-xs sm:text-sm text-[#171313]/90 font-medium">
@@ -92,54 +86,38 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
               ))}
             </div>
 
-            {/* Editable Statistics Grid under text */}
-            <div className="pt-6 border-t border-[#5B1111]/15">
-              <div className="text-[11px] uppercase tracking-wider text-[#6D6260] font-semibold mb-3 flex items-center justify-between">
-                <span>Firm Metrics</span>
-                <span className="text-[10px] text-[#5B1111] italic lowercase font-normal">
-                  (Editable firm records)
-                </span>
+            {/* Burgundy Firm Metrics Container - Embedded directly in About Us */}
+            <div className="bg-[#5B1111] text-[#FDF0D5] p-5 sm:p-6 rounded-2xl border border-[#C6A15B]/30 shadow-lg relative overflow-hidden">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-[#C6A15B]/25">
+                {FIRM_CONFIG.statistics.map((stat, idx) => (
+                  <div
+                    key={stat.id}
+                    className={`flex flex-col items-center text-center px-2 ${
+                      idx > 0 && idx % 2 === 0 ? 'pt-3 sm:pt-0' : ''
+                    } ${idx === 1 ? 'pt-0' : ''}`}
+                  >
+                    <div className="text-2xl sm:text-3xl font-serif font-bold text-[#FDF0D5] tracking-tight tabular-nums">
+                      {stat.value}
+                    </div>
+                    <div className="w-5 h-[1.5px] bg-[#C6A15B] my-1.5" aria-hidden="true" />
+                    <div className="text-[11px] font-medium tracking-wide uppercase text-[#FDF0D5]/90">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
               </div>
+            </div>
 
-              <div className="grid grid-cols-3 gap-4">
-                <div className="p-4 rounded-lg bg-[#FDF0D5] border border-[#5B1111]/15">
-                  <div className="text-2xl sm:text-3xl font-serif font-bold text-[#5B1111] tabular-nums">
-                    {FIRM_CONFIG.statistics[0].value}
-                  </div>
-                  <div className="text-xs font-semibold text-[#171313] mt-1">
-                    {FIRM_CONFIG.statistics[0].label}
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-lg bg-[#FDF0D5] border border-[#5B1111]/15">
-                  <div className="text-2xl sm:text-3xl font-serif font-bold text-[#5B1111] tabular-nums">
-                    {FIRM_CONFIG.statistics[1].value}
-                  </div>
-                  <div className="text-xs font-semibold text-[#171313] mt-1">
-                    {FIRM_CONFIG.statistics[1].label}
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-lg bg-[#FDF0D5] border border-[#5B1111]/15">
-                  <div className="text-2xl sm:text-3xl font-serif font-bold text-[#5B1111] tabular-nums">
-                    {FIRM_CONFIG.statistics[3].value}
-                  </div>
-                  <div className="text-xs font-semibold text-[#171313] mt-1">
-                    {FIRM_CONFIG.statistics[3].label}
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 flex items-center gap-4">
-                <button
-                  type="button"
-                  onClick={onOpenConsultation}
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-[#5B1111] hover:text-[#3E0808] group"
-                >
-                  <span>Schedule Private Chambers Meeting</span>
-                  <ArrowRight className="w-4 h-4 text-[#C6A15B] transition-transform duration-200 group-hover:translate-x-1" />
-                </button>
-              </div>
+            {/* Meeting CTA */}
+            <div className="mt-6 flex items-center gap-4">
+              <button
+                type="button"
+                onClick={onOpenConsultation}
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-[#5B1111] hover:text-[#3E0808] group cursor-pointer transition-colors"
+              >
+                <span>Schedule Private Chambers Meeting</span>
+                <ArrowRight className="w-4 h-4 text-[#C6A15B] transition-transform duration-200 group-hover:translate-x-1" />
+              </button>
             </div>
           </div>
         </div>

@@ -4,17 +4,20 @@ import { heroConfig } from '../../data/heroConfig';
 export const HeroLawyer: React.FC = () => {
   return (
     <div
-      className="relative w-full lg:w-[49%] xl:w-[47%] max-w-[420px] sm:max-w-[490px] lg:max-w-[580px] xl:max-w-[650px] 2xl:max-w-[690px] flex items-end justify-center lg:justify-start z-[6] pointer-events-none select-none mt-6 lg:mt-0 lg:-ml-6 xl:-ml-10"
-      style={{
-        height: '100%',
-      }}
+      className="relative lg:absolute lg:top-0 lg:left-[63%] xl:left-[62%] lg:-translate-x-1/2 w-full lg:w-auto flex items-start justify-center z-[6] pointer-events-none select-none mt-6 lg:mt-0 -mb-16 sm:-mb-20 lg:mb-0"
     >
-      <div className="relative w-full flex items-end justify-center lg:justify-start">
-        {/* Foreground Lawyer Cutout Image - Tuned sweet spot */}
+      <div className="relative flex items-start justify-center">
+        {/* 
+          Foreground Statue of Justice Cutout:
+          - Centered on the 58% split boundary between the left burgundy and right cream containers
+          - Top edge (object-top, top-0) aligned level with the top of the hero writing, safely below the navbar
+          - Increased height extends downward so the lower pedestal tucks behind the second section (AboutSection, z-10)
+        */}
         <img
           src={heroConfig.lawyerImage}
-          alt="Distinguished Advocate at Qadeer Law Firm"
-          className="w-full h-auto max-h-[78vh] sm:max-h-[84vh] lg:max-h-[88vh] xl:max-h-[91vh] object-contain object-bottom drop-shadow-[0_22px_38px_rgba(0,0,0,0.36)] pointer-events-auto transform translate-y-3 lg:translate-y-5 scale-100 lg:scale-104 origin-bottom transition-transform duration-300"
+          alt="Statue of Lady Justice - Qadeer Law Firm"
+          referrerPolicy="no-referrer"
+          className="h-[64vh] sm:h-[72vh] lg:h-[88vh] xl:h-[92vh] min-h-[500px] lg:min-h-[720px] w-auto max-w-[88vw] lg:max-w-none object-contain object-top drop-shadow-[0_24px_42px_rgba(0,0,0,0.45)] pointer-events-auto transition-transform duration-300"
           loading="eager"
         />
       </div>

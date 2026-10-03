@@ -10,6 +10,7 @@ import aboutLegalImg from '../assets/images/about_legal_counsel_1790813183943.jp
 import practiceCorporateImg from '../assets/images/practice_corporate_law_1790813196434.jpg';
 import practiceCivilImg from '../assets/images/practice_civil_court_1790813208214.jpg';
 import experienceStrategyImg from '../assets/images/experience_strategy_firm_1790813219907.jpg';
+import logoTight from '../assets/logo.png';
 
 export interface PracticeArea {
   id: string;
@@ -45,7 +46,7 @@ export const FIRM_CONFIG = {
   // Brand Identity
   firmName: "Qadeer Law Firm",
   tagline: "Focused legal guidance, strategic representation, and trusted counsel.",
-  logoUrl: "/logo-tight.png",
+  logoUrl: logoTight,
   establishedYear: "2026",
 
   // Color System Constants (for direct reference where needed)

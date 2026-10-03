@@ -6,7 +6,8 @@
 
 import heroLeftBg from '../assets/reference/hero_bg_left.avif';
 import heroRightBg from '../assets/reference/hero_bg_scales.avif';
-import heroLawyerCutout from '../assets/reference/hero_lawyer_person.webp';
+import heroLawyerCutout from '../assets/images/hero_statue_justice_cutout.png';
+import logoTight from '../assets/logo.png';
 
 export interface HeroConfig {
   // 1. Separate Image Layers (Independently controllable & replaceable)
@@ -61,7 +62,7 @@ export const heroConfig: HeroConfig = {
   leftBackground: heroLeftBg,
   rightBackground: heroRightBg,
   lawyerImage: heroLawyerCutout,
-  logo: "/logo-tight.png",
+  logo: logoTight,
 
   // Brand Palette
   colors: {

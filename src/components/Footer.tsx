@@ -27,6 +27,9 @@ export const Footer: React.FC<FooterProps> = ({
                 src={FIRM_CONFIG.logoUrl}
                 alt="Qadeer Law Firm"
                 className="h-12 sm:h-14 w-auto object-contain drop-shadow-md shrink-0"
+                onError={(e) => {
+                  e.currentTarget.src = 'https://i.ibb.co/0y6bkBWj/Untitled-design-1.png';
+                }}
               />
               <span className="font-serif font-bold text-xl sm:text-2xl tracking-[0.02em] text-[#FDF0D5] leading-[1.1]">
                 Qadeer Law Firm

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
-import { StatsBand } from './components/StatsBand';
 import { PracticeAreas } from './components/PracticeAreas';
 import { ExperienceStrategyResults } from './components/ExperienceStrategyResults';
 import { BurgundyFeatureSection } from './components/BurgundyFeatureSection';
@@ -40,11 +39,8 @@ export default function App() {
         {/* 1. Hero Section with Top Navigation in its actual position */}
         <Hero onOpenConsultation={() => handleOpenConsultation()} />
 
-        {/* 3. About Section (Soft Cream) */}
+        {/* 3. About Section (Soft Cream with embedded Burgundy Firm Metrics) */}
         <AboutSection onOpenConsultation={() => handleOpenConsultation()} />
-
-        {/* 4. Burgundy Statistics Band (Burgundy #5B1111) */}
-        <StatsBand />
 
         {/* 5. Practice Areas (Cream #FDF0D5) */}
         <PracticeAreas

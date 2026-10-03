@@ -9,7 +9,7 @@ interface HeroContentProps {
 
 export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) => {
   return (
-    <div className="w-full lg:w-[53%] xl:w-[51%] max-w-[560px] xl:max-w-[620px] z-[5] flex flex-col justify-center text-left py-4 lg:py-6 shrink-0 self-center lg:self-center transform -translate-y-8 sm:-translate-y-12 lg:-translate-y-16">
+    <div className="w-full lg:w-[45%] xl:w-[46%] max-w-[640px] px-6 sm:px-10 lg:pl-16 xl:pl-20 lg:pr-6 z-[5] flex flex-col justify-start text-left pt-0 pb-6 shrink-0 self-start">
       {/* 
         Eyebrow Badge:
         Height ~40px, pill shape, subtle translucent glass border, small gold scale icon, cream text

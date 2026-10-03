@@ -32,6 +32,9 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                 src={heroConfig.logo}
                 alt="Qadeer Law Firm Logo"
                 className="h-11 sm:h-13 lg:h-15 w-auto object-contain drop-shadow-md shrink-0"
+                onError={(e) => {
+                  e.currentTarget.src = 'https://i.ibb.co/0y6bkBWj/Untitled-design-1.png';
+                }}
               />
               <span className="font-serif font-bold text-xl sm:text-2xl lg:text-[1.85rem] tracking-[0.02em] text-[#FDF0D5] leading-[1.1] drop-shadow-xs group-hover:text-[#FFF9EC] transition-colors">
                 Qadeer Law Firm
@@ -90,6 +93,9 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                     src={heroConfig.logo}
                     alt="Qadeer Law Firm"
                     className="h-9 sm:h-10 w-auto object-contain shrink-0"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://i.ibb.co/0y6bkBWj/Untitled-design-1.png';
+                    }}
                   />
                   <span className="font-serif font-bold text-base sm:text-lg text-[#5B1111] leading-tight">
                     Qadeer Law Firm
