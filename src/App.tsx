@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
-import { PracticeAreas } from './components/PracticeAreas';
 import { ExperienceStrategyResults } from './components/ExperienceStrategyResults';
-import { BurgundyFeatureSection } from './components/BurgundyFeatureSection';
-import { WhyChooseUs } from './components/WhyChooseUs';
 import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
 import { ContactSection } from './components/ContactSection';
@@ -39,22 +36,14 @@ export default function App() {
         {/* 1. Hero Section with Top Navigation in its actual position */}
         <Hero onOpenConsultation={() => handleOpenConsultation()} />
 
-        {/* 3. About Section (Soft Cream with embedded Burgundy Firm Metrics) */}
-        <AboutSection onOpenConsultation={() => handleOpenConsultation()} />
-
-        {/* 5. Practice Areas (Cream #FDF0D5) */}
-        <PracticeAreas
+        {/* 2. Merged About Us & Practice Areas Section */}
+        <AboutSection
+          onOpenConsultation={() => handleOpenConsultation()}
           onSelectPracticeForConsultation={handlePracticeSelectedForContact}
         />
 
-        {/* 6. Experience / Strategy / Results Section (Cream with Gold accents) */}
+        {/* 6. Experience / Strategy / Results Section */}
         <ExperienceStrategyResults />
-
-        {/* 7. Burgundy Feature Section (Burgundy #5B1111) */}
-        <BurgundyFeatureSection onOpenConsultation={() => handleOpenConsultation()} />
-
-        {/* 8. Why Clients Choose Us (Soft Cream #FFF9EC) */}
-        <WhyChooseUs />
 
         {/* 9. Client Testimonials (Cream #FDF0D5) */}
         <Testimonials />

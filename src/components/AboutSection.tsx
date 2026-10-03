@@ -1,29 +1,51 @@
-import React from 'react';
-import { Check, ArrowRight } from 'lucide-react';
-import { FIRM_CONFIG } from '../data/firmData';
+import React, { useState } from 'react';
+import { UserCheck, Compass, Scale, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { FIRM_CONFIG, PracticeArea } from '../data/firmData';
+import { PracticeModal } from './PracticeModal';
 
 interface AboutSectionProps {
   onOpenConsultation: () => void;
+  onSelectPracticeForConsultation: (practiceTitle: string) => void;
 }
 
-export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }) => {
+const ABOUT_KEYPOINTS = [
+  {
+    title: 'Direct Senior Counsel',
+    Icon: UserCheck,
+  },
+  {
+    title: 'Clear Legal Strategy',
+    Icon: Compass,
+  },
+  {
+    title: 'Courtroom & Advisory Excellence',
+    Icon: Scale,
+  },
+  {
+    title: 'Strict Client Confidentiality',
+    Icon: ShieldCheck,
+  },
+];
+
+export const AboutSection: React.FC<AboutSectionProps> = ({
+  onSelectPracticeForConsultation,
+}) => {
+  const [selectedPractice, setSelectedPractice] = useState<PracticeArea | null>(null);
+
   return (
     <section
       id="about"
-      className="relative z-[10] -mt-16 sm:-mt-20 lg:-mt-24 xl:-mt-28 pt-20 sm:pt-24 md:pt-28 pb-20 md:pb-28 bg-[#FFF9EC] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#5B1111]/25 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.25)] overflow-hidden"
+      className="relative z-[10] -mt-16 sm:-mt-20 lg:-mt-24 xl:-mt-28 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#FFF9EC] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#5B1111]/25 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.25)] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Distinguished Counsel Photograph */}
           <div className="lg:col-span-5 relative order-2 lg:order-1">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Gold border accent offset */}
               <div
                 className="absolute -top-3 -left-3 w-full h-full border border-[#C6A15B]/50 rounded-2xl -z-10"
                 aria-hidden="true"
               />
-
-              {/* Burgundy base backing */}
               <div
                 className="absolute -bottom-3 -right-3 w-full h-full bg-[#5B1111]/10 rounded-2xl -z-10"
                 aria-hidden="true"
@@ -37,91 +59,107 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3E0808]/70 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 text-xs text-[#FDF0D5] font-serif italic">
-                  Chambers Consultation & Diligent Brief Review
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#3E0808]/50 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
           </div>
 
-          {/* Right Column: Narrative & Editable Statistics */}
+          {/* 
+            Right Column: Strictly 2 Fonts & 2 Sizes
+            - Font 1 / Size 1: font-serif text-2xl sm:text-3xl (Headings & Metric Values)
+            - Font 2 / Size 2: font-sans text-sm sm:text-base (Keypoints, Labels & CTA)
+          */}
           <div className="lg:col-span-7 order-1 lg:order-2">
-            {/* Eyebrow */}
-            <div className="flex items-center gap-2 mb-3">
-              <span className="h-[1px] w-6 bg-[#C6A15B]" aria-hidden="true" />
-              <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5B1111]">
-                ABOUT QADEER LAW FIRM
-              </span>
-            </div>
-
-            {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#171313] leading-[1.15] mb-4">
-              Trusted Counsel.{' '}
+            {/* Heading (Font 1, Size 1) */}
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#171313] leading-snug mb-6">
+              About Qadeer Law Firm —{' '}
               <span className="italic font-normal text-[#5B1111]">
-                Strategic Representation.
+                Trusted Counsel & Strategic Representation
               </span>
             </h2>
 
-            {/* Streamlined Narrative - Understandable in 5 Seconds */}
-            <p className="text-base sm:text-lg text-[#171313]/85 leading-relaxed font-normal mb-5">
-              Qadeer Law Firm provides authoritative, partner-led legal counsel and courtroom advocacy for businesses, individuals, and family offices. We combine rigorous preparation with strategic insight to deliver decisive outcomes in civil, corporate, and property matters.
-            </p>
+            {/* Focused Keypoints List (Font 2, Size 2) - Title & Related Icon Only */}
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              {ABOUT_KEYPOINTS.map((point, index) => {
+                const IconComponent = point.Icon;
+                return (
+                  <li
+                    key={index}
+                    className="flex items-center gap-3 font-sans text-sm sm:text-base text-[#171313] leading-snug"
+                  >
+                    <span className="w-8 h-8 rounded-full bg-[#5B1111] text-[#FDF0D5] flex items-center justify-center shrink-0 shadow-xs">
+                      <IconComponent className="w-4 h-4 text-[#C6A15B]" aria-hidden="true" />
+                    </span>
+                    <span className="font-semibold text-[#171313]">{point.title}</span>
+                  </li>
+                );
+              })}
+            </ul>
 
-            {/* Scannable Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-6">
-              {[
-                'Direct Partner Advocacy',
-                'Pre-Litigation Risk Audit',
-                'Strict Chambers Confidentiality',
-              ].map((item, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded-full bg-[#5B1111]/10 flex items-center justify-center shrink-0">
-                    <Check className="w-3 h-3 text-[#5B1111]" />
-                  </div>
-                  <span className="text-xs sm:text-sm text-[#171313]/90 font-medium">
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Burgundy Firm Metrics Container - Embedded directly in About Us */}
+            {/* Burgundy Firm Metrics Container (Font 1 Size 1 for Numbers, Font 2 Size 2 for Labels) */}
             <div className="bg-[#5B1111] text-[#FDF0D5] p-5 sm:p-6 rounded-2xl border border-[#C6A15B]/30 shadow-lg relative overflow-hidden">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-[#C6A15B]/25">
-                {FIRM_CONFIG.statistics.map((stat, idx) => (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-4 sm:gap-0 sm:divide-x sm:divide-[#C6A15B]/25 items-start">
+                {FIRM_CONFIG.statistics.map((stat) => (
                   <div
                     key={stat.id}
-                    className={`flex flex-col items-center text-center px-2 ${
-                      idx > 0 && idx % 2 === 0 ? 'pt-3 sm:pt-0' : ''
-                    } ${idx === 1 ? 'pt-0' : ''}`}
+                    className="flex flex-col items-center justify-start text-center px-2 sm:px-3"
                   >
-                    <div className="text-2xl sm:text-3xl font-serif font-bold text-[#FDF0D5] tracking-tight tabular-nums">
+                    <div className="font-serif text-2xl sm:text-3xl font-bold text-[#FDF0D5] leading-none tracking-tight lining-nums tabular-nums h-8 sm:h-9 flex items-center justify-center">
                       {stat.value}
                     </div>
-                    <div className="w-5 h-[1.5px] bg-[#C6A15B] my-1.5" aria-hidden="true" />
-                    <div className="text-[11px] font-medium tracking-wide uppercase text-[#FDF0D5]/90">
+                    <div className="w-6 h-[1.5px] bg-[#C6A15B] my-2.5 shrink-0" aria-hidden="true" />
+                    <div className="font-sans text-sm sm:text-base font-medium text-[#FDF0D5]/95 leading-snug min-h-[2.5rem] flex items-start justify-center">
                       {stat.label}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Meeting CTA */}
-            <div className="mt-6 flex items-center gap-4">
-              <button
-                type="button"
-                onClick={onOpenConsultation}
-                className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-[#5B1111] hover:text-[#3E0808] group cursor-pointer transition-colors"
+        {/* Merged Practice Areas Block — Editorial List Design */}
+        <div id="practice-areas" className="mt-20 sm:mt-24 pt-4 max-w-5xl mx-auto">
+          <h2 className="text-center font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#171313] tracking-tight mb-10 sm:mb-14">
+            My Areas Of <span className="text-[#C6A15B]">Expertise</span>
+          </h2>
+
+          <div className="divide-y divide-[#171313]/15 border-b border-[#171313]/15">
+            {FIRM_CONFIG.practiceAreas.map((practice) => (
+              <div
+                key={practice.id}
+                onClick={() => setSelectedPractice(practice)}
+                className="group py-6 sm:py-8 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-10 cursor-pointer transition-colors"
               >
-                <span>Schedule Private Chambers Meeting</span>
-                <ArrowRight className="w-4 h-4 text-[#C6A15B] transition-transform duration-200 group-hover:translate-x-1" />
-              </button>
-            </div>
+                {/* Left Column: Serif Practice Area Title */}
+                <h3 className="md:w-[36%] lg:w-[34%] shrink-0 font-serif text-2xl sm:text-3xl font-normal text-[#171313] group-hover:text-[#5B1111] transition-colors">
+                  {practice.title}
+                </h3>
+
+                {/* Middle Column: Concise 2-Line Description */}
+                <p className="flex-1 max-w-xl font-sans text-sm sm:text-base text-[#6D6260] leading-relaxed font-normal">
+                  {practice.shortDesc}
+                </p>
+
+                {/* Right Column: Minimalist Up-Right Arrow */}
+                <div className="shrink-0 self-end md:self-center pl-2">
+                  <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#171313] group-hover:text-[#5B1111] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Practice Area Detail Modal */}
+      <PracticeModal
+        practice={selectedPractice}
+        onClose={() => setSelectedPractice(null)}
+        onConsult={(title) => {
+          setSelectedPractice(null);
+          onSelectPracticeForConsultation(title);
+        }}
+      />
     </section>
   );
 };
