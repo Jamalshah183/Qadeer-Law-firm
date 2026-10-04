@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { MessageSquare, ArrowUpRight } from 'lucide-react';
 import { FIRM_CONFIG } from '../data/firmData';
 import { heroConfig } from '../data/heroConfig';
@@ -15,6 +15,50 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenTerms,
   selectedPracticeArea = '',
 }) => {
+  const footerRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let rafId = 0;
+
+    const updateParallax = () => {
+      if (!footerRef.current || !contentRef.current) return;
+      const footerHeight = footerRef.current.offsetHeight || 500;
+      const maxScroll = Math.max(
+        0,
+        document.documentElement.scrollHeight - window.innerHeight
+      );
+      const remaining = Math.max(0, maxScroll - window.scrollY);
+      // progress: 0 when footer starts revealing, 1 when fully revealed at bottom
+      const progress = Math.min(1, Math.max(0, 1 - remaining / footerHeight));
+      const yOffset = -Math.round((1 - progress) * 70);
+
+      contentRef.current.style.transform = `translate3d(0, ${yOffset}px, 0)`;
+      contentRef.current.style.opacity = `${0.35 + progress * 0.65}`;
+      if (bgRef.current) {
+        bgRef.current.style.transform = `scale(1.06) translate3d(0, ${Math.round(
+          yOffset * 0.45
+        )}px, 0)`;
+      }
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(updateParallax);
+    };
+
+    updateParallax();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
   const whatsappText = selectedPracticeArea
     ? `Assalam-o-Alaikum Qadeer Law Firm, I would like to request a legal consultation regarding ${selectedPracticeArea}.`
     : FIRM_CONFIG.whatsappMessage;
@@ -25,14 +69,17 @@ export const Footer: React.FC<FooterProps> = ({
 
   return (
     <footer
+      ref={footerRef}
       id="contact"
-      className="relative z-[1] w-full bg-[#3E0808] text-[#FDF0D5] -mt-12 sm:-mt-16 lg:-mt-20 pt-28 sm:pt-36 lg:pt-44 pb-10 sm:pb-14 overflow-hidden select-none"
+      className="sticky bottom-0 z-[1] w-full bg-[#3E0808] text-[#FDF0D5] -mt-12 sm:-mt-16 lg:-mt-20 pt-28 sm:pt-36 lg:pt-44 pb-10 sm:pb-14 overflow-hidden select-none"
     >
       {/* Background Legal Desk & Gavel Photograph */}
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center pointer-events-none"
+        ref={bgRef}
+        className="absolute inset-0 w-full h-full bg-cover bg-center pointer-events-none will-change-transform"
         style={{
           backgroundImage: `url(${heroConfig.leftBackground})`,
+          transform: 'scale(1.06)',
         }}
         aria-hidden="true"
       />
@@ -53,7 +100,10 @@ export const Footer: React.FC<FooterProps> = ({
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-10 lg:px-12">
+      <div
+        ref={contentRef}
+        className="relative z-10 max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 will-change-transform"
+      >
         {/* Centerpiece Editorial Headline + Zero-Friction WhatsApp Consultation CTA */}
         <div className="text-center mb-14 sm:mb-20">
           <h2 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-bold text-[#FDF0D5] tracking-[-0.02em] leading-[1.04] mb-7">

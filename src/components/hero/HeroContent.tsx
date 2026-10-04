@@ -15,7 +15,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) 
         Eyebrow Badge:
         Height ~40px, pill shape, subtle translucent glass border, small gold scale icon, cream text
       */}
-      <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 h-[36px] sm:h-[40px] rounded-full bg-white/15 border border-white/20 text-[#FDF0D5] font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.14em] mb-3.5 sm:mb-6 w-fit shadow-xs">
+      <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 h-[36px] sm:h-[40px] rounded-full bg-white/12 backdrop-blur-md border border-white/20 text-[#FDF0D5] font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.14em] mb-3.5 sm:mb-6 w-fit shadow-xs">
         <Scale className="w-4 h-4 text-[#C6A15B] shrink-0" aria-hidden="true" />
         <span>{heroConfig.eyebrow.text}</span>
       </div>
