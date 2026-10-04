@@ -18,6 +18,11 @@
   color-scheme: light;
 }
 
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   font-family: var(--font-sans);
   font-feature-settings: "kern" 1, "liga" 1;
@@ -25,7 +30,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #FDF0D5;
   color: #171313;
-  overflow-x: hidden;
 }
 
 h1, h2, h3, .font-editorial {
