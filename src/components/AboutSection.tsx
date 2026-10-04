@@ -69,9 +69,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             - Font 1 / Size 1: font-serif text-2xl sm:text-3xl (Headings & Metric Values)
             - Font 2 / Size 2: font-sans text-sm sm:text-base (Keypoints, Labels & CTA)
           */}
-          <div className="lg:col-span-7 order-1 lg:order-2">
+          <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col gap-7">
             {/* Heading (Cormorant Garamond, 600) */}
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-semibold text-[#171313] tracking-[-0.015em] leading-[1.12] mb-6">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-semibold text-[#171313] tracking-[-0.015em] leading-[1.12]">
               About Qadeer Law Firm —{' '}
               <span className="italic font-medium text-[#5B1111]">
                 Trusted Counsel & Strategic Representation
@@ -79,7 +79,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             </h2>
 
             {/* Focused Keypoints List (Manrope, 600) */}
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {ABOUT_KEYPOINTS.map((point, index) => {
                 const IconComponent = point.Icon;
                 return (
@@ -98,17 +98,17 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
             {/* Burgundy Firm Metrics Container (Cormorant Garamond 600 for Numbers, Manrope 500 for Labels) */}
             <div className="bg-[#5B1111] text-[#FDF0D5] p-5 sm:p-6 rounded-2xl border border-[#C6A15B]/30 shadow-lg relative overflow-hidden">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-4 sm:gap-0 sm:divide-x sm:divide-[#C6A15B]/25 items-start">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 items-stretch">
                 {FIRM_CONFIG.statistics.map((stat) => (
                   <div
                     key={stat.id}
-                    className="flex flex-col items-center justify-start text-center px-2 sm:px-3"
+                    className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 rounded-xl bg-[#3E0808]/40 border border-[#C6A15B]/25 gap-2.5"
                   >
-                    <div className="font-serif text-[2.5rem] sm:text-[2.85rem] lg:text-[3.1rem] font-semibold text-[#FDF0D5] leading-none tracking-[-0.02em] lining-nums tabular-nums h-10 sm:h-11 flex items-center justify-center">
+                    <div className="font-serif text-[2.5rem] sm:text-[2.85rem] lg:text-[3.1rem] font-semibold text-[#FDF0D5] leading-none tracking-[-0.02em] lining-nums tabular-nums flex items-center justify-center">
                       {stat.value}
                     </div>
-                    <div className="w-6 h-[1.5px] bg-[#C6A15B] my-2.5 shrink-0" aria-hidden="true" />
-                    <div className="font-sans text-[13px] sm:text-[14px] font-medium tracking-[0.02em] text-[#FDF0D5]/95 leading-[1.45] min-h-[2.5rem] flex items-start justify-center">
+                    <div className="w-6 h-[1.5px] bg-[#C6A15B] shrink-0" aria-hidden="true" />
+                    <div className="font-sans text-[13px] sm:text-[14px] font-medium tracking-[0.02em] text-[#FDF0D5]/95 leading-[1.4] flex items-center justify-center">
                       {stat.label}
                     </div>
                   </div>

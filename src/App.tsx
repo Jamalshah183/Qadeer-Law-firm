@@ -4,7 +4,7 @@ import { AboutSection } from './components/AboutSection';
 import { ExperienceStrategyResults } from './components/ExperienceStrategyResults';
 import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
-import { ContactSection } from './components/ContactSection';
+import { TeamSection } from './components/TeamSection';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { ConsultationModal } from './components/ConsultationModal';
@@ -31,8 +31,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDF0D5] text-[#171313] selection:bg-[#5B1111] selection:text-[#FDF0D5] font-sans">
-      <main id="main-content">
+    <div className="min-h-screen bg-[#3E0808] text-[#171313] selection:bg-[#5B1111] selection:text-[#FDF0D5] font-sans">
+      <main id="main-content" className="relative z-[10] bg-[#FDF0D5] rounded-b-[50px] sm:rounded-b-[65px] lg:rounded-b-[80px]">
         {/* 1. Hero Section with Top Navigation in its actual position */}
         <Hero onOpenConsultation={() => handleOpenConsultation()} />
 
@@ -45,21 +45,22 @@ export default function App() {
         {/* 6. Experience / Strategy / Results Section */}
         <ExperienceStrategyResults />
 
-        {/* 9. Client Testimonials (Cream #FDF0D5) */}
+        {/* 9. Client Testimonials */}
         <Testimonials />
 
-        {/* 10. FAQ Accordion (Soft Cream #FFF9EC) */}
+        {/* 10. FAQ Accordion */}
         <FAQ />
 
-        {/* 11. Contact Section (Cream #FDF0D5) */}
-        <ContactSection initialPracticeArea={preselectedPractice} />
+        {/* 11. Team Members Section (Last section of main — scrolls up to reveal Footer) */}
+        <TeamSection />
       </main>
 
-      {/* 12. Footer (Deep Burgundy #3E0808) */}
+      {/* 12. Revealing Footer with Integrated WhatsApp Consultation */}
       <Footer
         onOpenPrivacy={() => setLegalModalType('privacy')}
         onOpenTerms={() => setLegalModalType('terms')}
         onOpenConsultation={() => handleOpenConsultation()}
+        selectedPracticeArea={preselectedPractice}
       />
 
       {/* Floating WhatsApp Action */}

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, CheckCircle2, ShieldCheck, ArrowRight, Phone, MessageSquare } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, ShieldCheck, ArrowUpRight, MessageSquare, CheckCircle2 } from 'lucide-react';
 import { FIRM_CONFIG } from '../data/firmData';
 
 interface ConsultationModalProps {
@@ -13,27 +13,21 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
   onClose,
   preselectedPractice = '',
 }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    practice: preselectedPractice || FIRM_CONFIG.practiceAreas[0].title,
-    details: '',
-  });
+  const [selectedPractice, setSelectedPractice] = useState<string>(preselectedPractice);
 
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setSelectedPractice(preselectedPractice);
+  }, [preselectedPractice]);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 600);
-  };
+  const whatsappText = selectedPractice
+    ? `Assalam-o-Alaikum Qadeer Law Firm, I would like to schedule a legal consultation regarding ${selectedPractice}.`
+    : FIRM_CONFIG.whatsappMessage;
+
+  const whatsappUrl = `https://wa.me/${FIRM_CONFIG.contact.whatsappNumber}?text=${encodeURIComponent(
+    whatsappText
+  )}`;
 
   return (
     <div
@@ -56,7 +50,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-4 right-4 p-1.5 rounded-full bg-[#3E0808]/80 hover:bg-[#3E0808] text-[#FDF0D5] transition-colors focus:outline-none"
+            className="absolute top-4 right-4 p-1.5 rounded-full bg-[#3E0808]/80 hover:bg-[#3E0808] text-[#FDF0D5] transition-colors focus:outline-none cursor-pointer"
             aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
@@ -65,170 +59,74 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           <div className="flex items-center gap-2 mb-1">
             <span className="h-[1px] w-6 bg-[#C6A15B]" />
             <span className="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C6A15B] font-bold">
-              Confidential Intake
+              Direct WhatsApp Intake
             </span>
           </div>
           <h3 id="consultation-modal-title" className="font-serif text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.015em] text-[#FDF0D5]">
-            Schedule a Legal Consultation
+            Connect Directly via WhatsApp
           </h3>
           <p className="font-sans text-[13px] text-[#FDF0D5]/80 mt-1">
-            Discuss your case with qualified legal counsel at Qadeer Law Firm.
+            Zero forms to fill. Speak directly with Qadeer Law Firm chambers on WhatsApp.
           </p>
         </div>
 
-        {/* Content */}
-        <div className="p-6 sm:p-8">
-          {submitted ? (
-            <div className="py-8 text-center space-y-4">
-              <div className="w-14 h-14 rounded-full bg-[#5B1111]/10 flex items-center justify-center mx-auto text-[#5B1111]">
-                <CheckCircle2 className="w-7 h-7" />
-              </div>
-              <h4 className="font-serif text-2xl font-semibold tracking-[-0.01em] text-[#171313]">
-                Inquiry Successfully Logged
-              </h4>
-              <p className="font-sans text-[14.5px] text-[#171313]/80 leading-[1.65] max-w-sm mx-auto">
-                Thank you for contacting our chambers. We have queued your brief for initial conflicts clearance and our office will reach out within standard business hours.
-              </p>
-              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a
-                  href={`https://wa.me/${FIRM_CONFIG.contact.whatsappNumber}?text=${encodeURIComponent(
-                    FIRM_CONFIG.whatsappMessage
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#5B1111] text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded hover:bg-[#3E0808] transition-colors"
-                >
-                  <MessageSquare className="w-3.5 h-3.5 text-[#C6A15B]" />
-                  <span>Connect Immediately via WhatsApp</span>
-                </a>
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="px-4 py-2 font-sans text-[12px] uppercase tracking-[0.06em] font-bold text-[#5B1111] hover:underline"
-                >
-                  Close Window
-                </button>
-              </div>
+        {/* Content — Strictly WhatsApp Only, No Form */}
+        <div className="p-6 sm:p-8 space-y-6">
+          <div>
+            <span className="block font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#171313] mb-2">
+              Optional: Select Matter Topic to Pre-fill Message
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {FIRM_CONFIG.practiceAreas.map((area) => {
+                const isSelected = selectedPractice === area.title;
+                return (
+                  <button
+                    key={area.id}
+                    type="button"
+                    onClick={() =>
+                      setSelectedPractice(isSelected ? '' : area.title)
+                    }
+                    className={`px-3 py-1.5 rounded-lg font-sans text-[12.5px] font-medium transition-all cursor-pointer border ${
+                      isSelected
+                        ? 'bg-[#5B1111] text-[#FDF0D5] border-[#5B1111]'
+                        : 'bg-[#FDF0D5]/60 text-[#171313] border-[#5B1111]/20 hover:border-[#5B1111]/50'
+                    }`}
+                  >
+                    {area.title}
+                  </button>
+                );
+              })}
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#171313] mb-1">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Your legal name"
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 font-sans text-[14.5px] text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
-                />
-              </div>
+          </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#171313] mb-1">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+92 300 0000000"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 font-sans text-[14.5px] text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111] tabular-nums"
-                  />
-                </div>
+          <div className="p-4 rounded-xl bg-[#FDF0D5]/70 border border-[#5B1111]/15 space-y-2">
+            <div className="flex items-center gap-2 font-sans text-[13px] font-semibold text-[#5B1111]">
+              <CheckCircle2 className="w-4 h-4 text-[#C6A15B] shrink-0" />
+              <span>Official Chambers WhatsApp: {FIRM_CONFIG.contact.whatsappDisplay}</span>
+            </div>
+            <p className="font-sans text-[13px] text-[#171313]/80 leading-[1.55]">
+              Click below to launch WhatsApp immediately and discuss your legal matter in strict confidence.
+            </p>
+          </div>
 
-                <div>
-                  <label className="block font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#171313] mb-1">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="your@email.com"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 font-sans text-[14.5px] text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
-                  />
-                </div>
-              </div>
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-1.5 font-sans text-[12px] text-[#6D6260]">
+              <ShieldCheck className="w-4 h-4 text-[#C6A15B]" />
+              <span>Strictly confidential</span>
+            </div>
 
-              <div>
-                <label className="block font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#171313] mb-1">
-                  Primary Area of Practice
-                </label>
-                <select
-                  value={formData.practice}
-                  onChange={(e) => setFormData({ ...formData, practice: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 font-sans text-[14.5px] text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
-                >
-                  {FIRM_CONFIG.practiceAreas.map((area) => (
-                    <option key={area.id} value={area.title}>
-                      {area.title}
-                    </option>
-                  ))}
-                  <option value="Appellate / Other Specialized Matter">
-                    Appellate / Other Specialized Matter
-                  </option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#171313] mb-1">
-                  Brief Details / Urgency
-                </label>
-                <textarea
-                  rows={3}
-                  value={formData.details}
-                  onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                  placeholder="Briefly state procedural stage (e.g. fresh suit, pending appeal, notice received)..."
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 font-sans text-[14.5px] text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
-                />
-              </div>
-
-              <div className="pt-2 flex items-center justify-between">
-                <div className="flex items-center gap-1.5 font-sans text-[12px] text-[#6D6260]">
-                  <ShieldCheck className="w-4 h-4 text-[#C6A15B]" />
-                  <span>Strictly confidential</span>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#5B1111] hover:bg-[#3E0808] disabled:opacity-60 text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded shadow transition-colors cursor-pointer"
-                >
-                  {loading ? 'Submitting...' : 'Submit Request'}
-                  <ArrowRight className="w-3.5 h-3.5 text-[#C6A15B]" />
-                </button>
-              </div>
-
-              {/* Direct alternatives */}
-              <div className="mt-4 pt-4 border-t border-[#5B1111]/10 flex items-center justify-around text-xs text-[#5B1111]">
-                <a
-                  href={`tel:${FIRM_CONFIG.contact.phone.replace(/[^0-9+]/g, '')}`}
-                  className="flex items-center gap-1.5 font-semibold hover:underline"
-                >
-                  <Phone className="w-3.5 h-3.5 text-[#C6A15B]" />
-                  <span>Direct Call</span>
-                </a>
-                <span className="text-[#5B1111]/30">|</span>
-                <a
-                  href={`https://wa.me/${FIRM_CONFIG.contact.whatsappNumber}?text=${encodeURIComponent(
-                    FIRM_CONFIG.whatsappMessage
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 font-semibold hover:underline"
-                >
-                  <MessageSquare className="w-3.5 h-3.5 text-[#C6A15B]" />
-                  <span>WhatsApp Inquiries</span>
-                </a>
-              </div>
-            </form>
-          )}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#5B1111] hover:bg-[#3E0808] text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded-lg shadow transition-colors cursor-pointer"
+            >
+              <MessageSquare className="w-4 h-4 text-[#C6A15B]" />
+              <span>Open WhatsApp Chat</span>
+              <ArrowUpRight className="w-4 h-4 text-[#C6A15B]" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
