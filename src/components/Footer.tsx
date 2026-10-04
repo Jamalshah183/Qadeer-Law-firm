@@ -73,12 +73,12 @@ export const Footer: React.FC<FooterProps> = ({
       id="contact"
       className="sticky bottom-0 z-[1] w-full bg-[#3E0808] text-[#FDF0D5] -mt-12 sm:-mt-16 lg:-mt-20 pt-28 sm:pt-36 lg:pt-44 pb-10 sm:pb-14 overflow-hidden select-none"
     >
-      {/* Background Legal Desk & Gavel Photograph */}
+      {/* Background Legal Desk & Gavel Photograph (Person-Free Still Life) */}
       <div
         ref={bgRef}
         className="absolute inset-0 w-full h-full bg-cover bg-center pointer-events-none will-change-transform"
         style={{
-          backgroundImage: `url(${heroConfig.leftBackground})`,
+          backgroundImage: `url(${FIRM_CONFIG.images.about})`,
           transform: 'scale(1.06)',
         }}
         aria-hidden="true"

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Quote, Info } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { FIRM_CONFIG } from '../data/firmData';
 
 export const Testimonials: React.FC = () => {
@@ -16,6 +16,17 @@ export const Testimonials: React.FC = () => {
       prev === FIRM_CONFIG.testimonials.length - 1 ? 0 : prev + 1
     );
   };
+
+  // Automatically step through reviews one by one with zero heavy animation
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setCurrentIndex((prev) =>
+        prev === FIRM_CONFIG.testimonials.length - 1 ? 0 : prev + 1
+      );
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, []);
 
   const current = FIRM_CONFIG.testimonials[currentIndex];
 
@@ -53,10 +64,27 @@ export const Testimonials: React.FC = () => {
             </div>
 
             <div className="relative z-10 pt-4 sm:pt-6">
-              {/* Testimonial Quote */}
-              <blockquote className="font-serif text-xl sm:text-2xl md:text-[1.75rem] font-medium italic text-[#171313] leading-[1.45] tracking-[-0.01em] mb-8">
-                “{current.quote}”
-              </blockquote>
+              {/* 
+                1x1 CSS Grid Stack:
+                Locks the quote container height to the tallest review at every responsive breakpoint
+                so the card and section never resize or push the next section when reviews change.
+              */}
+              <div className="grid grid-cols-1 grid-rows-1 items-center mb-8">
+                {FIRM_CONFIG.testimonials.map((item, idx) => {
+                  const isActive = idx === currentIndex;
+                  return (
+                    <blockquote
+                      key={item.id}
+                      aria-hidden={!isActive}
+                      className={`col-start-1 row-start-1 font-serif text-xl sm:text-2xl md:text-[1.75rem] font-medium italic text-[#171313] leading-[1.45] tracking-[-0.01em] ${
+                        isActive ? 'visible opacity-100' : 'invisible opacity-0 pointer-events-none select-none'
+                      }`}
+                    >
+                      “{item.quote}”
+                    </blockquote>
+                  );
+                })}
+              </div>
 
               {/* Client Info Lockup */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-[#5B1111]/15">
@@ -95,14 +123,6 @@ export const Testimonials: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Transparent Notice regarding placeholders */}
-          <div className="mt-4 flex items-center justify-center gap-2 font-sans text-[12px] font-normal text-[#6D6260]">
-            <Info className="w-3.5 h-3.5 text-[#C6A15B]" />
-            <span>
-              Client identities and reviews are structured as editable placeholders to maintain strict attorney-client privilege.
-            </span>
           </div>
 
           {/* Dots Indicator */}

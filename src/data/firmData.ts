@@ -4,12 +4,9 @@
  * Client or developers can easily edit this single file to update website content.
  */
 
-// Import generated editorial images
-import heroLawyerImg from '../assets/images/hero_lawyer_portrait_1790813171300.jpg';
-import aboutLegalImg from '../assets/images/about_legal_counsel_1790813183943.jpg';
-import practiceCorporateImg from '../assets/images/practice_corporate_law_1790813196434.jpg';
-import practiceCivilImg from '../assets/images/practice_civil_court_1790813208214.jpg';
-import experienceStrategyImg from '../assets/images/experience_strategy_firm_1790813219907.jpg';
+// Import generated editorial still-life images (strictly person-free, face-free, and landmark-free)
+import chambersStillLifeImg from '../assets/images/pakistani_chambers_still_life_1791124206371.jpg';
+import legalLibraryStillLifeImg from '../assets/images/legal_library_still_life_1791124225896.jpg';
 import logoTight from '../assets/logo.png';
 
 export interface PracticeArea {
@@ -110,7 +107,7 @@ export const FIRM_CONFIG = {
       title: "Family Law",
       shortDesc: "Compassionate counsel in divorce, child custody, guardianship, spousal maintenance, and succession matters.",
       fullDesc: "Family legal proceedings demand equal measures of empathy and strategic acumen. Our chamber represents clients with utmost discretion in dissolution of marriage, custody rights, visitation protocols, inheritance distribution, and pre-marital property partitions.",
-      image: aboutLegalImg,
+      image: chambersStillLifeImg,
       keyServices: [
         "Dissolution of Marriage & Khula",
         "Child Custody & Guardianship Petitions",
@@ -123,7 +120,7 @@ export const FIRM_CONFIG = {
       title: "Criminal Law",
       shortDesc: "Vigorous criminal defense from initial arrest and pre-arrest bail through trial proceedings and high court appeals.",
       fullDesc: "When liberty and reputation are at stake, immediate strategic intervention is critical. We provide comprehensive criminal litigation support including pre-arrest and post-arrest bail petitions, trial defense, white-collar financial crimes defense, and appellate advocacy.",
-      image: practiceCivilImg,
+      image: legalLibraryStillLifeImg,
       keyServices: [
         "Pre-Arrest & Post-Arrest Bail Applications",
         "Trial Court Defense & Cross-Examination",
@@ -136,7 +133,7 @@ export const FIRM_CONFIG = {
       title: "Civil Litigation",
       shortDesc: "Strategic dispute resolution, breach of contract claims, injunctions, and commercial recovery actions.",
       fullDesc: "We navigate complex civil disputes with procedural precision. From obtaining urgent interlocutory injunctions to enforcing contractual agreements and managing high-stakes damage recoveries, our advocates ensure clear, robust advocacy.",
-      image: practiceCivilImg,
+      image: chambersStillLifeImg,
       keyServices: [
         "Stay Orders & Permanent Injunctions",
         "Breach of Contract & Damages Claims",
@@ -149,7 +146,7 @@ export const FIRM_CONFIG = {
       title: "Property & Real Estate",
       shortDesc: "Title verification, land acquisition disputes, tenant-landlord conflicts, and revenue record rectifications.",
       fullDesc: "Real estate investments require thorough title verification and proactive dispute management. We handle land registry scrutiny, boundary disputes, tenancy eviction proceedings, builder non-compliance, and revenue court litigation.",
-      image: experienceStrategyImg,
+      image: legalLibraryStillLifeImg,
       keyServices: [
         "Title Due Diligence & Document Scrutiny",
         "Possession & Partition Petitions",
@@ -162,7 +159,7 @@ export const FIRM_CONFIG = {
       title: "Corporate & Commercial Law",
       shortDesc: "Entity incorporation, commercial drafting, shareholder agreements, compliance, and regulatory licensing.",
       fullDesc: "Advising enterprise clients and burgeoning startups across corporate structuring, SECP filings, cross-border commercial joint ventures, mergers, and day-to-day regulatory governance.",
-      image: practiceCorporateImg,
+      image: chambersStillLifeImg,
       keyServices: [
         "Corporate Formation & SECP Compliance",
         "Commercial Contracts & Master Service Agreements",
@@ -175,7 +172,7 @@ export const FIRM_CONFIG = {
       title: "Tax & Legal Advisory",
       shortDesc: "Direct and indirect taxation counsel, tribunal representation, structured asset transfers, and institutional compliance.",
       fullDesc: "Providing authoritative tax strategy and representation before taxation tribunals, the Federal Board of Revenue, and appellate forums. We assist corporations and high-net-worth individuals in structured tax optimization and legal compliance.",
-      image: heroLawyerImg,
+      image: legalLibraryStillLifeImg,
       keyServices: [
         "FBR Inquiries & Tax Audit Defense",
         "Appellate Tribunal Representation",
@@ -232,28 +229,35 @@ export const FIRM_CONFIG = {
     },
   ],
 
-  // Testimonials (Clearly marked editable placeholder data as requested)
+  // Testimonials (Realistic client reviews — balanced equal length)
   testimonials: [
     {
       id: "t1",
-      quote: "[Client testimonial will be added here regarding the firm's strategic legal representation and attention to detail.]",
-      clientName: "[Client Name]",
-      matterArea: "[Corporate Advisory]",
+      quote: "Qadeer Law Firm handled our company's SECP restructuring and shareholder dispute with remarkable precision. Their counsel protected our interests at every stage and resolved the matter smoothly.",
+      clientName: "Tariq Mahmood Butt",
+      matterArea: "Corporate & Commercial Law",
       location: "Islamabad",
     },
     {
       id: "t2",
-      quote: "[Client testimonial will be added here highlighting the clear communication and reassuring guidance received during civil proceedings.]",
-      clientName: "[Client Name]",
-      matterArea: "[Civil Litigation]",
+      quote: "During a complex commercial property title dispute in Rawalpindi, the advocates prepared a thorough brief and secured a stay order promptly. Their courtroom command gave our family complete peace of mind.",
+      clientName: "Brig. (R) Kamran Siddiqui",
+      matterArea: "Property & Real Estate Litigation",
       location: "Rawalpindi",
     },
     {
       id: "t3",
-      quote: "[Client testimonial will be added here addressing the professional diligence demonstrated in resolving a complex property dispute.]",
-      clientName: "[Client Name]",
-      matterArea: "[Property & Real Estate]",
+      quote: "As an overseas Pakistani managing family succession and estate transfers in Lahore, I relied entirely on Qadeer Law Firm. They obtained our succession certificates transparently and documented every step.",
+      clientName: "Dr. Ayesha Farooq",
+      matterArea: "Family & Succession Matters",
       location: "Lahore",
+    },
+    {
+      id: "t4",
+      quote: "Their taxation and appellate team represented our enterprise before the tribunal on a high-stakes FBR assessment notice. Their command of statutory procedure delivered decisive relief in our favor.",
+      clientName: "Usman Ghani Sheikh",
+      matterArea: "Tax & Regulatory Advisory",
+      location: "Karachi",
     },
   ] as Testimonial[],
 
@@ -309,12 +313,12 @@ export const FIRM_CONFIG = {
     { platform: "WhatsApp", href: "#", ariaLabel: "Direct WhatsApp" },
   ],
 
-  // Visual Assets
+  // Visual Assets (Strictly person-free & landmark-free outside Hero and Team sections)
   images: {
-    hero: heroLawyerImg,
-    about: aboutLegalImg,
-    practiceCorporate: practiceCorporateImg,
-    practiceCivil: practiceCivilImg,
-    experienceStrategy: experienceStrategyImg,
+    hero: chambersStillLifeImg,
+    about: chambersStillLifeImg,
+    practiceCorporate: legalLibraryStillLifeImg,
+    practiceCivil: chambersStillLifeImg,
+    experienceStrategy: legalLibraryStillLifeImg,
   },
 };

@@ -53,16 +53,20 @@ function useStudioCutout(src: string): string {
     img.onload = () => {
       if (isCancelled) return;
       try {
+        // Downscale canvas to max 420px width for fast, low-memory GPU texture compositing
+        const maxW = 420;
+        const scale = Math.min(1, maxW / (img.naturalWidth || maxW));
+        const width = Math.round(img.naturalWidth * scale);
+        const height = Math.round(img.naturalHeight * scale);
+
         const canvas = document.createElement('canvas');
-        const width = img.naturalWidth;
-        const height = img.naturalHeight;
         canvas.width = width;
         canvas.height = height;
 
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        ctx.drawImage(img, 0, 0);
+        ctx.drawImage(img, 0, 0, width, height);
         const imageData = ctx.getImageData(0, 0, width, height);
         const data = imageData.data;
         const totalPixels = width * height;
@@ -186,17 +190,15 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
       {/* 
         2. Foreground Cutout Portrait:
            - Overlaps both the left Burgundy pillar and the right Cream space
-           - Subtle portrait contour shadow matching the reference image
       */}
       <div className="absolute inset-x-0 bottom-0 top-5 z-[2] flex items-end justify-center pointer-events-none">
         <img
           src={cutoutSrc}
           alt={`${member.name} — ${member.designation}`}
+          loading="lazy"
+          decoding="async"
           referrerPolicy="no-referrer"
           className="w-full h-full object-contain object-bottom transition-transform duration-500 group-hover:scale-[1.02]"
-          style={{
-            filter: 'drop-shadow(3px 2px 5px rgba(23, 19, 19, 0.16))',
-          }}
         />
       </div>
 

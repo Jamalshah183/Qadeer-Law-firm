@@ -18,49 +18,47 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
         <div className="w-full flex items-center">
           {/* 
             ====================================================================
-            LEFT CONTAINER SECTION (Matches 58% width of the left hero section)
+            LEFT CONTAINER SECTION (Aligned directly with where HeroContent writing starts)
             ====================================================================
           */}
-          <div className="w-full lg:w-[58%] px-6 sm:px-10 lg:px-16 xl:px-20 flex items-center justify-between">
-            {/* Qadeer Law Firm Logo with matching brand typography and reduced distance */}
-            <a
-              href="#hero"
-              className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded-lg transition-transform duration-200 hover:scale-[1.02]"
-              aria-label="Qadeer Law Firm - Home"
-            >
-              <img
-                src={heroConfig.logo}
-                alt="Qadeer Law Firm Logo"
-                className="h-11 sm:h-13 lg:h-15 w-auto object-contain drop-shadow-md shrink-0"
-                onError={(e) => {
-                  e.currentTarget.src = 'https://i.ibb.co/0y6bkBWj/Untitled-design-1.png';
-                }}
-              />
-              <span className="font-serif font-semibold text-xl sm:text-2xl lg:text-[1.85rem] tracking-[-0.01em] text-[#FDF0D5] leading-[1.08] drop-shadow-xs group-hover:text-[#FFF9EC] transition-colors">
-                Qadeer Law Firm
-              </span>
-            </a>
-
-            {/* Mobile Hamburger Button */}
-            <div className="lg:hidden flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setMobileMenuOpen(true)}
-                className="p-2 rounded-lg bg-white/15 text-[#FDF0D5] hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-[#C6A15B] transition-colors cursor-pointer"
-                aria-label="Open mobile menu"
+          <div className="w-full lg:w-[53%] xl:w-[52%] px-6 sm:px-10 lg:pl-12 lg:pr-2 xl:pr-4 flex justify-center lg:justify-end">
+            <div className="w-full max-w-[580px] xl:max-w-[620px] flex items-center justify-between">
+              {/* Qadeer Law Firm Logo aligned with HeroContent start */}
+              <a
+                href="#hero"
+                className="inline-flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded-lg transition-transform duration-200 hover:scale-[1.02]"
+                aria-label="Qadeer Law Firm - Home"
               >
-                <Menu className="w-6 h-6" />
-              </button>
+                <img
+                  src={heroConfig.logo}
+                  alt="Qadeer Law Firm Logo"
+                  className="h-14 sm:h-16 lg:h-20 w-auto object-contain object-left drop-shadow-md shrink-0"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://i.ibb.co/0y6bkBWj/Untitled-design-1.png';
+                  }}
+                />
+              </a>
+
+              {/* Mobile Hamburger Button */}
+              <div className="lg:hidden flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setMobileMenuOpen(true)}
+                  className="p-2 rounded-lg bg-white/15 text-[#FDF0D5] hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-[#C6A15B] transition-colors cursor-pointer"
+                  aria-label="Open mobile menu"
+                >
+                  <Menu className="w-6 h-6" />
+                </button>
+              </div>
             </div>
           </div>
 
           {/* 
             ====================================================================
             RIGHT SECTION: Starts where the left side container ends (at 58%)
-            Free Consultation button removed as requested.
             ====================================================================
           */}
-          <div className="hidden lg:flex items-center pl-8 xl:pl-12">
+          <div className="hidden lg:flex items-center lg:ml-[5%] xl:ml-[6%] pl-8 xl:pl-12">
             <div className="flex items-center gap-7 xl:gap-9 font-sans text-[14.5px] font-semibold tracking-[0.03em] text-[#171313]">
               {heroConfig.navigation.map((item) => (
                 <a

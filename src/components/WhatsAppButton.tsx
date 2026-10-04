@@ -35,16 +35,10 @@ export const WhatsAppButton: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setShowTooltip(true)}
-        className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-[#FFF9EC] border-2 border-[#5B1111] shadow-2xl hover:scale-106 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-3 focus:ring-[#C6A15B]"
+        className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-[#FFF9EC] border-2 border-[#5B1111] shadow-lg hover:scale-106 active:scale-95 transition-transform duration-300 focus:outline-none focus:ring-3 focus:ring-[#C6A15B]"
         aria-label="Chat with Qadeer Law Firm on WhatsApp"
         title="Direct WhatsApp Consultation"
       >
-        {/* Subtle pulsing gold glow */}
-        <span
-          className="absolute inset-0 rounded-full bg-[#C6A15B]/30 animate-ping opacity-75 pointer-events-none"
-          aria-hidden="true"
-        />
-
         {/* WhatsApp Icon with iconic color nestled inside cream & burgundy luxury bezel */}
         <div className="relative w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-inner group-hover:bg-[#20ba59] transition-colors">
           <MessageCircle className="w-6 h-6 fill-white stroke-none" />
