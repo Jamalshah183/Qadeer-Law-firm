@@ -16,17 +16,17 @@ export const FAQ: React.FC = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="h-[1px] w-6 bg-[#C6A15B]" aria-hidden="true" />
-            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5B1111]">
+            <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#5B1111]">
               FAQ
             </span>
             <span className="h-[1px] w-6 bg-[#C6A15B]" aria-hidden="true" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#171313] leading-tight mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-[#171313] leading-[1.08] tracking-[-0.02em] mb-4">
             Questions, Answered.
           </h2>
 
-          <p className="text-base text-[#171313]/80 leading-relaxed font-normal">
+          <p className="font-sans text-[16px] sm:text-[17px] text-[#171313]/80 leading-[1.65] font-normal">
             Essential information regarding our consultation procedures, case intake, and representation guidelines.
           </p>
         </div>
@@ -46,7 +46,7 @@ export const FAQ: React.FC = () => {
                   className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B1111] cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base sm:text-lg font-serif font-semibold text-[#171313] hover:text-[#5B1111] transition-colors">
+                  <span className="font-sans text-[16px] sm:text-[17px] font-semibold tracking-[-0.005em] leading-[1.45] text-[#171313] hover:text-[#5B1111] transition-colors">
                     {faq.question}
                   </span>
                   <div
@@ -61,7 +61,7 @@ export const FAQ: React.FC = () => {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-[#171313]/80 leading-relaxed font-normal border-t border-[#5B1111]/10 animate-in fade-in duration-200">
+                  <div className="px-6 pb-6 pt-1 font-sans text-[15px] sm:text-[16px] text-[#171313]/80 leading-[1.65] font-normal border-t border-[#5B1111]/10 animate-in fade-in duration-200">
                     <p>{faq.answer}</p>
                   </div>
                 )}
@@ -77,10 +77,10 @@ export const FAQ: React.FC = () => {
               <HelpCircle className="w-5 h-5 text-[#5B1111]" />
             </div>
             <div>
-              <p className="text-sm font-serif font-bold text-[#171313]">
+              <p className="font-sans text-[15px] font-semibold text-[#171313]">
                 Do you have an unlisted inquiry?
               </p>
-              <p className="text-xs text-[#6D6260]">
+              <p className="font-sans text-[13px] font-normal text-[#6D6260]">
                 Our intake coordinator is available via WhatsApp or phone.
               </p>
             </div>
@@ -92,7 +92,7 @@ export const FAQ: React.FC = () => {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#5B1111] hover:bg-[#3E0808] text-[#FDF0D5] text-xs uppercase tracking-wider font-semibold rounded transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#5B1111] hover:bg-[#3E0808] text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded transition-colors whitespace-nowrap"
           >
             <PhoneCall className="w-3.5 h-3.5 text-[#C6A15B]" />
             <span>Inquire on WhatsApp</span>

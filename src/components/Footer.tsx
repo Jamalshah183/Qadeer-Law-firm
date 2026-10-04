@@ -31,12 +31,12 @@ export const Footer: React.FC<FooterProps> = ({
                   e.currentTarget.src = 'https://i.ibb.co/0y6bkBWj/Untitled-design-1.png';
                 }}
               />
-              <span className="font-serif font-bold text-xl sm:text-2xl tracking-[0.02em] text-[#FDF0D5] leading-[1.1]">
+              <span className="font-serif font-semibold text-xl sm:text-2xl tracking-[-0.01em] text-[#FDF0D5] leading-[1.08]">
                 Qadeer Law Firm
               </span>
             </div>
 
-            <p className="text-sm text-[#FDF0D5]/80 leading-relaxed font-normal max-w-sm">
+            <p className="font-sans text-[14.5px] text-[#FDF0D5]/80 leading-[1.65] font-normal max-w-sm">
               Dedicated advocates delivering focused legal guidance, strategic representation, and trusted counsel across corporate, civil, property, criminal, and tax disciplines.
             </p>
 
@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({
               <button
                 type="button"
                 onClick={onOpenConsultation}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#5B1111] hover:bg-[#5B1111]/80 text-[#FDF0D5] text-xs uppercase tracking-wider font-semibold rounded border border-[#C6A15B]/40 transition-colors shadow-xs"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#5B1111] hover:bg-[#5B1111]/80 text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded border border-[#C6A15B]/40 transition-colors shadow-xs"
               >
                 <span>Free Consultation</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#C6A15B]" />
@@ -54,10 +54,10 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Column 2: Navigation Links (col-span-2) */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-xs uppercase tracking-widest text-[#C6A15B] font-bold">
+            <h4 className="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C6A15B] font-bold">
               Navigation
             </h4>
-            <ul className="space-y-2.5 text-sm text-[#FDF0D5]/80 font-normal">
+            <ul className="space-y-2.5 font-sans text-[14px] tracking-[0.02em] text-[#FDF0D5]/80 font-normal">
               {FIRM_CONFIG.navLinks.map((link) => (
                 <li key={link.label}>
                   <a
@@ -73,10 +73,10 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Column 3: Practice Areas (col-span-3) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs uppercase tracking-widest text-[#C6A15B] font-bold">
+            <h4 className="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C6A15B] font-bold">
               Practice Areas
             </h4>
-            <ul className="space-y-2.5 text-sm text-[#FDF0D5]/80 font-normal">
+            <ul className="space-y-2.5 font-sans text-[14px] tracking-[0.02em] text-[#FDF0D5]/80 font-normal">
               {FIRM_CONFIG.practiceAreas.map((area) => (
                 <li key={area.id}>
                   <a
@@ -92,11 +92,11 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Column 4: Contact Chambers (col-span-3) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs uppercase tracking-widest text-[#C6A15B] font-bold">
+            <h4 className="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C6A15B] font-bold">
               Contact Chambers
             </h4>
 
-            <div className="space-y-3 text-xs sm:text-sm text-[#FDF0D5]/85">
+            <div className="space-y-3 font-sans text-[13.5px] sm:text-[14px] text-[#FDF0D5]/85">
               <div className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-[#C6A15B] shrink-0 mt-0.5" />
                 <a
@@ -133,7 +133,7 @@ export const Footer: React.FC<FooterProps> = ({
 
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#C6A15B] shrink-0 mt-0.5" />
-                <span className="leading-snug text-[#FDF0D5]/80">
+                <span className="leading-[1.55] text-[#FDF0D5]/80">
                   {FIRM_CONFIG.contact.address}
                 </span>
               </div>
@@ -142,7 +142,7 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Bottom Bar: Copyright & Legal Policies */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FDF0D5]/70">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-[12.5px] tracking-[0.02em] text-[#FDF0D5]/70">
           <div>
             © {FIRM_CONFIG.establishedYear} {FIRM_CONFIG.firmName}. All Rights Reserved.
           </div>

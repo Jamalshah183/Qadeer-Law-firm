@@ -48,15 +48,14 @@ export const HeroBackground: React.FC = () => {
         ========================================================================
         IMAGE 1 — LEFT BACKGROUND (Desk, Paperwork, Signing) + BURGUNDY OVERLAY
         Desktop: ~58% width.
+        Mobile: Tall enough (h-[65%] min-h-[545px]) to fully contain all HeroContent.
         z-index: 2 (renders ON TOP of IMAGE 2).
-        Right side has rounded corners (50px) and NO shadow on the round corner.
+        Right side on desktop / bottom on mobile has rounded corners (50px) and NO shadow.
         ========================================================================
       */}
       <div
-        className="absolute top-0 left-0 bottom-0 w-full md:w-[58%] h-[58%] md:h-full rounded-b-[50px] md:rounded-b-none md:rounded-r-[50px] overflow-hidden z-[2] transition-all duration-300"
+        className="absolute top-0 left-0 w-full md:w-[58%] h-[65%] min-h-[545px] sm:h-[63%] md:min-h-0 md:h-full md:bottom-0 rounded-b-[50px] md:rounded-b-none md:rounded-r-[50px] overflow-hidden z-[2] transition-all duration-300"
         style={{
-          borderTopRightRadius: '50px',
-          borderBottomRightRadius: '50px',
           boxShadow: 'none',
         }}
       >

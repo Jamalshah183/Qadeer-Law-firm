@@ -52,12 +52,12 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
 
           {/* Category Title on image banner */}
           <div className="absolute bottom-4 left-6 right-6">
-            <span className="text-xs uppercase tracking-widest text-[#C6A15B] font-semibold block mb-1">
+            <span className="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C6A15B] font-bold block mb-1">
               Practice Area
             </span>
             <h3
               id="practice-modal-title"
-              className="text-2xl sm:text-3xl font-serif font-bold text-[#FDF0D5]"
+              className="font-serif text-2xl sm:text-3xl font-semibold tracking-[-0.015em] text-[#FDF0D5]"
             >
               {practice.title}
             </h3>
@@ -66,18 +66,18 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
 
         {/* Modal Body */}
         <div className="p-6 sm:p-8 space-y-6">
-          <p className="text-base text-[#171313]/90 leading-relaxed font-normal">
+          <p className="font-sans text-[16px] text-[#171313]/90 leading-[1.65] font-normal">
             {practice.fullDesc}
           </p>
 
           <div className="pt-2">
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-[#5B1111] mb-3 flex items-center gap-2">
+            <h4 className="font-sans text-[11px] uppercase tracking-[0.14em] font-bold text-[#5B1111] mb-3 flex items-center gap-2">
               <Shield className="w-4 h-4 text-[#C6A15B]" />
               <span>Core Chambers Services & Representation</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {practice.keyServices.map((service, idx) => (
-                <div key={idx} className="flex items-start gap-2 text-sm text-[#171313]">
+                <div key={idx} className="flex items-start gap-2 font-sans text-[14.5px] font-medium text-[#171313] leading-[1.5]">
                   <CheckCircle2 className="w-4 h-4 text-[#5B1111] shrink-0 mt-0.5" />
                   <span>{service}</span>
                 </div>
@@ -87,7 +87,7 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
 
           {/* Action CTA */}
           <div className="pt-4 border-t border-[#5B1111]/15 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-xs text-[#6D6260]">
+            <div className="font-sans text-[12px] text-[#6D6260]">
               Strict attorney-client confidentiality assured.
             </div>
 
@@ -97,7 +97,7 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
                 onClose();
                 onConsult(practice.title);
               }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#5B1111] hover:bg-[#3E0808] text-[#FDF0D5] text-xs uppercase tracking-wider font-semibold rounded transition-colors shadow"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#5B1111] hover:bg-[#3E0808] text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded transition-colors shadow"
             >
               <span>Consult on {practice.title}</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#C6A15B]" />

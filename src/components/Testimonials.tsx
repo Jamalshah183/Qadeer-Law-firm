@@ -29,17 +29,17 @@ export const Testimonials: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="h-[1px] w-6 bg-[#C6A15B]" aria-hidden="true" />
-            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#5B1111]">
+            <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#5B1111]">
               CLIENT TESTIMONIALS
             </span>
             <span className="h-[1px] w-6 bg-[#C6A15B]" aria-hidden="true" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#171313] leading-tight mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-[#171313] leading-[1.08] tracking-[-0.02em] mb-4">
             Trusted by Those We Represent
           </h2>
 
-          <p className="text-base text-[#171313]/80 leading-relaxed font-normal">
+          <p className="font-sans text-[16px] sm:text-[17px] text-[#171313]/80 leading-[1.65] font-normal">
             Reflections from clients regarding our strategic representation, discretion, and courtroom advocacy.
           </p>
         </div>
@@ -54,17 +54,17 @@ export const Testimonials: React.FC = () => {
 
             <div className="relative z-10 pt-4 sm:pt-6">
               {/* Testimonial Quote */}
-              <blockquote className="text-lg sm:text-xl md:text-2xl font-serif italic text-[#171313] leading-relaxed mb-8">
+              <blockquote className="font-serif text-xl sm:text-2xl md:text-[1.75rem] font-medium italic text-[#171313] leading-[1.45] tracking-[-0.01em] mb-8">
                 “{current.quote}”
               </blockquote>
 
               {/* Client Info Lockup */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-[#5B1111]/15">
                 <div>
-                  <div className="text-base font-serif font-bold text-[#5B1111]">
+                  <div className="font-serif text-lg sm:text-xl font-semibold tracking-[-0.01em] text-[#5B1111]">
                     {current.clientName}
                   </div>
-                  <div className="text-xs text-[#6D6260] tracking-wide mt-0.5">
+                  <div className="font-sans text-[12px] font-medium text-[#6D6260] tracking-[0.03em] mt-0.5">
                     {current.matterArea} {current.location ? `· ${current.location}` : ''}
                   </div>
                 </div>
@@ -80,7 +80,7 @@ export const Testimonials: React.FC = () => {
                     <ChevronLeft className="w-4 h-4" />
                   </button>
 
-                  <span className="text-xs font-mono text-[#6D6260] px-2 tabular-nums">
+                  <span className="font-sans text-[12px] font-semibold tracking-[0.05em] text-[#6D6260] px-2 tabular-nums">
                     0{currentIndex + 1} / 0{FIRM_CONFIG.testimonials.length}
                   </span>
 
@@ -98,7 +98,7 @@ export const Testimonials: React.FC = () => {
           </div>
 
           {/* Transparent Notice regarding placeholders */}
-          <div className="mt-4 flex items-center justify-center gap-2 text-xs text-[#6D6260]">
+          <div className="mt-4 flex items-center justify-center gap-2 font-sans text-[12px] font-normal text-[#6D6260]">
             <Info className="w-3.5 h-3.5 text-[#C6A15B]" />
             <span>
               Client identities and reviews are structured as editable placeholders to maintain strict attorney-client privilege.

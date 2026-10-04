@@ -70,33 +70,33 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             - Font 2 / Size 2: font-sans text-sm sm:text-base (Keypoints, Labels & CTA)
           */}
           <div className="lg:col-span-7 order-1 lg:order-2">
-            {/* Heading (Font 1, Size 1) */}
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#171313] leading-snug mb-6">
+            {/* Heading (Cormorant Garamond, 600) */}
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-semibold text-[#171313] tracking-[-0.015em] leading-[1.12] mb-6">
               About Qadeer Law Firm —{' '}
-              <span className="italic font-normal text-[#5B1111]">
+              <span className="italic font-medium text-[#5B1111]">
                 Trusted Counsel & Strategic Representation
               </span>
             </h2>
 
-            {/* Focused Keypoints List (Font 2, Size 2) - Title & Related Icon Only */}
+            {/* Focused Keypoints List (Manrope, 600) */}
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {ABOUT_KEYPOINTS.map((point, index) => {
                 const IconComponent = point.Icon;
                 return (
                   <li
                     key={index}
-                    className="flex items-center gap-3 font-sans text-sm sm:text-base text-[#171313] leading-snug"
+                    className="flex items-center gap-3 font-sans text-[15px] sm:text-[16px] text-[#171313] leading-[1.5]"
                   >
                     <span className="w-8 h-8 rounded-full bg-[#5B1111] text-[#FDF0D5] flex items-center justify-center shrink-0 shadow-xs">
                       <IconComponent className="w-4 h-4 text-[#C6A15B]" aria-hidden="true" />
                     </span>
-                    <span className="font-semibold text-[#171313]">{point.title}</span>
+                    <span className="font-semibold tracking-[0.01em] text-[#171313]">{point.title}</span>
                   </li>
                 );
               })}
             </ul>
 
-            {/* Burgundy Firm Metrics Container (Font 1 Size 1 for Numbers, Font 2 Size 2 for Labels) */}
+            {/* Burgundy Firm Metrics Container (Cormorant Garamond 600 for Numbers, Manrope 500 for Labels) */}
             <div className="bg-[#5B1111] text-[#FDF0D5] p-5 sm:p-6 rounded-2xl border border-[#C6A15B]/30 shadow-lg relative overflow-hidden">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-4 sm:gap-0 sm:divide-x sm:divide-[#C6A15B]/25 items-start">
                 {FIRM_CONFIG.statistics.map((stat) => (
@@ -104,11 +104,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                     key={stat.id}
                     className="flex flex-col items-center justify-start text-center px-2 sm:px-3"
                   >
-                    <div className="font-serif text-2xl sm:text-3xl font-bold text-[#FDF0D5] leading-none tracking-tight lining-nums tabular-nums h-8 sm:h-9 flex items-center justify-center">
+                    <div className="font-serif text-[2.5rem] sm:text-[2.85rem] lg:text-[3.1rem] font-semibold text-[#FDF0D5] leading-none tracking-[-0.02em] lining-nums tabular-nums h-10 sm:h-11 flex items-center justify-center">
                       {stat.value}
                     </div>
                     <div className="w-6 h-[1.5px] bg-[#C6A15B] my-2.5 shrink-0" aria-hidden="true" />
-                    <div className="font-sans text-sm sm:text-base font-medium text-[#FDF0D5]/95 leading-snug min-h-[2.5rem] flex items-start justify-center">
+                    <div className="font-sans text-[13px] sm:text-[14px] font-medium tracking-[0.02em] text-[#FDF0D5]/95 leading-[1.45] min-h-[2.5rem] flex items-start justify-center">
                       {stat.label}
                     </div>
                   </div>
@@ -120,7 +120,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
         {/* Merged Practice Areas Block — Editorial List Design */}
         <div id="practice-areas" className="mt-20 sm:mt-24 pt-4 max-w-5xl mx-auto">
-          <h2 className="text-center font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#171313] tracking-tight mb-10 sm:mb-14">
+          <h2 className="text-center font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-medium text-[#171313] tracking-[-0.02em] leading-[1.08] mb-10 sm:mb-14">
             My Areas Of <span className="text-[#C6A15B]">Expertise</span>
           </h2>
 
@@ -131,13 +131,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 onClick={() => setSelectedPractice(practice)}
                 className="group py-6 sm:py-8 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-10 cursor-pointer transition-colors"
               >
-                {/* Left Column: Serif Practice Area Title */}
-                <h3 className="md:w-[36%] lg:w-[34%] shrink-0 font-serif text-2xl sm:text-3xl font-normal text-[#171313] group-hover:text-[#5B1111] transition-colors">
+                {/* Left Column: Serif Practice Area Title (Cormorant Garamond, 600) */}
+                <h3 className="md:w-[36%] lg:w-[34%] shrink-0 font-serif text-2xl sm:text-[1.85rem] font-semibold tracking-[-0.01em] leading-[1.15] text-[#171313] group-hover:text-[#5B1111] transition-colors">
                   {practice.title}
                 </h3>
 
-                {/* Middle Column: Concise 2-Line Description */}
-                <p className="flex-1 max-w-xl font-sans text-sm sm:text-base text-[#6D6260] leading-relaxed font-normal">
+                {/* Middle Column: Concise 2-Line Description (Manrope, 400) */}
+                <p className="flex-1 max-w-xl font-sans text-[15px] sm:text-[16px] text-[#6D6260] leading-[1.65] font-normal">
                   {practice.shortDesc}
                 </p>
 

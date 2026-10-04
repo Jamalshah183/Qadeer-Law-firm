@@ -23,19 +23,19 @@ export const ExperienceStrategyResults: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
           <div className="inline-flex items-center gap-3 mb-4">
             <span className="h-[1px] w-8 bg-[#C6A15B]" aria-hidden="true" />
-            <span className="font-sans text-xs sm:text-sm uppercase tracking-[0.22em] font-semibold text-[#C6A15B]">
+            <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#C6A15B]">
               CORE ADVOCACY PILLARS
             </span>
             <span className="h-[1px] w-8 bg-[#C6A15B]" aria-hidden="true" />
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FDF0D5] leading-tight mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-[#FDF0D5] leading-[1.08] tracking-[-0.02em] mb-4">
             Experience.{' '}
             <span className="text-[#C6A15B]">Strategy.</span>{' '}
             <span className="italic font-normal text-[#FFF9EC]">Results.</span>
           </h2>
 
-          <p className="font-sans text-sm sm:text-base text-[#FDF0D5]/85 leading-relaxed max-w-xl mx-auto">
+          <p className="font-sans text-[16px] sm:text-[17px] text-[#FDF0D5]/85 leading-[1.65] font-normal max-w-xl mx-auto">
             A clear, structured three-stage path guiding your legal matter from initial case evaluation to courtroom resolution.
           </p>
         </div>
@@ -77,17 +77,17 @@ export const ExperienceStrategyResults: React.FC = () => {
                   {/* Milestone Card */}
                   <div className="w-full flex-1 bg-[#3E0808]/60 hover:bg-[#3E0808]/80 border border-[#C6A15B]/30 group-hover:border-[#C6A15B]/70 rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 flex flex-col justify-between">
                     <div>
-                      <div className="font-sans text-xs uppercase tracking-[0.18em] text-[#C6A15B] font-semibold mb-2">
+                      <div className="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C6A15B] font-bold mb-2">
                         {PATH_PHASES[index]}
                       </div>
 
-                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#FDF0D5] tracking-wide mb-3">
+                      <h3 className="font-serif text-2xl sm:text-[1.85rem] font-semibold text-[#FDF0D5] tracking-[-0.01em] leading-[1.15] mb-3">
                         {principle.title.charAt(0) + principle.title.slice(1).toLowerCase()}
                       </h3>
 
                       <div className="w-10 h-[1.5px] bg-[#C6A15B]/60 mx-auto mb-4" aria-hidden="true" />
 
-                      <p className="font-sans text-sm sm:text-base text-[#FDF0D5]/85 leading-relaxed">
+                      <p className="font-sans text-[15px] sm:text-[16px] text-[#FDF0D5]/85 leading-[1.65] font-normal">
                         {principle.description}
                       </p>
                     </div>

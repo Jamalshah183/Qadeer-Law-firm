@@ -36,7 +36,7 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                   e.currentTarget.src = 'https://i.ibb.co/0y6bkBWj/Untitled-design-1.png';
                 }}
               />
-              <span className="font-serif font-bold text-xl sm:text-2xl lg:text-[1.85rem] tracking-[0.02em] text-[#FDF0D5] leading-[1.1] drop-shadow-xs group-hover:text-[#FFF9EC] transition-colors">
+              <span className="font-serif font-semibold text-xl sm:text-2xl lg:text-[1.85rem] tracking-[-0.01em] text-[#FDF0D5] leading-[1.08] drop-shadow-xs group-hover:text-[#FFF9EC] transition-colors">
                 Qadeer Law Firm
               </span>
             </a>
@@ -61,7 +61,7 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
             ====================================================================
           */}
           <div className="hidden lg:flex items-center pl-8 xl:pl-12">
-            <div className="flex items-center gap-7 xl:gap-9 text-[15px] font-medium text-[#171313]">
+            <div className="flex items-center gap-7 xl:gap-9 font-sans text-[14.5px] font-semibold tracking-[0.03em] text-[#171313]">
               {heroConfig.navigation.map((item) => (
                 <a
                   key={item.label}
@@ -97,7 +97,7 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                       e.currentTarget.src = 'https://i.ibb.co/0y6bkBWj/Untitled-design-1.png';
                     }}
                   />
-                  <span className="font-serif font-bold text-base sm:text-lg text-[#5B1111] leading-tight">
+                  <span className="font-serif font-semibold text-base sm:text-lg tracking-[-0.01em] text-[#5B1111] leading-tight">
                     Qadeer Law Firm
                   </span>
                 </div>
@@ -117,7 +117,7 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                     key={item.label}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-base font-serif font-bold text-[#171313] hover:text-[#5B1111] py-2 transition-colors border-b border-[#5B1111]/10 flex items-center justify-between"
+                    className="font-sans text-[15px] font-semibold tracking-[0.03em] text-[#171313] hover:text-[#5B1111] py-2 transition-colors border-b border-[#5B1111]/10 flex items-center justify-between"
                   >
                     <span>{item.label}</span>
                     <ArrowUpRight className="w-4 h-4 text-[#C6A15B]" />
@@ -133,7 +133,7 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                   setMobileMenuOpen(false);
                   onOpenConsultation();
                 }}
-                className="w-full py-3 bg-[#5B1111] hover:bg-[#3E0808] text-[#FDF0D5] text-xs uppercase tracking-wider font-semibold rounded-full text-center block shadow transition-colors"
+                className="w-full py-3 bg-[#5B1111] hover:bg-[#3E0808] text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded-full text-center block shadow transition-colors"
               >
                 Free Consultation
               </button>

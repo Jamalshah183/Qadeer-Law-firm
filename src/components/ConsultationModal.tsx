@@ -64,14 +64,14 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
           <div className="flex items-center gap-2 mb-1">
             <span className="h-[1px] w-6 bg-[#C6A15B]" />
-            <span className="text-xs uppercase tracking-widest text-[#C6A15B] font-semibold">
+            <span className="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C6A15B] font-bold">
               Confidential Intake
             </span>
           </div>
-          <h3 id="consultation-modal-title" className="text-2xl font-serif font-bold text-[#FDF0D5]">
+          <h3 id="consultation-modal-title" className="font-serif text-2xl sm:text-[1.75rem] font-semibold tracking-[-0.015em] text-[#FDF0D5]">
             Schedule a Legal Consultation
           </h3>
-          <p className="text-xs text-[#FDF0D5]/80 mt-1">
+          <p className="font-sans text-[13px] text-[#FDF0D5]/80 mt-1">
             Discuss your case with qualified legal counsel at Qadeer Law Firm.
           </p>
         </div>
@@ -83,10 +83,10 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               <div className="w-14 h-14 rounded-full bg-[#5B1111]/10 flex items-center justify-center mx-auto text-[#5B1111]">
                 <CheckCircle2 className="w-7 h-7" />
               </div>
-              <h4 className="text-xl font-serif font-bold text-[#171313]">
+              <h4 className="font-serif text-2xl font-semibold tracking-[-0.01em] text-[#171313]">
                 Inquiry Successfully Logged
               </h4>
-              <p className="text-xs sm:text-sm text-[#171313]/80 leading-relaxed max-w-sm mx-auto">
+              <p className="font-sans text-[14.5px] text-[#171313]/80 leading-[1.65] max-w-sm mx-auto">
                 Thank you for contacting our chambers. We have queued your brief for initial conflicts clearance and our office will reach out within standard business hours.
               </p>
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -96,7 +96,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#5B1111] text-[#FDF0D5] text-xs uppercase tracking-wider font-semibold rounded hover:bg-[#3E0808] transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#5B1111] text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded hover:bg-[#3E0808] transition-colors"
                 >
                   <MessageSquare className="w-3.5 h-3.5 text-[#C6A15B]" />
                   <span>Connect Immediately via WhatsApp</span>
@@ -104,7 +104,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 text-xs uppercase font-semibold text-[#5B1111] hover:underline"
+                  className="px-4 py-2 font-sans text-[12px] uppercase tracking-[0.06em] font-bold text-[#5B1111] hover:underline"
                 >
                   Close Window
                 </button>
@@ -113,7 +113,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold text-[#171313] mb-1">
+                <label className="block font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#171313] mb-1">
                   Full Name *
                 </label>
                 <input
@@ -122,13 +122,13 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Your legal name"
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 text-sm text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 font-sans text-[14.5px] text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold text-[#171313] mb-1">
+                  <label className="block font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#171313] mb-1">
                     Phone Number *
                   </label>
                   <input
@@ -137,12 +137,12 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+92 300 0000000"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 text-sm text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111] tabular-nums"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 font-sans text-[14.5px] text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111] tabular-nums"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold text-[#171313] mb-1">
+                  <label className="block font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#171313] mb-1">
                     Email Address *
                   </label>
                   <input
@@ -151,19 +151,19 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="your@email.com"
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 text-sm text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 font-sans text-[14.5px] text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold text-[#171313] mb-1">
+                <label className="block font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#171313] mb-1">
                   Primary Area of Practice
                 </label>
                 <select
                   value={formData.practice}
                   onChange={(e) => setFormData({ ...formData, practice: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 text-sm text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 font-sans text-[14.5px] text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
                 >
                   {FIRM_CONFIG.practiceAreas.map((area) => (
                     <option key={area.id} value={area.title}>
@@ -177,7 +177,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold text-[#171313] mb-1">
+                <label className="block font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#171313] mb-1">
                   Brief Details / Urgency
                 </label>
                 <textarea
@@ -185,12 +185,12 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   value={formData.details}
                   onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                   placeholder="Briefly state procedural stage (e.g. fresh suit, pending appeal, notice received)..."
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 text-sm text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#FDF0D5]/50 border border-[#5B1111]/25 font-sans text-[14.5px] text-[#171313] focus:bg-[#FFF9EC] focus:outline-none focus:ring-2 focus:ring-[#5B1111]"
                 />
               </div>
 
               <div className="pt-2 flex items-center justify-between">
-                <div className="flex items-center gap-1.5 text-xs text-[#6D6260]">
+                <div className="flex items-center gap-1.5 font-sans text-[12px] text-[#6D6260]">
                   <ShieldCheck className="w-4 h-4 text-[#C6A15B]" />
                   <span>Strictly confidential</span>
                 </div>
@@ -198,7 +198,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#5B1111] hover:bg-[#3E0808] disabled:opacity-60 text-[#FDF0D5] text-xs uppercase tracking-wider font-semibold rounded shadow transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#5B1111] hover:bg-[#3E0808] disabled:opacity-60 text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded shadow transition-colors cursor-pointer"
                 >
                   {loading ? 'Submitting...' : 'Submit Request'}
                   <ArrowRight className="w-3.5 h-3.5 text-[#C6A15B]" />
