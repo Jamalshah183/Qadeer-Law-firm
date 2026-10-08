@@ -62,7 +62,7 @@ export const heroConfig: HeroConfig = {
   leftBackground: heroLeftBg,
   rightBackground: heroRightBg,
   lawyerImage: heroLawyerCutout,
-  logo: logoTight,
+  logo: "https://i.ibb.co/q33k22Wt/Golden-QLC-Scales-Emblem.png",
 
   // Brand Palette
   colors: {

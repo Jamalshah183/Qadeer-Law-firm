@@ -2,6 +2,7 @@ import React from 'react';
 import { MessageSquare, ArrowUpRight } from 'lucide-react';
 import { FIRM_CONFIG } from '../data/firmData';
 import { heroConfig } from '../data/heroConfig';
+import { useTransparentLogo } from '../utils/useTransparentLogo';
 
 interface FooterProps {
   onOpenPrivacy: () => void;
@@ -15,8 +16,10 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenTerms,
   selectedPracticeArea = '',
 }) => {
+  const { logoSrc, isProcessed } = useTransparentLogo(heroConfig.logo);
+
   const whatsappText = selectedPracticeArea
-    ? `Assalam-o-Alaikum Qadeer Law Firm, I would like to request a legal consultation regarding ${selectedPracticeArea}.`
+    ? `Assalam-o-Alaikum Qadeer Law Chamber, I would like to request a legal consultation regarding ${selectedPracticeArea}.`
     : FIRM_CONFIG.whatsappMessage;
 
   const whatsappHref = `https://wa.me/${FIRM_CONFIG.contact.whatsappNumber}?text=${encodeURIComponent(
@@ -82,34 +85,20 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-5">
           <a
             href="#hero"
-            aria-label="Qadeer Law Firm - Home"
+            aria-label="Qadeer Law Chamber - Home"
             className="inline-flex items-center transition-transform duration-200 hover:scale-[1.03]"
           >
             <img
-              src={heroConfig.logo}
-              alt="Qadeer Law Firm Logo"
-              className="h-20 sm:h-24 lg:h-28 w-auto object-contain drop-shadow-md"
-              onError={(e) => {
-                e.currentTarget.src = 'https://i.ibb.co/0y6bkBWj/Untitled-design-1.png';
-              }}
+              src={logoSrc}
+              alt="Qadeer Law Chamber Logo"
+              className={`h-20 sm:h-24 lg:h-28 w-auto object-contain drop-shadow-md ${
+                isProcessed ? '' : 'mix-blend-screen'
+              }`}
             />
           </a>
 
-          {/* 4 Circular Cream Icon Buttons matching reference image */}
+          {/* Circular Cream Social Icon Buttons */}
           <div className="flex items-center gap-3">
-            {/* WhatsApp Direct */}
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp Chambers"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FDF0D5] hover:bg-[#C6A15B] text-[#5B1111] hover:text-[#171313] flex items-center justify-center transition-all duration-200 shadow-sm hover:scale-105"
-            >
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.531 5.855l-1.531 5.59 5.735-1.504c1.681.894 3.596 1.404 5.634 1.404 6.627 0 12-5.373 12-12 0-6.627-5.373-12-11.369-11.345z" />
-              </svg>
-            </a>
-
             {/* Facebook */}
             <a
               href={whatsappHref}
@@ -146,19 +135,6 @@ export const Footer: React.FC<FooterProps> = ({
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z" />
-              </svg>
-            </a>
-
-            {/* X */}
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X"
-              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FDF0D5] hover:bg-[#C6A15B] text-[#5B1111] hover:text-[#171313] flex items-center justify-center transition-all duration-200 shadow-sm hover:scale-105"
-            >
-              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
           </div>

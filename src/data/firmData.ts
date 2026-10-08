@@ -41,9 +41,9 @@ export interface FAQItem {
 
 export const FIRM_CONFIG = {
   // Brand Identity
-  firmName: "Qadeer Law Firm",
+  firmName: "Qadeer Law Chamber",
   tagline: "Focused legal guidance, strategic representation, and trusted counsel.",
-  logoUrl: logoTight,
+  logoUrl: "https://i.ibb.co/q33k22Wt/Golden-QLC-Scales-Emblem.png",
   establishedYear: "2026",
 
   // Color System Constants (for direct reference where needed)
@@ -70,7 +70,7 @@ export const FIRM_CONFIG = {
   },
 
   // WhatsApp Pre-filled message
-  whatsappMessage: "Hello Qadeer Law Firm, I would like to schedule a consultation regarding a legal matter.",
+  whatsappMessage: "Hello Qadeer Law Chamber, I would like to schedule a consultation regarding a legal matter.",
 
   // Statistics (Real firm data)
   statistics: [
@@ -233,7 +233,7 @@ export const FIRM_CONFIG = {
   testimonials: [
     {
       id: "t1",
-      quote: "Qadeer Law Firm handled our company's SECP restructuring and shareholder dispute with remarkable precision. Their counsel protected our interests at every stage and resolved the matter smoothly.",
+      quote: "Qadeer Law Chamber handled our company's SECP restructuring and shareholder dispute with remarkable precision. Their counsel protected our interests at every stage and resolved the matter smoothly.",
       clientName: "Tariq Mahmood Butt",
       matterArea: "Corporate & Commercial Law",
       location: "Islamabad",
@@ -247,7 +247,7 @@ export const FIRM_CONFIG = {
     },
     {
       id: "t3",
-      quote: "As an overseas Pakistani managing family succession and estate transfers in Lahore, I relied entirely on Qadeer Law Firm. They obtained our succession certificates transparently and documented every step.",
+      quote: "As an overseas Pakistani managing family succession and estate transfers in Lahore, I relied entirely on Qadeer Law Chamber. They obtained our succession certificates transparently and documented every step.",
       clientName: "Dr. Ayesha Farooq",
       matterArea: "Family & Succession Matters",
       location: "Lahore",
@@ -265,8 +265,8 @@ export const FIRM_CONFIG = {
   faqs: [
     {
       id: "faq-1",
-      question: "What areas of law does Qadeer Law Firm handle?",
-      answer: "Qadeer Law Firm provides counsel and litigation services across Family Law, Criminal Defense, Civil Litigation, Property & Real Estate, Corporate & Commercial Law, and Tax & Regulatory Advisory.",
+      question: "What areas of law does Qadeer Law Chamber handle?",
+      answer: "Qadeer Law Chamber provides counsel and litigation services across Family Law, Criminal Defense, Civil Litigation, Property & Real Estate, Corporate & Commercial Law, and Tax & Regulatory Advisory.",
     },
     {
       id: "faq-2",

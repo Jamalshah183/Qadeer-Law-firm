@@ -54,7 +54,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#5B1111]/20 aspect-[4/3] bg-[#3E0808] group">
                 <img
                   src={FIRM_CONFIG.images.about}
-                  alt="Legal counsel reviewing case documents at Qadeer Law Firm"
+                  alt="Legal counsel reviewing case documents at Qadeer Law Chamber"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
                   loading="lazy"
                   referrerPolicy="no-referrer"
@@ -72,7 +72,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col gap-7">
             {/* Heading (Cormorant Garamond, 600) */}
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-semibold text-[#171313] tracking-[-0.015em] leading-[1.12]">
-              About Qadeer Law Firm —{' '}
+              About Qadeer Law Chamber —{' '}
               <span className="italic font-medium text-[#5B1111]">
                 Trusted Counsel & Strategic Representation
               </span>

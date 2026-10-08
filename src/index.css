@@ -44,12 +44,6 @@ html.lenis body {
   pointer-events: none;
 }
 
-main > section,
-footer {
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
 body {
   font-family: var(--font-sans);
   font-feature-settings: "kern" 1, "liga" 1;
