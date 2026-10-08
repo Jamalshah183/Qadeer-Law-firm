@@ -7,7 +7,6 @@ import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
 import { TeamSection } from './components/TeamSection';
 import { Footer } from './components/Footer';
-import { WhatsAppButton } from './components/WhatsAppButton';
 import { ConsultationModal } from './components/ConsultationModal';
 import { LegalModal } from './components/LegalModals';
 
@@ -111,9 +110,6 @@ export default function App() {
         onOpenConsultation={() => handleOpenConsultation()}
         selectedPracticeArea={preselectedPractice}
       />
-
-      {/* Floating WhatsApp Action */}
-      <WhatsAppButton />
 
       {/* Global Interactive Consultation Modal */}
       <ConsultationModal
