@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer
       id="contact"
-      className="sticky bottom-0 z-[1] w-full bg-[#3E0808] text-[#FDF0D5] -mt-12 sm:-mt-16 lg:-mt-20 pt-28 sm:pt-36 lg:pt-44 pb-10 sm:pb-14 overflow-hidden select-none"
+      className="sticky bottom-0 z-[1] w-full bg-[#3E0808] text-[#FDF0D5] -mt-12 sm:-mt-16 lg:-mt-20 pt-24 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 overflow-hidden select-none"
     >
       {/* Background Legal Desk & Gavel Photograph (Person-Free Still Life) */}
       <div
@@ -57,11 +57,25 @@ export const Footer: React.FC<FooterProps> = ({
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-10 lg:px-12">
-        {/* Centerpiece Editorial Headline + Zero-Friction WhatsApp Consultation CTA */}
-        <div className="text-center mb-14 sm:mb-20">
-          <h2 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-bold text-[#FDF0D5] tracking-[-0.02em] leading-[1.04] mb-7">
-            Lets Work Together
+        {/* Centerpiece Editorial Headline + Advisory Statement + Zero-Friction WhatsApp Consultation CTA */}
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="hidden sm:block font-sans text-[12px] uppercase tracking-[0.2em] text-[#C6A15B] font-bold mb-3">
+            Domestic & Cross-Border Mandates
+          </div>
+
+          <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-[#FDF0D5] tracking-[-0.02em] leading-[1.06] mb-3 sm:mb-5">
+            Let’s Discuss Your Legal Matter
           </h2>
+
+          {/* Concise Mobile Summary */}
+          <p className="sm:hidden max-w-xs mx-auto font-sans text-[13px] text-[#FDF0D5]/80 leading-[1.55] font-normal mb-5">
+            Representation across Pakistan, Pakistani-law advisory, and local counsel for international firms.
+          </p>
+
+          {/* Full Editorial Desktop Summary */}
+          <p className="hidden sm:block max-w-2xl mx-auto font-sans text-[16px] text-[#FDF0D5]/85 leading-[1.68] font-normal mb-8">
+            From courtroom representation across Pakistan and authoritative opinions on Pakistani law to serving as trusted local counsel for international law firms, our advocates are prepared to review your brief and guide your next step.
+          </p>
 
           {/* Direct WhatsApp Consultation Action */}
           <div className="flex flex-col items-center justify-center gap-3">
@@ -69,33 +83,61 @@ export const Footer: React.FC<FooterProps> = ({
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#C6A15B] hover:bg-[#b8924b] text-[#171313] font-sans text-[13px] sm:text-[14px] uppercase tracking-[0.06em] font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+              className="group inline-flex items-center gap-3 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-[#C6A15B] hover:bg-[#b8924b] text-[#171313] font-sans text-[12.5px] sm:text-[14px] uppercase tracking-[0.06em] font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
             >
               <MessageSquare className="w-4 h-4 text-[#171313]" />
               <span>Chat on WhatsApp</span>
               <ArrowUpRight className="w-4 h-4 text-[#171313] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
-            <span className="font-sans text-[12px] text-[#FDF0D5]/75 tracking-[0.03em]">
+            <span className="hidden sm:inline font-sans text-[12px] text-[#FDF0D5]/75 tracking-[0.03em]">
               Direct Chambers WhatsApp Intake · No Forms · Strictly Confidential
             </span>
           </div>
         </div>
 
-        {/* Middle Row: Brand Logo on Left, Circular Social / WhatsApp Icons on Right */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-5">
-          <a
-            href="#hero"
-            aria-label="Qadeer Law Chamber - Home"
-            className="inline-flex items-center transition-transform duration-200 hover:scale-[1.03]"
-          >
-            <img
-              src={logoSrc}
-              alt="Qadeer Law Chamber Logo"
-              className={`h-20 sm:h-24 lg:h-28 w-auto object-contain drop-shadow-md ${
-                isProcessed ? '' : 'mix-blend-screen'
-              }`}
-            />
-          </a>
+        {/* Middle Row: Brand Logo + Chamber Jurisdictions & Practice Lockup on Left, Social Icons on Right */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pb-4 sm:pb-6">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center sm:text-left">
+            <a
+              href="#hero"
+              aria-label="Qadeer Law Chamber - Home"
+              className="inline-flex items-center transition-transform duration-200 hover:scale-[1.03] shrink-0"
+            >
+              <img
+                src={logoSrc}
+                alt="Qadeer Law Chamber Logo"
+                className={`h-16 sm:h-24 w-auto object-contain drop-shadow-md ${
+                  isProcessed ? '' : 'mix-blend-screen'
+                }`}
+              />
+            </a>
+
+            {/* Compact single-line location badge on mobile */}
+            <div className="sm:hidden font-sans text-[11px] uppercase tracking-[0.16em] text-[#C6A15B] font-bold">
+              Sialkot · Lahore · Pakistan
+            </div>
+
+            {/* Full Chamber Identity Lockup on tablet/desktop */}
+            <div className="hidden sm:block sm:border-l sm:border-[#C6A15B]/35 sm:pl-6">
+              <div className="font-serif text-xl sm:text-2xl font-semibold text-[#FDF0D5] tracking-[0.02em] leading-snug">
+                Qadeer Legal Chambers
+              </div>
+              <div className="mt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2 font-sans text-[12px] sm:text-[12.5px] uppercase tracking-[0.14em] text-[#C6A15B] font-bold">
+                <span>Sialkot</span>
+                <span className="text-[#FDF0D5]/40" aria-hidden="true">|</span>
+                <span>Lahore</span>
+                <span className="text-[#FDF0D5]/40" aria-hidden="true">|</span>
+                <span>Pakistan</span>
+              </div>
+              <div className="mt-1 flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1 font-sans text-[12.5px] sm:text-[13px] text-[#FDF0D5]/80 font-normal">
+                <span>High Court Advocates</span>
+                <span className="text-[#C6A15B]" aria-hidden="true">·</span>
+                <span>Legal Consultants</span>
+                <span className="text-[#C6A15B]" aria-hidden="true">·</span>
+                <span>International Legal Advisory</span>
+              </div>
+            </div>
+          </div>
 
           {/* Circular Cream Social Icon Buttons */}
           <div className="flex items-center gap-3">
@@ -154,6 +196,9 @@ export const Footer: React.FC<FooterProps> = ({
             </a>
             <a href="#practice-areas" className="hover:text-[#C6A15B] transition-colors">
               Service
+            </a>
+            <a href="#insights" className="hover:text-[#C6A15B] transition-colors">
+              Insights
             </a>
             <a href="#faq" className="hover:text-[#C6A15B] transition-colors">
               Faq

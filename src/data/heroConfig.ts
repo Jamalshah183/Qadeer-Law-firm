@@ -78,7 +78,7 @@ export const heroConfig: HeroConfig = {
 
   // Eyebrow badge
   eyebrow: {
-    text: "Justice, Expertise, Results",
+    text: "LOCAL EXPERTISE. GLOBAL COUNSEL.",
     icon: "Scale",
   },
 
@@ -95,12 +95,12 @@ export const heroConfig: HeroConfig = {
 
   // CTAs
   primaryCTA: {
-    label: "Contact Now",
-    href: "#contact",
+    label: "OUR PRACTICE AREAS",
+    href: "#practice-areas",
   },
   secondaryCTA: {
-    label: "Free Consultation",
-    action: "consultationModal",
+    label: "INTERNATIONAL COUNSEL",
+    action: "#international-counsel",
   },
 
   // Navigation (top-right)
@@ -108,6 +108,7 @@ export const heroConfig: HeroConfig = {
     { label: "About", href: "#about" },
     { label: "Practice Areas", href: "#practice-areas" },
     { label: "Testimonials", href: "#testimonials" },
+    { label: "Insights", href: "#insights" },
     { label: "Contact", href: "#contact" },
   ],
 };

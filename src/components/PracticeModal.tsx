@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ArrowRight, CheckCircle2, Shield } from 'lucide-react';
 import { PracticeArea } from '../data/firmData';
 
@@ -13,24 +14,38 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
   onClose,
   onConsult,
 }) => {
-  if (!practice) return null;
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (practice) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [practice, onClose]);
 
-  return (
+  if (!practice || typeof document === 'undefined') return null;
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-[9999] overflow-y-auto flex items-center justify-center p-4 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="practice-modal-title"
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-[#3E0808]/70 backdrop-blur-xs transition-opacity"
+        className="fixed inset-0 bg-[#3E0808]/75 backdrop-blur-xs transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Modal Dialog */}
-      <div className="relative bg-[#FFF9EC] rounded-2xl max-w-2xl w-full border border-[#5B1111]/30 shadow-2xl overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative bg-[#FFF9EC] rounded-2xl max-w-2xl w-full max-h-[calc(100dvh-2rem)] overflow-y-auto border border-[#5B1111]/30 shadow-2xl z-10 animate-in fade-in zoom-in-95 duration-200">
         {/* Top Image Banner */}
         <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-[#3E0808]">
           <img
@@ -44,7 +59,7 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full bg-[#171313]/60 hover:bg-[#5B1111] text-[#FDF0D5] transition-colors focus:outline-none focus:ring-2 focus:ring-[#C6A15B]"
+            className="absolute top-4 right-4 p-2 rounded-full bg-[#171313]/60 hover:bg-[#5B1111] text-[#FDF0D5] transition-colors focus:outline-none focus:ring-2 focus:ring-[#C6A15B] cursor-pointer"
             aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
@@ -97,7 +112,7 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
                 onClose();
                 onConsult(practice.title);
               }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#5B1111] hover:bg-[#3E0808] text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded transition-colors shadow"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#5B1111] hover:bg-[#3E0808] text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded transition-colors shadow cursor-pointer"
             >
               <span>Consult on {practice.title}</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#C6A15B]" />
@@ -105,6 +120,7 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

@@ -11,7 +11,7 @@ const PATH_PHASES = [
 
 export const ExperienceStrategyResults: React.FC = () => {
   return (
-    <section className="relative z-[11] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#5B1111] text-[#FDF0D5] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#C6A15B]/35 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.35)] overflow-hidden">
+    <section className="relative z-[12] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#5B1111] text-[#FDF0D5] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#C6A15B]/35 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.35)] overflow-hidden">
       {/* Subtle radial gold/burgundy ambient depth */}
       <div
         className="absolute inset-0 bg-radial from-[#C6A15B]/8 via-transparent to-[#3E0808]/50 pointer-events-none"

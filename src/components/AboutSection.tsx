@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UserCheck, Compass, Scale, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { Globe, Compass, Scale, ShieldCheck, ArrowUpRight } from 'lucide-react';
 import { FIRM_CONFIG, PracticeArea } from '../data/firmData';
 import { PracticeModal } from './PracticeModal';
 
@@ -10,19 +10,23 @@ interface AboutSectionProps {
 
 const ABOUT_KEYPOINTS = [
   {
-    title: 'Direct Senior Counsel',
-    Icon: UserCheck,
-  },
-  {
-    title: 'Clear Legal Strategy',
-    Icon: Compass,
-  },
-  {
-    title: 'Courtroom & Advisory Excellence',
+    title: 'Pakistan Legal Expertise',
+    subtitle: 'Grounded in Pakistani law & procedure',
     Icon: Scale,
   },
   {
-    title: 'Strict Client Confidentiality',
+    title: 'Strategic Advocacy',
+    subtitle: 'Focused preparation & litigation strategy',
+    Icon: Compass,
+  },
+  {
+    title: 'International & Tech-Enabled',
+    subtitle: 'Remote & overseas legal collaboration',
+    Icon: Globe,
+  },
+  {
+    title: 'Confidential & Professional',
+    subtitle: 'Strict client privilege & responsibility',
     Icon: ShieldCheck,
   },
 ];
@@ -78,19 +82,26 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               </span>
             </h2>
 
-            {/* Focused Keypoints List (Manrope, 600) */}
+            {/* Focused Keypoints List (Manrope) */}
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {ABOUT_KEYPOINTS.map((point, index) => {
                 const IconComponent = point.Icon;
                 return (
                   <li
                     key={index}
-                    className="flex items-center gap-3 font-sans text-[15px] sm:text-[16px] text-[#171313] leading-[1.5]"
+                    className="flex items-start gap-3 font-sans text-[15px] sm:text-[16px] text-[#171313] leading-[1.4]"
                   >
-                    <span className="w-8 h-8 rounded-full bg-[#5B1111] text-[#FDF0D5] flex items-center justify-center shrink-0 shadow-xs">
+                    <span className="w-8 h-8 rounded-full bg-[#5B1111] text-[#FDF0D5] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
                       <IconComponent className="w-4 h-4 text-[#C6A15B]" aria-hidden="true" />
                     </span>
-                    <span className="font-semibold tracking-[0.01em] text-[#171313]">{point.title}</span>
+                    <div>
+                      <div className="font-semibold tracking-[0.01em] text-[#171313]">
+                        {point.title}
+                      </div>
+                      <div className="text-[13px] text-[#6D6260] font-normal mt-0.5">
+                        {point.subtitle}
+                      </div>
+                    </div>
                   </li>
                 );
               })}
@@ -119,17 +130,25 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         </div>
 
         {/* Merged Practice Areas Block — Editorial List Design */}
-        <div id="practice-areas" className="mt-20 sm:mt-24 pt-4 max-w-5xl mx-auto">
+        <div id="practice-areas" className="mt-20 sm:mt-24 pt-4 scroll-mt-8 max-w-5xl mx-auto">
           <h2 className="text-center font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-medium text-[#171313] tracking-[-0.02em] leading-[1.08] mb-10 sm:mb-14">
-            My Areas Of <span className="text-[#C6A15B]">Expertise</span>
+            Our Practice <span className="text-[#C6A15B]">Areas</span>
           </h2>
 
           <div className="divide-y divide-[#171313]/15 border-b border-[#171313]/15">
             {FIRM_CONFIG.practiceAreas.map((practice) => (
               <div
                 key={practice.id}
+                role="button"
+                tabIndex={0}
                 onClick={() => setSelectedPractice(practice)}
-                className="group py-6 sm:py-8 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-10 cursor-pointer transition-colors"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedPractice(practice);
+                  }
+                }}
+                className="group py-6 sm:py-8 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-10 cursor-pointer transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded-lg"
               >
                 {/* Left Column: Serif Practice Area Title (Cormorant Garamond, 600) */}
                 <h3 className="md:w-[36%] lg:w-[34%] shrink-0 font-serif text-2xl sm:text-[1.85rem] font-semibold tracking-[-0.01em] leading-[1.15] text-[#171313] group-hover:text-[#5B1111] transition-colors">

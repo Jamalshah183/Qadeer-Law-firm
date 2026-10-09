@@ -12,7 +12,7 @@ export const FAQ: React.FC = () => {
   return (
     <section
       id="faq"
-      className="relative z-[13] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#5B1111] text-[#FDF0D5] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#C6A15B]/35 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.35)] overflow-hidden"
+      className="relative z-[15] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#5B1111] text-[#FDF0D5] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#C6A15B]/35 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.35)] overflow-hidden"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}

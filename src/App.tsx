@@ -1,20 +1,163 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Lenis from 'lenis';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
+import { InternationalCounsel } from './components/InternationalCounsel';
 import { ExperienceStrategyResults } from './components/ExperienceStrategyResults';
 import { Testimonials } from './components/Testimonials';
+import { InsightsSection } from './components/InsightsSection';
+import { InsightsArchivePage } from './components/InsightsArchivePage';
+import { InsightDetailPage } from './components/InsightDetailPage';
 import { FAQ } from './components/FAQ';
 import { TeamSection } from './components/TeamSection';
 import { Footer } from './components/Footer';
 import { ConsultationModal } from './components/ConsultationModal';
 import { LegalModal } from './components/LegalModals';
+import { INSIGHTS_DATA } from './data/insightsData';
+
+type RouteState =
+  | { view: 'home' }
+  | { view: 'insights-archive' }
+  | { view: 'insight-detail'; slug: string };
+
+function parseLocationRoute(pathname: string): RouteState {
+  const clean = pathname.replace(/\/+$/, '') || '/';
+  if (clean === '/insights') {
+    return { view: 'insights-archive' };
+  }
+  if (clean.startsWith('/insights/')) {
+    const slug = decodeURIComponent(clean.slice('/insights/'.length));
+    if (slug) {
+      return { view: 'insight-detail', slug };
+    }
+    return { view: 'insights-archive' };
+  }
+  return { view: 'home' };
+}
 
 export default function App() {
+  const [route, setRoute] = useState<RouteState>(() =>
+    parseLocationRoute(window.location.pathname)
+  );
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [preselectedPractice, setPreselectedPractice] = useState<string>('');
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | null>(null);
   const lenisRef = useRef<Lenis | null>(null);
+
+  const scrollToTopImmediate = useCallback(() => {
+    if (lenisRef.current) {
+      lenisRef.current.resize();
+      lenisRef.current.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
+
+  const scrollToSectionHash = useCallback((hash: string) => {
+    const cleanHash = hash.startsWith('/') ? hash.slice(1) : hash;
+    if (!cleanHash || !cleanHash.startsWith('#')) return;
+
+    const lenis = lenisRef.current;
+    lenis?.resize();
+
+    if (cleanHash === '#hero' || cleanHash === '#home') {
+      if (lenis) {
+        lenis.scrollTo(0, { lerp: 0.1 });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
+    if (cleanHash === '#contact') {
+      const scrollToBottom = () => {
+        lenisRef.current?.resize();
+        const maxScroll = Math.max(
+          document.documentElement.scrollHeight,
+          document.body.scrollHeight
+        );
+        if (lenisRef.current) {
+          lenisRef.current.scrollTo(maxScroll, { lerp: 0.1 });
+        } else {
+          window.scrollTo({ top: maxScroll, behavior: 'smooth' });
+        }
+      };
+      scrollToBottom();
+      window.setTimeout(scrollToBottom, 140);
+      return;
+    }
+
+    const targetEl = document.querySelector(cleanHash) as HTMLElement | null;
+    if (!targetEl) return;
+
+    // #practice-areas is an inner block inside #about, so give it a 32px top breathing offset
+    const offset = cleanHash === '#practice-areas' ? -32 : 0;
+
+    if (lenis) {
+      lenis.scrollTo(targetEl, { offset, lerp: 0.1 });
+    } else {
+      const top = targetEl.getBoundingClientRect().top + window.scrollY + offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }, []);
+
+  const navigateToAllInsights = useCallback(() => {
+    window.history.pushState({}, '', '/insights');
+    setRoute({ view: 'insights-archive' });
+    window.requestAnimationFrame(() => {
+      scrollToTopImmediate();
+    });
+  }, [scrollToTopImmediate]);
+
+  const navigateToPost = useCallback(
+    (slug: string) => {
+      window.history.pushState({}, '', `/insights/${slug}`);
+      setRoute({ view: 'insight-detail', slug });
+      window.requestAnimationFrame(() => {
+        scrollToTopImmediate();
+      });
+    },
+    [scrollToTopImmediate]
+  );
+
+  const navigateHome = useCallback(
+    (sectionHash?: string) => {
+      const normalizedHash =
+        sectionHash && sectionHash !== '#hero' && sectionHash !== '#home'
+          ? sectionHash.startsWith('#')
+            ? sectionHash
+            : `#${sectionHash.replace(/^\/+#?/, '')}`
+          : undefined;
+
+      const targetUrl = normalizedHash ? `/${normalizedHash}` : '/';
+      window.history.pushState({}, '', targetUrl);
+      setRoute({ view: 'home' });
+      scrollToTopImmediate();
+
+      if (normalizedHash) {
+        window.setTimeout(() => {
+          scrollToSectionHash(normalizedHash);
+        }, 90);
+      }
+    },
+    [scrollToSectionHash, scrollToTopImmediate]
+  );
+
+  // Sync browser Back/Forward navigation
+  useEffect(() => {
+    const onPopState = () => {
+      const nextRoute = parseLocationRoute(window.location.pathname);
+      setRoute(nextRoute);
+      if (nextRoute.view === 'home' && window.location.hash) {
+        window.setTimeout(() => {
+          scrollToSectionHash(window.location.hash);
+        }, 90);
+      } else {
+        scrollToTopImmediate();
+      }
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, [scrollToSectionHash, scrollToTopImmediate]);
 
   // Smooth scrolling engine with zero start/end transform shake
   useEffect(() => {
@@ -28,22 +171,49 @@ export default function App() {
     });
     lenisRef.current = lenis;
 
-    const onAnchorClick = (e: MouseEvent) => {
-      const anchor = (e.target as HTMLElement | null)?.closest('a[href^="#"]') as HTMLAnchorElement | null;
-      if (!anchor) return;
-      const hash = anchor.getAttribute('href');
-      if (!hash || hash === '#') return;
+    if (window.location.pathname === '/' && window.location.hash) {
+      window.setTimeout(() => {
+        scrollToSectionHash(window.location.hash);
+      }, 120);
+    }
 
-      if (hash === '#contact') {
-        e.preventDefault();
-        lenis.scrollTo('bottom', { lerp: 0.1 });
+    const onAnchorClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement | null)?.closest('a') as HTMLAnchorElement | null;
+      if (!anchor) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0 || anchor.target === '_blank') {
         return;
       }
 
-      const targetEl = document.querySelector(hash) as HTMLElement | null;
-      if (targetEl) {
+      const href = anchor.getAttribute('href');
+      if (!href) return;
+
+      // Handle internal /insights links globally (e.g. from Footer)
+      if (href === '/insights') {
         e.preventDefault();
-        lenis.scrollTo(targetEl, { lerp: 0.1 });
+        navigateToAllInsights();
+        return;
+      }
+      if (href.startsWith('/insights/')) {
+        e.preventDefault();
+        const slug = href.slice('/insights/'.length);
+        if (slug) navigateToPost(slug);
+        return;
+      }
+
+      // Handle #hash or /#hash links
+      if (href.startsWith('#') || href.startsWith('/#')) {
+        if (href === '#' || href === '/#') return;
+        e.preventDefault();
+        const hash = href.startsWith('/#') ? href.slice(1) : href;
+
+        // If currently on an Insights subpage, return to Home and scroll to section
+        if (window.location.pathname !== '/') {
+          navigateHome(hash === '#hero' ? undefined : hash);
+          return;
+        }
+
+        window.history.replaceState({}, '', hash === '#hero' ? '/' : `/${hash}`);
+        scrollToSectionHash(hash);
       }
     };
 
@@ -54,7 +224,7 @@ export default function App() {
       lenis.destroy();
       lenisRef.current = null;
     };
-  }, []);
+  }, [navigateHome, navigateToAllInsights, navigateToPost, scrollToSectionHash]);
 
   const handleOpenConsultation = (practiceTitle?: string) => {
     if (practiceTitle) {
@@ -65,45 +235,72 @@ export default function App() {
 
   const handlePracticeSelectedForContact = (practiceTitle: string) => {
     setPreselectedPractice(practiceTitle);
-    if (lenisRef.current) {
-      lenisRef.current.scrollTo('bottom', { lerp: 0.1 });
-    } else {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    scrollToSectionHash('#contact');
   };
+
+  const activePost =
+    route.view === 'insight-detail'
+      ? INSIGHTS_DATA.find((item) => item.slug === route.slug) || INSIGHTS_DATA[0]
+      : null;
 
   return (
     <div className="min-h-screen bg-[#3E0808] text-[#171313] selection:bg-[#5B1111] selection:text-[#FDF0D5] font-sans">
       <main
         id="main-content"
-        className="relative z-[10] bg-[#FDF0D5] rounded-b-[50px] sm:rounded-b-[65px] lg:rounded-b-[80px]"
+        className="relative z-[10] bg-[#FDF0D5] rounded-b-[50px] sm:rounded-b-[65px] lg:rounded-b-[80px] shadow-[0_30px_60px_-15px_rgba(30,4,4,0.55)] overflow-hidden"
       >
-        {/* 1. Hero Section with Top Navigation in its actual position */}
-        <Hero onOpenConsultation={() => handleOpenConsultation()} />
+        {route.view === 'home' && (
+          <>
+            {/* 1. Hero Section with Top Navigation in its actual position */}
+            <Hero onOpenConsultation={() => handleOpenConsultation()} />
 
-        {/* 2. Merged About Us & Practice Areas Section */}
-        <AboutSection
-          onOpenConsultation={() => handleOpenConsultation()}
-          onSelectPracticeForConsultation={handlePracticeSelectedForContact}
-        />
+            {/* 2. Merged About Us & Practice Areas Section */}
+            <AboutSection
+              onOpenConsultation={() => handleOpenConsultation()}
+              onSelectPracticeForConsultation={handlePracticeSelectedForContact}
+            />
 
-        {/* 6. Experience / Strategy / Results Section */}
-        <ExperienceStrategyResults />
+            {/* 3. International Counsel — Pakistan Legal Partner Section */}
+            <InternationalCounsel />
 
-        {/* 9. Client Testimonials */}
-        <Testimonials />
+            {/* 4. Experience / Strategy / Results Section */}
+            <ExperienceStrategyResults />
 
-        {/* 10. FAQ Accordion */}
-        <FAQ />
+            {/* 5. Client Testimonials */}
+            <Testimonials />
 
-        {/* 11. Team Members Section (Last section of main — scrolls up to reveal Footer) */}
-        <TeamSection />
+            {/* 6. Legal Insights & Publications Section */}
+            <InsightsSection
+              onNavigateToAllInsights={navigateToAllInsights}
+              onNavigateToPost={navigateToPost}
+            />
+
+            {/* 7. FAQ Accordion */}
+            <FAQ />
+
+            {/* 8. Team Members Section (Last section of main — scrolls up to reveal Footer) */}
+            <TeamSection />
+          </>
+        )}
+
+        {route.view === 'insights-archive' && (
+          <InsightsArchivePage
+            onNavigateHome={navigateHome}
+            onNavigateToPost={navigateToPost}
+          />
+        )}
+
+        {route.view === 'insight-detail' && activePost && (
+          <InsightDetailPage
+            post={activePost}
+            onNavigateHome={navigateHome}
+            onNavigateToAllInsights={navigateToAllInsights}
+            onNavigateToPost={navigateToPost}
+          />
+        )}
       </main>
 
-      {/* 12. Revealing Footer with Integrated WhatsApp Consultation */}
+      {/* Revealing Footer with Integrated WhatsApp Consultation */}
       <Footer
         onOpenPrivacy={() => setLegalModalType('privacy')}
         onOpenTerms={() => setLegalModalType('terms')}
