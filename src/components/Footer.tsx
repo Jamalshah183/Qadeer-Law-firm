@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({
   const { logoSrc, isProcessed } = useTransparentLogo(heroConfig.logo);
 
   const whatsappText = selectedPracticeArea
-    ? `Assalam-o-Alaikum Qadeer Law Chamber, I would like to request a legal consultation regarding ${selectedPracticeArea}.`
+    ? `Assalam-o-Alaikum Qadeer Legal Chambers, I would like to request a legal consultation regarding ${selectedPracticeArea}.`
     : FIRM_CONFIG.whatsappMessage;
 
   const whatsappHref = `https://wa.me/${FIRM_CONFIG.contact.whatsappNumber}?text=${encodeURIComponent(
@@ -60,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Centerpiece Editorial Headline + Advisory Statement + Zero-Friction WhatsApp Consultation CTA */}
         <div className="text-center mb-8 sm:mb-12">
           <div className="hidden sm:block font-sans text-[12px] uppercase tracking-[0.2em] text-[#C6A15B] font-bold mb-3">
-            Domestic & Cross-Border Mandates
+            LOCAL EXPERTISE. GLOBAL COUNSEL.
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-[#FDF0D5] tracking-[-0.02em] leading-[1.06] mb-3 sm:mb-5">
@@ -100,21 +100,21 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center sm:text-left">
             <a
               href="#hero"
-              aria-label="Qadeer Law Chamber - Home"
+              aria-label="Qadeer Legal Chambers - Home"
               className="inline-flex items-center transition-transform duration-200 hover:scale-[1.03] shrink-0"
             >
               <img
                 src={logoSrc}
-                alt="Qadeer Law Chamber Logo"
+                alt="Qadeer Legal Chambers Logo"
                 className={`h-16 sm:h-24 w-auto object-contain drop-shadow-md ${
                   isProcessed ? '' : 'mix-blend-screen'
                 }`}
               />
             </a>
 
-            {/* Compact single-line location badge on mobile */}
-            <div className="sm:hidden font-sans text-[11px] uppercase tracking-[0.16em] text-[#C6A15B] font-bold">
-              Sialkot · Lahore · Pakistan
+            {/* Compact single-line positioning badge on mobile */}
+            <div className="sm:hidden font-sans text-[10.5px] uppercase tracking-[0.14em] text-[#C6A15B] font-bold">
+              ADVOCATES • LITIGATION • LEGAL ADVISORY
             </div>
 
             {/* Full Chamber Identity Lockup on tablet/desktop */}
@@ -122,19 +122,13 @@ export const Footer: React.FC<FooterProps> = ({
               <div className="font-serif text-xl sm:text-2xl font-semibold text-[#FDF0D5] tracking-[0.02em] leading-snug">
                 Qadeer Legal Chambers
               </div>
-              <div className="mt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2 font-sans text-[12px] sm:text-[12.5px] uppercase tracking-[0.14em] text-[#C6A15B] font-bold">
-                <span>Sialkot</span>
-                <span className="text-[#FDF0D5]/40" aria-hidden="true">|</span>
-                <span>Lahore</span>
-                <span className="text-[#FDF0D5]/40" aria-hidden="true">|</span>
-                <span>Pakistan</span>
+              <div className="mt-1 font-sans text-[11.5px] sm:text-[12px] uppercase tracking-[0.14em] text-[#C6A15B] font-bold">
+                ADVOCATES • LITIGATION • LEGAL ADVISORY
               </div>
-              <div className="mt-1 flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1 font-sans text-[12.5px] sm:text-[13px] text-[#FDF0D5]/80 font-normal">
-                <span>High Court Advocates</span>
+              <div className="mt-1 flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1 font-sans text-[12px] sm:text-[12.5px] text-[#FDF0D5]/80 font-normal">
+                <span>Sialkot | Lahore | Pakistan</span>
                 <span className="text-[#C6A15B]" aria-hidden="true">·</span>
-                <span>Legal Consultants</span>
-                <span className="text-[#C6A15B]" aria-hidden="true">·</span>
-                <span>International Legal Advisory</span>
+                <span>Local Expertise. Global Counsel.</span>
               </div>
             </div>
           </div>
@@ -214,7 +208,7 @@ export const Footer: React.FC<FooterProps> = ({
           </nav>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-[12.5px] sm:text-[13.5px] text-[#FDF0D5]/85">
-            <span>© {new Date().getFullYear()} All rights reserved.</span>
+            <span>© {new Date().getFullYear()} Qadeer Legal Chambers. All rights reserved.</span>
             <span className="text-[#C6A15B]/50" aria-hidden="true">·</span>
             <button
               type="button"

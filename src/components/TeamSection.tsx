@@ -29,7 +29,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     image: qadeerCeoImg,
     maxAspectRatio: 1.08,
     bioParagraphs: [
-      'As Founder and Principal of Qadeer Law Chamber, Mian Qadeer Hussain practices as an Advocate of the High Court in Pakistan, bringing extensive command across contentious litigation, precision legal drafting, dispute resolution, and high-level advisory mandates.',
+      'As Founder and Principal of Qadeer Legal Chambers, Mian Qadeer Hussain practices as an Advocate of the High Court in Pakistan, bringing extensive command across contentious litigation, precision legal drafting, dispute resolution, and high-level advisory mandates.',
       'Guided by a commitment to professional integrity and meticulous case preparation, his practice bridges classical courtroom advocacy with modern legal research, transparent client communication, and seamless cross-border legal cooperation.',
     ],
     specializations: [
@@ -49,7 +49,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     image: arfanImg,
     maxAspectRatio: 1.04,
     bioParagraphs: [
-      'Arfan Shahzad is an experienced Associate Advocate at Qadeer Law Chamber specializing in Immigration Law, Study & Student Visas, and International Law, delivering dedicated legal counsel for local and overseas clients.',
+      'Arfan Shahzad is an experienced Associate Advocate at Qadeer Legal Chambers specializing in Immigration Law, Study & Student Visas, and International Law, delivering dedicated legal counsel for local and overseas clients.',
       'With a strong commitment to protecting client interests, he combines thorough documentation strategy with responsive representation to achieve dependable, outcome-focused legal solutions across international and immigration matters.',
     ],
     specializations: [
@@ -66,7 +66,7 @@ const TEAM_MEMBERS: TeamMember[] = [
  * of the person, and normalizes the subject onto a uniform 360x460 portrait canvas
  * so every card's person image matches in height and scale.
  */
-function useStudioCutout(src: string, maxAspectRatio = 1.22): string {
+export function useStudioCutout(src: string, maxAspectRatio = 1.22): string {
   const [cutoutUrl, setCutoutUrl] = useState<string>(src);
 
   useEffect(() => {
@@ -389,7 +389,7 @@ export const TeamSection: React.FC = () => {
   return (
     <section
       id="team"
-      className="relative z-[16] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-24 md:pb-32 bg-[#FFF9EC] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] rounded-b-[50px] sm:rounded-b-[65px] lg:rounded-b-[80px] border-t-2 border-b-2 border-[#5B1111]/25 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.25),0_30px_60px_-15px_rgba(30,4,4,0.55)] overflow-hidden"
+      className="relative z-[18] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-24 md:pb-32 bg-[#FFF9EC] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] rounded-b-[50px] sm:rounded-b-[65px] lg:rounded-b-[80px] border-t-2 border-b-2 border-[#5B1111]/25 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.25),0_30px_60px_-15px_rgba(30,4,4,0.55)] overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Heading */}
@@ -525,7 +525,7 @@ export const TeamSection: React.FC = () => {
 
                     <a
                       href={`https://wa.me/${FIRM_CONFIG.contact.whatsappNumber}?text=${encodeURIComponent(
-                        `Assalam-o-Alaikum Qadeer Law Chamber, I would like to schedule a consultation with ${selectedProfile.member.fullName} (${selectedProfile.member.designation}).`
+                        `Assalam-o-Alaikum Qadeer Legal Chambers, I would like to schedule a consultation with ${selectedProfile.member.fullName} (${selectedProfile.member.designation}).`
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"

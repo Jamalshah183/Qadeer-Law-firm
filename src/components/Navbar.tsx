@@ -39,14 +39,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             <a
               href="#hero"
               className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded"
-              aria-label="Qadeer Law Firm - Home"
+              aria-label="Qadeer Legal Chambers - Home"
             >
               <div className="flex items-center gap-2.5">
                 <span className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-[#5B1111]">
                   Qadeer
                 </span>
                 <span className="text-[10px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded border border-[#5B1111]/25 text-[#5B1111] bg-[#5B1111]/5">
-                  Law Firm
+                  Legal Chambers
                 </span>
               </div>
             </a>
@@ -126,11 +126,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             <div className="space-y-6 pt-16">
               <div className="pb-4 border-b border-[#5B1111]/10 flex items-center justify-between">
                 <div>
-                  <span className="text-xs uppercase tracking-widest text-[#C6A15B] font-semibold block mb-0.5">
-                    Navigation
+                  <span className="text-[10px] uppercase tracking-widest text-[#C6A15B] font-semibold block mb-0.5">
+                    Advocates • Litigation • Legal Advisory
                   </span>
                   <span className="text-lg font-serif font-bold text-[#5B1111]">
-                    Qadeer Law Firm
+                    Qadeer Legal Chambers
                   </span>
                 </div>
                 <button

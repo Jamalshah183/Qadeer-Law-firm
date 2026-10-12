@@ -83,7 +83,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
   return (
     <section
       id="insights"
-      className="relative z-[14] -mt-10 sm:-mt-12 lg:-mt-14 pt-16 sm:pt-22 lg:pt-28 pb-24 sm:pb-28 lg:pb-36 bg-[#FDF0D5] text-[#171313] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#5B1111]/30 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.28)] overflow-hidden"
+      className="relative z-[16] -mt-10 sm:-mt-12 lg:-mt-14 pt-16 sm:pt-22 lg:pt-28 pb-24 sm:pb-28 lg:pb-36 bg-[#FDF0D5] text-[#171313] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#5B1111]/30 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.28)] overflow-hidden"
     >
       {/* Subtle warm radial chamber depth */}
       <div
@@ -403,7 +403,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
             </h2>
 
             <p className="font-sans text-[15.5px] sm:text-[17px] text-[#171313]/80 leading-[1.65] font-normal mt-3">
-              Authoritative commentary, procedural guides, and statutory analysis on Pakistani law prepared by the advocates of Qadeer Law Chamber.
+              Authoritative commentary, procedural guides, and statutory analysis on Pakistani law prepared by the advocates of Qadeer Legal Chambers.
             </p>
           </div>
 
@@ -591,7 +591,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
             </div>
             <div>
               <div className="font-serif text-lg sm:text-xl font-semibold text-[#171313]">
-                Explore the Complete Qadeer Law Chamber Publication Archive
+                Explore the Complete Qadeer Legal Chambers Publication Archive
               </div>
               <div className="font-sans text-[13px] text-[#6D6260]">
                 Browse all {INSIGHTS_DATA.length} in-depth legal blogs, statutory guides, and cross-border commentaries on a dedicated page.

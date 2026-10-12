@@ -1,5 +1,5 @@
 /**
- * Qadeer Law Firm - Hero Section Configuration
+ * Qadeer Legal Chambers - Hero Section Configuration
  * Centralized, independently replaceable configuration for all hero imagery,
  * branding, navigation, copy, and visual parameters.
  */
@@ -62,7 +62,7 @@ export const heroConfig: HeroConfig = {
   leftBackground: heroLeftBg,
   rightBackground: heroRightBg,
   lawyerImage: heroLawyerCutout,
-  logo: "https://i.ibb.co/q33k22Wt/Golden-QLC-Scales-Emblem.png",
+  logo: logoTight,
 
   // Brand Palette
   colors: {
@@ -78,20 +78,20 @@ export const heroConfig: HeroConfig = {
 
   // Eyebrow badge
   eyebrow: {
-    text: "LOCAL EXPERTISE. GLOBAL COUNSEL.",
+    text: "QADEER LEGAL CHAMBERS",
     icon: "Scale",
   },
 
   // Large editorial headline
   headline: {
-    line1: "Your Trusted",
-    line2: "Partner For Legal",
-    line3: "Solutions",
+    line1: "Local Expertise.",
+    line2: "Global Counsel.",
+    line3: "Advocates • Litigation • Legal Advisory",
   },
 
   // Supporting copy
   supportingText:
-    "Experienced legal guidance for individuals and businesses, focused on clear advice, strategic representation, and practical solutions.",
+    "Providing courtroom litigation, Pakistani-law advisory, and dependable local-counsel services in Pakistan for individuals, businesses, overseas Pakistanis, and international law firms.",
 
   // CTAs
   primaryCTA: {
@@ -106,8 +106,8 @@ export const heroConfig: HeroConfig = {
   // Navigation (top-right)
   navigation: [
     { label: "About", href: "#about" },
+    { label: "Principal", href: "#principal-advocate" },
     { label: "Practice Areas", href: "#practice-areas" },
-    { label: "Testimonials", href: "#testimonials" },
     { label: "Insights", href: "#insights" },
     { label: "Contact", href: "#contact" },
   ],

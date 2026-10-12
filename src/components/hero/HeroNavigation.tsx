@@ -25,16 +25,16 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
           */}
           <div className="w-full lg:w-[53%] xl:w-[52%] px-6 sm:px-10 lg:pl-12 lg:pr-2 xl:pr-4 flex justify-center lg:justify-end">
             <div className="w-full max-w-[580px] xl:max-w-[620px] flex items-center justify-between">
-              {/* Qadeer Law Chamber Logo aligned with HeroContent start */}
+              {/* Qadeer Legal Chambers Logo aligned with HeroContent start */}
               <a
                 href="#hero"
                 className="inline-flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded-lg transition-transform duration-200 hover:scale-[1.02]"
-                aria-label="Qadeer Law Chamber - Home"
+                aria-label="Qadeer Legal Chambers - Home"
               >
                 <img
                   src={logoSrc}
-                  alt="Qadeer Law Chamber Logo"
-                  className={`h-14 sm:h-16 lg:h-20 w-auto object-contain object-left drop-shadow-md shrink-0 ${
+                  alt="Qadeer Legal Chambers Logo"
+                  className={`h-16 sm:h-20 lg:h-24 w-auto object-contain object-left drop-shadow-md shrink-0 ${
                     isProcessed ? '' : 'mix-blend-screen'
                   }`}
                 />
@@ -90,12 +90,17 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                 <div className="flex items-center gap-2">
                   <img
                     src={logoSrc}
-                    alt="Qadeer Law Chamber"
+                    alt="Qadeer Legal Chambers"
                     className="h-9 sm:h-10 w-auto object-contain shrink-0"
                   />
-                  <span className="font-serif font-semibold text-base sm:text-lg tracking-[-0.01em] text-[#5B1111] leading-tight">
-                    Qadeer Law Chamber
-                  </span>
+                  <div>
+                    <span className="font-serif font-semibold text-base sm:text-lg tracking-[-0.01em] text-[#5B1111] leading-tight block">
+                      Qadeer Legal Chambers
+                    </span>
+                    <span className="font-sans text-[9.5px] uppercase tracking-[0.14em] text-[#6D6260] font-semibold block">
+                      Advocates • Litigation • Legal Advisory
+                    </span>
+                  </div>
                 </div>
                 <button
                   type="button"

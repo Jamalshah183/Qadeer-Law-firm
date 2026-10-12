@@ -22,7 +22,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
   if (!isOpen) return null;
 
   const whatsappText = selectedPractice
-    ? `Assalam-o-Alaikum Qadeer Law Chamber, I would like to schedule a legal consultation regarding ${selectedPractice}.`
+    ? `Assalam-o-Alaikum Qadeer Legal Chambers, I would like to schedule a legal consultation regarding ${selectedPractice}.`
     : FIRM_CONFIG.whatsappMessage;
 
   const whatsappUrl = `https://wa.me/${FIRM_CONFIG.contact.whatsappNumber}?text=${encodeURIComponent(
@@ -66,7 +66,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             Connect Directly via WhatsApp
           </h3>
           <p className="font-sans text-[13px] text-[#FDF0D5]/80 mt-1">
-            Zero forms to fill. Speak directly with Qadeer Law Chamber on WhatsApp.
+            Zero forms to fill. Speak directly with Qadeer Legal Chambers on WhatsApp.
           </p>
         </div>
 

@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
 
-let cachedTransparentLogo: string | null = null;
-let pendingPromise: Promise<string> | null = null;
+const cachedLogos = new Map<string, string>();
+const pendingPromises = new Map<string, Promise<string>>();
 
-function processBlackBackgroundRemoval(src: string): Promise<string> {
-  if (cachedTransparentLogo) {
-    return Promise.resolve(cachedTransparentLogo);
+function processLogoTransparency(src: string): Promise<string> {
+  const cached = cachedLogos.get(src);
+  if (cached) {
+    return Promise.resolve(cached);
   }
-  if (pendingPromise) {
-    return pendingPromise;
+  const existingPromise = pendingPromises.get(src);
+  if (existingPromise) {
+    return existingPromise;
   }
 
-  pendingPromise = new Promise((resolve) => {
+  const promise = new Promise<string>((resolve) => {
     const img = new Image();
     img.crossOrigin = 'anonymous';
 
@@ -32,12 +34,23 @@ function processBlackBackgroundRemoval(src: string): Promise<string> {
         const imageData = ctx.getImageData(0, 0, w, h);
         const data = imageData.data;
 
+        // Inspect corner pixels to see if the PNG already has a transparent background
+        const tlIdx = (2 * w + 2) * 4;
+        const trIdx = (2 * w + Math.max(0, w - 3)) * 4;
+        const blIdx = (Math.max(0, h - 3) * w + 2) * 4;
+        const cornerAlpha = Math.max(data[tlIdx + 3], data[trIdx + 3], data[blIdx + 3]);
+        const cornerMaxRGB = Math.max(data[tlIdx], data[tlIdx + 1], data[tlIdx + 2]);
+        const cornerMinRGB = Math.min(data[tlIdx], data[tlIdx + 1], data[tlIdx + 2]);
+
         let minX = w;
         let minY = h;
         let maxX = 0;
         let maxY = 0;
 
-        // Unmix black background from golden emblem pixels
+        const isAlreadyTransparent = cornerAlpha < 30;
+        const isDarkBackground = !isAlreadyTransparent && cornerMaxRGB < 60;
+        const isLightBackground = !isAlreadyTransparent && cornerMinRGB > 220;
+
         const lowThreshold = 20;
         const highThreshold = 135;
 
@@ -48,21 +61,28 @@ function processBlackBackgroundRemoval(src: string): Promise<string> {
             const g = data[idx + 1];
             const b = data[idx + 2];
 
-            const maxC = Math.max(r, g, b);
+            if (isDarkBackground) {
+              const maxC = Math.max(r, g, b);
+              if (maxC <= lowThreshold) {
+                data[idx + 3] = 0;
+              } else if (maxC < highThreshold) {
+                const t = (maxC - lowThreshold) / (highThreshold - lowThreshold);
+                const smoothAlpha = t * t * (3 - 2 * t);
+                const unmix = Math.max(0.2, smoothAlpha);
 
-            if (maxC <= lowThreshold) {
-              data[idx + 3] = 0;
-            } else if (maxC < highThreshold) {
-              const t = (maxC - lowThreshold) / (highThreshold - lowThreshold);
-              const smoothAlpha = t * t * (3 - 2 * t);
-              const unmix = Math.max(0.2, smoothAlpha);
-
-              data[idx] = Math.min(255, Math.round(r / unmix));
-              data[idx + 1] = Math.min(255, Math.round(g / unmix));
-              data[idx + 2] = Math.min(255, Math.round(b / unmix));
-              data[idx + 3] = Math.round(smoothAlpha * 255);
-            } else {
-              data[idx + 3] = 255;
+                data[idx] = Math.min(255, Math.round(r / unmix));
+                data[idx + 1] = Math.min(255, Math.round(g / unmix));
+                data[idx + 2] = Math.min(255, Math.round(b / unmix));
+                data[idx + 3] = Math.round(smoothAlpha * 255);
+              } else {
+                data[idx + 3] = 255;
+              }
+            } else if (isLightBackground) {
+              const minC = Math.min(r, g, b);
+              const maxC = Math.max(r, g, b);
+              if (minC > 235 && maxC - minC < 20) {
+                data[idx + 3] = 0;
+              }
             }
 
             if (data[idx + 3] > 20) {
@@ -74,7 +94,9 @@ function processBlackBackgroundRemoval(src: string): Promise<string> {
           }
         }
 
-        ctx.putImageData(imageData, 0, 0);
+        if (isDarkBackground || isLightBackground) {
+          ctx.putImageData(imageData, 0, 0);
+        }
 
         // Tightly crop transparent margins so the emblem aligns cleanly
         if (maxX > minX && maxY > minY) {
@@ -91,37 +113,44 @@ function processBlackBackgroundRemoval(src: string): Promise<string> {
           if (outCtx) {
             outCtx.drawImage(canvas, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
             const resultUrl = outCanvas.toDataURL('image/png');
-            cachedTransparentLogo = resultUrl;
+            cachedLogos.set(src, resultUrl);
+            pendingPromises.delete(src);
             resolve(resultUrl);
             return;
           }
         }
 
         const fallbackUrl = canvas.toDataURL('image/png');
-        cachedTransparentLogo = fallbackUrl;
+        cachedLogos.set(src, fallbackUrl);
+        pendingPromises.delete(src);
         resolve(fallbackUrl);
       } catch {
+        pendingPromises.delete(src);
         resolve(src);
       }
     };
 
-    img.onerror = () => resolve(src);
+    img.onerror = () => {
+      pendingPromises.delete(src);
+      resolve(src);
+    };
     img.src = src;
   });
 
-  return pendingPromise;
+  pendingPromises.set(src, promise);
+  return promise;
 }
 
 export function useTransparentLogo(src: string) {
-  const [logoSrc, setLogoSrc] = useState<string>(cachedTransparentLogo || src);
-  const [isProcessed, setIsProcessed] = useState<boolean>(Boolean(cachedTransparentLogo));
+  const [logoSrc, setLogoSrc] = useState<string>(cachedLogos.get(src) || src);
+  const [isProcessed, setIsProcessed] = useState<boolean>(cachedLogos.has(src));
 
   useEffect(() => {
     let mounted = true;
-    processBlackBackgroundRemoval(src).then((processed) => {
+    processLogoTransparency(src).then((processed) => {
       if (mounted) {
         setLogoSrc(processed);
-        setIsProcessed(processed !== src);
+        setIsProcessed(true);
       }
     });
     return () => {

@@ -64,7 +64,7 @@ export const InternationalCounsel: React.FC = () => {
   const activePillar = COUNSEL_PILLARS[activeIndex];
   const ActiveIcon = activePillar.Icon;
 
-  const whatsappText = `Assalam-o-Alaikum Qadeer Law Chamber, I would like to inquire about International Counsel services regarding ${activePillar.title}.`;
+  const whatsappText = `Assalam-o-Alaikum Qadeer Legal Chambers, I would like to inquire about International Counsel services regarding ${activePillar.title}.`;
   const whatsappHref = `https://wa.me/${FIRM_CONFIG.contact.whatsappNumber}?text=${encodeURIComponent(
     whatsappText
   )}`;
@@ -72,7 +72,7 @@ export const InternationalCounsel: React.FC = () => {
   return (
     <section
       id="international-counsel"
-      className="relative z-[11] -mt-10 sm:-mt-12 lg:-mt-14 rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#C6A15B]/45 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.3)] overflow-hidden bg-[#3E0808]"
+      className="relative z-[13] -mt-10 sm:-mt-12 lg:-mt-14 rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#C6A15B]/45 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.3)] overflow-hidden bg-[#3E0808]"
     >
       {/* ======================================================================
           MOBILE-NATIVE INTERACTIVE DECK (lg:hidden)

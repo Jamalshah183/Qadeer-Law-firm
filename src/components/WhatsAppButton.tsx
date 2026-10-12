@@ -36,7 +36,7 @@ export const WhatsAppButton: React.FC = () => {
         rel="noopener noreferrer"
         onMouseEnter={() => setShowTooltip(true)}
         className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-[#FFF9EC] border-2 border-[#5B1111] shadow-lg hover:scale-106 active:scale-95 transition-transform duration-300 focus:outline-none focus:ring-3 focus:ring-[#C6A15B]"
-        aria-label="Chat with Qadeer Law Firm on WhatsApp"
+        aria-label="Chat with Qadeer Legal Chambers on WhatsApp"
         title="Direct WhatsApp Consultation"
       >
         {/* WhatsApp Icon with iconic color nestled inside cream & burgundy luxury bezel */}

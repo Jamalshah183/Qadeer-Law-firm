@@ -15,7 +15,7 @@ export const HeroLawyer: React.FC = () => {
         */}
         <img
           src={heroConfig.lawyerImage}
-          alt="Statue of Lady Justice - Qadeer Law Firm"
+          alt="Statue of Lady Justice - Qadeer Legal Chambers"
           referrerPolicy="no-referrer"
           className="h-[54vh] sm:h-[72vh] lg:h-[88vh] xl:h-[92vh] min-h-[400px] sm:min-h-[500px] lg:min-h-[720px] w-auto max-w-[85vw] sm:max-w-[88vw] lg:max-w-none object-contain object-top drop-shadow-[0_24px_42px_rgba(0,0,0,0.45)] pointer-events-auto transition-transform duration-300"
           loading="eager"

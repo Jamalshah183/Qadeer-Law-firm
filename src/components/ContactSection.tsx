@@ -18,7 +18,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialPracticeA
   }, [initialPracticeArea]);
 
   const whatsappText = selectedTopic
-    ? `Assalam-o-Alaikum Qadeer Law Firm, I would like to request a legal consultation regarding ${selectedTopic}.`
+    ? `Assalam-o-Alaikum Qadeer Legal Chambers, I would like to request a legal consultation regarding ${selectedTopic}.`
     : FIRM_CONFIG.whatsappMessage;
 
   const whatsappHref = `https://wa.me/${FIRM_CONFIG.contact.whatsappNumber}?text=${encodeURIComponent(

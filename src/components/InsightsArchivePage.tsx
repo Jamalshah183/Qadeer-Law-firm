@@ -107,12 +107,12 @@ export const InsightsArchivePage: React.FC<InsightsArchivePageProps> = ({
               onNavigateHome();
             }}
             className="inline-flex items-center whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded-lg"
-            aria-label="Qadeer Law Chamber - Home"
+            aria-label="Qadeer Legal Chambers - Home"
           >
             <img
               src={logoSrc}
-              alt="Qadeer Law Chamber"
-              className={`h-12 sm:h-16 w-auto object-contain shrink-0 ${
+              alt="Qadeer Legal Chambers"
+              className={`h-16 sm:h-20 w-auto object-contain shrink-0 ${
                 isProcessed ? '' : 'mix-blend-screen'
               }`}
             />
@@ -191,7 +191,7 @@ export const InsightsArchivePage: React.FC<InsightsArchivePageProps> = ({
             <div className="inline-flex items-center gap-2 mb-3">
               <Scale className="w-4 h-4 text-[#C6A15B]" aria-hidden="true" />
               <span className="font-sans text-[10.5px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#C6A15B]">
-                QADEER LAW CHAMBER · KNOWLEDGE ARCHIVE
+                QADEER LEGAL CHAMBERS · KNOWLEDGE ARCHIVE
               </span>
             </div>
 

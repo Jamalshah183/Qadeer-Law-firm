@@ -12,29 +12,41 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) 
     <div className="w-full lg:w-[53%] xl:w-[52%] px-6 sm:px-10 lg:pl-12 lg:pr-2 xl:pr-4 z-[5] flex justify-center lg:justify-end pt-0 pb-4 sm:pb-6 shrink-0 self-start">
       <div className="w-full max-w-[580px] xl:max-w-[620px] flex flex-col justify-start text-left">
       {/* 
-        Eyebrow Badge:
-        Height ~40px, pill shape, subtle translucent glass border, small gold scale icon, cream text
+        1. Chamber Identity Eyebrow:
+        QADEER LEGAL CHAMBERS
       */}
-      <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 h-[36px] sm:h-[40px] rounded-full bg-white/15 border border-white/20 text-[#FDF0D5] font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.14em] mb-3.5 sm:mb-6 w-fit shadow-xs">
+      <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 h-[36px] sm:h-[38px] rounded-full bg-white/15 border border-[#C6A15B]/35 text-[#FDF0D5] font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.16em] mb-4 sm:mb-5 w-fit shadow-xs">
         <Scale className="w-4 h-4 text-[#C6A15B] shrink-0" aria-hidden="true" />
         <span>{heroConfig.eyebrow.text}</span>
       </div>
 
       {/* 
-        Editorial Serif Headline:
-        Strictly 3 lines, authoritative & elegant.
+        2. Main Positioning Headline:
+        LOCAL EXPERTISE. GLOBAL COUNSEL.
       */}
-      <h1 className="text-[2.2rem] sm:text-[2.85rem] md:text-[3.35rem] lg:text-[3.85rem] xl:text-[4.3rem] 2xl:text-[4.65rem] font-serif font-semibold text-[#FDF0D5] leading-[1.02] tracking-[-0.02em] mb-3.5 sm:mb-6">
+      <h1 className="text-[2.3rem] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.45rem] font-serif font-semibold text-[#FDF0D5] leading-[1.03] tracking-[-0.02em] mb-3 sm:mb-4">
         <span className="block whitespace-nowrap">{heroConfig.headline.line1}</span>
-        <span className="block whitespace-nowrap">{heroConfig.headline.line2}</span>
-        <span className="block whitespace-nowrap">{heroConfig.headline.line3}</span>
+        <span className="block whitespace-nowrap text-[#C6A15B] italic font-medium">
+          {heroConfig.headline.line2}
+        </span>
       </h1>
 
       {/* 
-        Supporting Text:
-        16–18px desktop, comfortable line-height (1.55–1.7).
+        3. Core Practice Positioning Line:
+        Advocates • Litigation • Legal Advisory
       */}
-      <p className="font-sans text-[15px] sm:text-[17px] lg:text-[17.5px] text-[#FDF0D5]/90 max-w-[500px] leading-[1.58] sm:leading-[1.65] mb-5 sm:mb-8 font-normal">
+      <div className="flex items-center gap-3 mb-4 sm:mb-5">
+        <span className="h-[1.5px] w-7 bg-[#C6A15B] shrink-0" aria-hidden="true" />
+        <p className="font-sans text-[11.5px] sm:text-[13px] lg:text-[13.5px] uppercase tracking-[0.16em] text-[#FDF0D5] font-bold">
+          {heroConfig.headline.line3}
+        </p>
+      </div>
+
+      {/* 
+        4. Short Explanatory Sentence:
+        Explaining that the chambers provides litigation, advisory, and local-counsel services in Pakistan.
+      */}
+      <p className="font-sans text-[15px] sm:text-[16.5px] lg:text-[17px] text-[#FDF0D5]/90 max-w-[520px] leading-[1.6] sm:leading-[1.65] mb-6 sm:mb-8 font-normal">
         {heroConfig.supportingText}
       </p>
 

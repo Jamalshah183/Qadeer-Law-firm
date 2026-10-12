@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Lenis from 'lenis';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
+import { PrincipalAdvocateSection } from './components/PrincipalAdvocateSection';
+import { PracticeAreasSection } from './components/PracticeAreasSection';
 import { InternationalCounsel } from './components/InternationalCounsel';
 import { ExperienceStrategyResults } from './components/ExperienceStrategyResults';
 import { Testimonials } from './components/Testimonials';
@@ -89,8 +91,7 @@ export default function App() {
     const targetEl = document.querySelector(cleanHash) as HTMLElement | null;
     if (!targetEl) return;
 
-    // #practice-areas is an inner block inside #about, so give it a 32px top breathing offset
-    const offset = cleanHash === '#practice-areas' ? -32 : 0;
+    const offset = 0;
 
     if (lenis) {
       lenis.scrollTo(targetEl, { offset, lerp: 0.1 });
@@ -243,6 +244,16 @@ export default function App() {
       ? INSIGHTS_DATA.find((item) => item.slug === route.slug) || INSIGHTS_DATA[0]
       : null;
 
+  useEffect(() => {
+    if (route.view === 'insight-detail' && activePost) {
+      document.title = `${activePost.title} | Qadeer Legal Chambers`;
+    } else if (route.view === 'insights-archive') {
+      document.title = 'Legal Insights & Publications | Qadeer Legal Chambers';
+    } else {
+      document.title = 'Qadeer Legal Chambers | Advocates • Litigation • Legal Advisory';
+    }
+  }, [route.view, activePost]);
+
   return (
     <div className="min-h-screen bg-[#3E0808] text-[#171313] selection:bg-[#5B1111] selection:text-[#FDF0D5] font-sans">
       <main
@@ -254,31 +265,39 @@ export default function App() {
             {/* 1. Hero Section with Top Navigation in its actual position */}
             <Hero onOpenConsultation={() => handleOpenConsultation()} />
 
-            {/* 2. Merged About Us & Practice Areas Section */}
+            {/* 2. About & Credibility Section */}
             <AboutSection
               onOpenConsultation={() => handleOpenConsultation()}
               onSelectPracticeForConsultation={handlePracticeSelectedForContact}
             />
 
-            {/* 3. International Counsel — Pakistan Legal Partner Section */}
+            {/* 3. Principal Advocate Section */}
+            <PrincipalAdvocateSection />
+
+            {/* 4. Practice Areas Section */}
+            <PracticeAreasSection
+              onSelectPracticeForConsultation={handlePracticeSelectedForContact}
+            />
+
+            {/* 5. International Counsel — Pakistan Legal Partner Section */}
             <InternationalCounsel />
 
-            {/* 4. Experience / Strategy / Results Section */}
+            {/* 6. Why Choose Us — Experience / Strategy / Results Section */}
             <ExperienceStrategyResults />
 
-            {/* 5. Client Testimonials */}
+            {/* 7. Client Testimonials */}
             <Testimonials />
 
-            {/* 6. Legal Insights & Publications Section */}
+            {/* 8. Legal Insights & Publications Section */}
             <InsightsSection
               onNavigateToAllInsights={navigateToAllInsights}
               onNavigateToPost={navigateToPost}
             />
 
-            {/* 7. FAQ Accordion */}
+            {/* 9. FAQ Accordion */}
             <FAQ />
 
-            {/* 8. Team Members Section (Last section of main — scrolls up to reveal Footer) */}
+            {/* 10. Board of Directors Section (Last section of main — scrolls up to reveal Footer) */}
             <TeamSection />
           </>
         )}

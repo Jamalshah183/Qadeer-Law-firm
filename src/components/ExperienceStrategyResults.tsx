@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scale, Compass, Award, ArrowDown } from 'lucide-react';
+import { Scale, Compass, Award, ArrowDown, ShieldCheck, MessageSquare } from 'lucide-react';
 import { FIRM_CONFIG } from '../data/firmData';
 
 const PATH_ICONS = [Scale, Compass, Award];
@@ -9,22 +9,32 @@ const PATH_PHASES = [
   'Phase 03 · Decisive Resolution',
 ];
 
+const BENEFIT_ICONS: Record<string, React.ElementType> = {
+  ShieldCheck,
+  MessageSquare,
+  Compass,
+  Scale,
+};
+
 export const ExperienceStrategyResults: React.FC = () => {
   return (
-    <section className="relative z-[12] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#5B1111] text-[#FDF0D5] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#C6A15B]/35 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.35)] overflow-hidden">
+    <section
+      id="approach"
+      className="relative z-[14] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#5B1111] text-[#FDF0D5] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#C6A15B]/35 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.35)] overflow-hidden"
+    >
       {/* Subtle radial gold/burgundy ambient depth */}
       <div
         className="absolute inset-0 bg-radial from-[#C6A15B]/8 via-transparent to-[#3E0808]/50 pointer-events-none"
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="why-choose-us" className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
           <div className="inline-flex items-center gap-3 mb-4">
             <span className="h-[1px] w-8 bg-[#C6A15B]" aria-hidden="true" />
             <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#C6A15B]">
-              CORE ADVOCACY PILLARS
+              WHY CHOOSE QADEER LEGAL CHAMBERS
             </span>
             <span className="h-[1px] w-8 bg-[#C6A15B]" aria-hidden="true" />
           </div>
@@ -35,16 +45,46 @@ export const ExperienceStrategyResults: React.FC = () => {
             <span className="italic font-normal text-[#FFF9EC]">Results.</span>
           </h2>
 
-          <p className="font-sans text-[16px] sm:text-[17px] text-[#FDF0D5]/85 leading-[1.65] font-normal max-w-xl mx-auto">
-            A clear, structured three-stage path guiding your legal matter from initial case evaluation to courtroom resolution.
+          <p className="font-sans text-[16px] sm:text-[17px] text-[#FDF0D5]/85 leading-[1.65] font-normal max-w-2xl mx-auto">
+            Why Pakistani clients, commercial enterprises, overseas Pakistanis, and international law firms instruct our chambers for contentious and advisory mandates.
           </p>
         </div>
 
-        {/* Connected Path Layout */}
-        <div className="relative">
+        {/* 4 Client-Care Standards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14 sm:mb-18">
+          {FIRM_CONFIG.benefits.map((benefit, idx) => {
+            const IconComp = BENEFIT_ICONS[benefit.icon] || ShieldCheck;
+            return (
+              <div
+                key={benefit.id}
+                className="bg-[#3E0808]/75 border border-[#C6A15B]/30 rounded-2xl p-6 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="w-10 h-10 rounded-xl bg-[#5B1111] border border-[#C6A15B]/40 flex items-center justify-center text-[#C6A15B]">
+                      <IconComp className="w-5 h-5" aria-hidden="true" />
+                    </span>
+                    <span className="font-serif text-xl font-bold text-[#C6A15B] tabular-nums">
+                      0{idx + 1}
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#FDF0D5] leading-snug mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="font-sans text-[14px] text-[#FDF0D5]/80 leading-[1.6] font-normal">
+                    {benefit.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Connected 3-Stage Path Layout */}
+        <div className="relative pt-10 sm:pt-12 border-t border-[#C6A15B]/25">
           {/* Desktop Horizontal Connecting Path Line & Curve (lg and above) */}
           <div
-            className="hidden lg:block absolute top-[44px] left-[16%] right-[16%] h-[2px] z-0"
+            className="hidden lg:block absolute top-[88px] left-[16%] right-[16%] h-[2px] z-0"
             aria-hidden="true"
           >
             {/* Dashed gold track */}
@@ -66,7 +106,6 @@ export const ExperienceStrategyResults: React.FC = () => {
                 >
                   {/* Path Node Medallion */}
                   <div className="relative flex items-center justify-center mb-6">
-                    {/* Outer pulse ring on hover */}
                     <div
                       className="w-[88px] h-[88px] rounded-full bg-[#3E0808] border-2 border-[#C6A15B] shadow-[0_0_30px_rgba(198,161,91,0.22)] flex flex-col items-center justify-center transition-transform duration-300 group-hover:scale-105"
                     >

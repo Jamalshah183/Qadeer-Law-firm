@@ -1,5 +1,5 @@
 /**
- * Qadeer Law Chamber - Legal Insights, Blogs & Publications Data
+ * Qadeer Legal Chambers - Legal Insights, Blogs & Publications Data
  * Each insight has a unique slug and dedicated route (/insights/:slug),
  * person-free editorial legal still-life imagery, and substantive Pakistani law analysis.
  */
@@ -68,7 +68,7 @@ export const INSIGHTS_DATA: InsightPost[] = [
     author: {
       name: 'Mian Qadeer Hussain',
       role: 'CEO & Founder',
-      credentials: 'Advocate High Court · Qadeer Law Chamber',
+      credentials: 'Advocate High Court · Qadeer Legal Chambers',
     },
     excerpt:
       'Real estate acquisitions and ancestral land holdings in Pakistan require rigorous verification across Sub-Registrar records, revenue mutations (Intiqal), and development authority registries before any capital commitment.',
@@ -126,7 +126,7 @@ export const INSIGHTS_DATA: InsightPost[] = [
     author: {
       name: 'Mian Qadeer Hussain',
       role: 'CEO & Founder',
-      credentials: 'Advocate High Court · Qadeer Law Chamber',
+      credentials: 'Advocate High Court · Qadeer Legal Chambers',
     },
     excerpt:
       'How private limited companies, family-owned enterprises, and cross-border joint ventures can prevent boardroom deadlocks by aligning Shareholder Agreements with Articles of Association.',
@@ -183,7 +183,7 @@ export const INSIGHTS_DATA: InsightPost[] = [
     author: {
       name: 'Mian Qadeer Hussain',
       role: 'CEO & Founder',
-      credentials: 'Advocate High Court · Qadeer Law Chamber',
+      credentials: 'Advocate High Court · Qadeer Legal Chambers',
     },
     excerpt:
       'Understanding the procedural distinction between Succession Certificates for bank accounts and securities versus Letters of Administration for real estate, including biometric verification for overseas legal heirs.',
@@ -241,7 +241,7 @@ export const INSIGHTS_DATA: InsightPost[] = [
     author: {
       name: 'Mian Qadeer Hussain',
       role: 'CEO & Founder',
-      credentials: 'Advocate High Court · Qadeer Law Chamber',
+      credentials: 'Advocate High Court · Qadeer Legal Chambers',
     },
     excerpt:
       'A practical guide for international law firms in London, Dubai, New York, and Europe requiring authoritative Pakistani-law opinions, evidentiary verification, or enforcement of foreign judgments.',
@@ -263,7 +263,7 @@ export const INSIGHTS_DATA: InsightPost[] = [
         heading: '01. Expert Pakistani-Law Opinions for Foreign Proceedings',
         paragraphs: [
           'International commercial, family, and insolvency disputes frequently turn on questions of Pakistani statutory or personal law—ranging from the validity of corporate guarantees and land titles in Pakistan to jurisdiction, limitation periods, and succession rights. Foreign courts treat Pakistani law as a question of fact to be proven through qualified expert evidence.',
-          'When instructed by overseas solicitors or King’s Counsel, Qadeer Law Chamber prepares structured, court-compliant Expert Opinions and joint memoranda that address the precise issue list framed by the foreign tribunal, supported by certified copies of statutes and reported judgments (PLD, SCMR, CLD, and CLC).',
+          'When instructed by overseas solicitors or King’s Counsel, Qadeer Legal Chambers prepares structured, court-compliant Expert Opinions and joint memoranda that address the precise issue list framed by the foreign tribunal, supported by certified copies of statutes and reported judgments (PLD, SCMR, CLD, and CLC).',
         ],
       },
       {
@@ -298,7 +298,7 @@ export const INSIGHTS_DATA: InsightPost[] = [
     author: {
       name: 'Mian Qadeer Hussain',
       role: 'CEO & Founder',
-      credentials: 'Advocate High Court · Qadeer Law Chamber',
+      credentials: 'Advocate High Court · Qadeer Legal Chambers',
     },
     excerpt:
       'In high-stakes civil and commercial litigation, securing or vacating an ad-interim stay order at the threshold stage often shapes the strategic trajectory of the entire dispute.',
