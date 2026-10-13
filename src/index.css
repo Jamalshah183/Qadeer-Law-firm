@@ -126,6 +126,11 @@ h1, h2, h3, h4, h5, h6, .font-editorial, .font-serif, .font-display, .font-heade
   font-feature-settings: "kern" 1, "liga" 1;
 }
 
+h1.font-sans, h2.font-sans, h3.font-sans, h4.font-sans, h5.font-sans, h6.font-sans,
+h1.font-sans *, h2.font-sans *, h3.font-sans *, h4.font-sans *, h5.font-sans *, h6.font-sans * {
+  font-family: var(--font-body) !important;
+}
+
 h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
   font-family: inherit;
 }

@@ -1,238 +1,319 @@
-import React from 'react';
-import { Globe, Compass, Scale, ShieldCheck } from 'lucide-react';
-import { FIRM_CONFIG } from '../data/firmData';
+import React, { useState } from 'react';
+import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import neutralChambersImg from '../assets/images/chambers_architecture_neutral_1791853431656.jpg';
 
 interface AboutSectionProps {
   onOpenConsultation: () => void;
-  onSelectPracticeForConsultation: (practiceTitle: string) => void;
+  onSelectPracticeForConsultation?: (practiceTitle: string) => void;
 }
 
-const ABOUT_KEYPOINTS = [
-  {
-    title: 'Established Pakistani Practice',
-    subtitle: 'Chambers in Sialkot & Lahore appearing across Pakistan',
-    Icon: Scale,
-  },
-  {
-    title: 'Litigation & Legal Advisory',
-    subtitle: 'Courtroom advocacy, legal opinions & precision drafting',
-    Icon: Compass,
-  },
-  {
-    title: 'Domestic, Overseas & Foreign Clients',
-    subtitle: 'Serving individuals, enterprises & international firms',
-    Icon: Globe,
-  },
-  {
-    title: 'Confidential & Privileged Counsel',
-    subtitle: 'Strict bar ethics, transparency & partner attention',
-    Icon: ShieldCheck,
-  },
+const STATS_DATA = [
+  { value: '18+', label: 'Years Experience' },
+  { value: '1,250+', label: 'Cases Handled' },
+  { value: '340+', label: 'Corporate Matters' },
+  { value: '30+', label: 'Courts & Tribunals' },
+  { value: '98%', label: 'Client Satisfaction' },
 ];
 
 const CREDIBILITY_PILLARS = [
   {
     number: '01',
-    question: 'Who We Are',
-    titleMain: 'Established Pakistani',
+    tabLabel: 'Who We Are',
+    question: 'WHO WE ARE',
+    titleMain: 'Established',
     titleAccent: 'Legal Practice',
-    description:
-      'Operating from chambers in Sialkot and Lahore, Qadeer Legal Chambers brings disciplined procedural command before High Courts, District & Sessions Courts, and specialized tribunals.',
-    footerMeta: 'Sialkot · Lahore · High Courts',
-    Icon: Scale,
+    bullets: [
+      'Dual chambers in Sialkot & Lahore',
+      'High Courts & appellate bench counsel',
+      'Direct senior partner advocacy',
+    ],
   },
   {
     number: '02',
-    question: 'What We Excel At',
-    titleMain: 'Litigation & Legal',
-    titleAccent: 'Advisory in Pakistan',
-    description:
-      'We combine trial and appellate litigation with authoritative Pakistani-law opinions, corporate and commercial structuring, property due diligence, and private-client estate representation.',
-    footerMeta: 'Trial · Appellate · Advisory',
-    Icon: Compass,
+    tabLabel: 'What We Excel At',
+    question: 'WHAT WE EXCEL AT',
+    titleMain: 'Litigation &',
+    titleAccent: 'Legal Advisory',
+    bullets: [
+      'Constitutional writs & stay orders',
+      'Corporate governance & SECP matters',
+      'Property title verification & disputes',
+    ],
   },
   {
     number: '03',
-    question: 'Who We Represent',
-    titleMain: 'Pakistani, Overseas &',
-    titleAccent: 'International Clients',
-    description:
-      'We represent Pakistani citizens, commercial businesses, non-resident overseas Pakistanis managing assets or disputes, and foreign law firms instructing local counsel in Pakistan.',
-    footerMeta: 'Domestic · Overseas · Global',
-    Icon: Globe,
+    tabLabel: 'Who We Represent',
+    question: 'WHO WE REPRESENT',
+    titleMain: 'Domestic &',
+    titleAccent: 'Global Counsel',
+    bullets: [
+      'Overseas Pakistanis in UK, US & Gulf',
+      'Corporate & family business groups',
+      'International law firm instructions',
+    ],
   },
 ];
 
-export const AboutSection: React.FC<AboutSectionProps> = () => {
+export const AboutSection: React.FC<AboutSectionProps> = ({
+  onOpenConsultation,
+}) => {
+  const [activePillarIndex, setActivePillarIndex] = useState(0);
+
+  const activePillar = CREDIBILITY_PILLARS[activePillarIndex];
+
+  const handlePrevPillar = () => {
+    setActivePillarIndex((prev) => (prev === 0 ? CREDIBILITY_PILLARS.length - 1 : prev - 1));
+  };
+
+  const handleNextPillar = () => {
+    setActivePillarIndex((prev) => (prev === CREDIBILITY_PILLARS.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <section
       id="about"
-      className="relative z-[10] -mt-16 sm:-mt-20 lg:-mt-24 xl:-mt-28 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#FFFFFF] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#9B112C]/20 shadow-[0_-25px_50px_-15px_rgba(155,17,44,0.12)] overflow-hidden"
+      className="relative z-[10] -mt-16 sm:-mt-20 lg:-mt-24 xl:-mt-28 pt-20 sm:pt-24 md:pt-28 pb-24 sm:pb-28 lg:pb-36 bg-[#FFFFFF] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#9B112C]/20 shadow-[0_-25px_50px_-15px_rgba(155,17,44,0.12)] overflow-hidden font-sans"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left Column: Distinguished Chambers Photograph */}
-          <div className="lg:col-span-5 relative order-2 lg:order-1">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              <div
-                className="absolute -top-3 -left-3 w-full h-full border border-[#E5B842]/55 rounded-2xl -z-10"
-                aria-hidden="true"
-              />
-              <div
-                className="absolute -bottom-3 -right-3 w-full h-full bg-[#9B112C]/10 rounded-2xl -z-10"
-                aria-hidden="true"
-              />
+        
+        {/* ====================================================================
+            1. INSPIRATION-ALIGNED CENTERED HEADER
+            ==================================================================== */}
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          {/* Centered Headline matching Hero typography */}
+          <h2 className="font-sans text-3xl sm:text-4xl lg:text-[2.85rem] font-bold text-[#0F172A] tracking-[-0.02em] leading-[1.12] mb-3.5 sm:mb-4">
+            Bringing Disciplined Advocacy &{' '}
+            <span className="font-sans italic font-semibold text-[#9B112C]">
+              Strategic Counsel
+            </span>{' '}
+            to Every Mandate
+          </h2>
 
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#9B112C]/20 aspect-[4/3.2] bg-[#6A0C1E] group">
-                <img
-                  src={FIRM_CONFIG.images.about}
-                  alt="Legal counsel reviewing case documents at Qadeer Legal Chambers"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#6A0C1E]/85 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-5 right-5 text-left">
-                  <div className="font-sans text-[11px] uppercase tracking-[0.14em] text-[#E5B842] font-bold">
-                    Sialkot · Lahore · Pakistan
-                  </div>
-                  <div className="font-serif text-lg text-white font-medium">
-                    High Court & District Court Chambers
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Centered Subtitle in Neue Haas Grotesk Display */}
+          <p className="font-sans text-[14.5px] sm:text-[16px] text-[#475569] leading-[1.65] font-normal max-w-2xl mx-auto">
+            Established Pakistani legal practice operating from chambers in Sialkot and Lahore—serving domestic clients, commercial enterprises, overseas Pakistanis, and international law firms.
+          </p>
+        </div>
 
-          {/* Right Column: About & Credibility Overview */}
-          <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col gap-6">
-            <div>
-              <div className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#9B112C] mb-2">
-                ABOUT THE CHAMBERS · CREDIBILITY & MANDATE
-              </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-semibold text-[#0F172A] tracking-[-0.015em] leading-[1.12] mb-3.5">
-                About Qadeer Legal Chambers —{' '}
-                <span className="italic font-medium text-[#9B112C]">
-                  Established Pakistani Legal Practice
-                </span>
-              </h2>
-              <p className="font-sans text-[15px] sm:text-[16px] text-[#475569] leading-[1.65] font-normal">
-                Qadeer Legal Chambers provides strategic courtroom litigation, Pakistani-law advisory, and local-counsel representation across Pakistan—serving domestic clients, commercial businesses, overseas Pakistanis, and instructing international law firms.
-              </p>
-            </div>
-
-            {/* Focused Keypoints List */}
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {ABOUT_KEYPOINTS.map((point, index) => {
-                const IconComponent = point.Icon;
-                return (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 font-sans text-[15px] sm:text-[16px] text-[#0F172A] leading-[1.4]"
-                  >
-                    <span className="w-8 h-8 rounded-full bg-[#9B112C] text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-                      <IconComponent className="w-4 h-4 text-[#E5B842]" aria-hidden="true" />
-                    </span>
-                    <div>
-                      <div className="font-semibold tracking-[0.01em] text-[#0F172A]">
-                        {point.title}
-                      </div>
-                      <div className="text-[13px] text-[#475569] font-normal mt-0.5">
-                        {point.subtitle}
-                      </div>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-
-            {/* Burgundy Firm Metrics Container */}
-            <div className="bg-gradient-to-br from-[#9B112C] via-[#850E23] to-[#6A0C1E] text-white p-5 sm:p-6 rounded-2xl border border-[#E5B842]/40 shadow-xl relative overflow-hidden">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 items-stretch">
-                {FIRM_CONFIG.statistics.map((stat) => (
-                  <div
-                    key={stat.id}
-                    className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 rounded-xl bg-[#6A0C1E]/50 border border-[#E5B842]/30 gap-2.5"
-                  >
-                    <div className="font-serif text-[2.35rem] sm:text-[2.75rem] lg:text-[3rem] font-semibold text-white leading-none tracking-[-0.02em] lining-nums tabular-nums flex items-center justify-center">
-                      {stat.value}
-                    </div>
-                    <div className="w-6 h-[1.5px] bg-[#E5B842] shrink-0" aria-hidden="true" />
-                    <div className="font-sans text-[12.5px] sm:text-[13.5px] font-medium tracking-[0.02em] text-white/95 leading-[1.35] flex items-center justify-center">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* ====================================================================
+            2. HERO FEATURED IMAGE (Gender-Neutral & Area-Neutral Law Chambers)
+            ==================================================================== */}
+        <div className="relative mb-6 sm:mb-8">
+          <div className="relative w-full aspect-[16/10] sm:aspect-[16/8.5] lg:aspect-[21/9] rounded-[24px] sm:rounded-[34px] lg:rounded-[42px] overflow-hidden shadow-xl border border-slate-200/90 bg-[#6A0C1E] group">
+            <img
+              src={neutralChambersImg}
+              alt="Qadeer Legal Chambers conference room and judicial law library"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+              loading="lazy"
+              referrerPolicy="no-referrer"
+            />
           </div>
         </div>
 
-        {/* 3-Column Chamber Positioning & Credibility Strip (Who We Are · What We Excel At · Who We Represent) */}
-        <div className="mt-14 sm:mt-16 pt-10 sm:pt-12 border-t border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {CREDIBILITY_PILLARS.map((pillar) => {
-            const PillarIcon = pillar.Icon;
-            return (
+        {/* ====================================================================
+            3. REFINED STATS BAR (Compact, premium, uniform Neue Haas numerals)
+            ==================================================================== */}
+        <div className="bg-white border border-slate-200/90 rounded-2xl py-3.5 sm:py-4 px-4 sm:px-6 shadow-[0_2px_8px_-2px_rgba(15,23,42,0.06)] mb-8 sm:mb-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-3 gap-x-2 sm:gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+            {STATS_DATA.map((stat, idx) => (
               <div
-                key={pillar.number}
-                className="group relative rounded-2xl bg-white border border-slate-200 hover:border-[#E5B842] shadow-[0_10px_30px_-10px_rgba(15,23,42,0.08)] hover:shadow-[0_20px_40px_-10px_rgba(155,17,44,0.18)] transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col justify-between"
+                key={stat.label}
+                className={`flex flex-col items-center justify-center text-center py-1 sm:py-0 ${
+                  idx === 4 ? 'col-span-2 sm:col-span-1 pt-2.5 sm:pt-0' : idx > 1 ? 'pt-2.5 sm:pt-0' : ''
+                } ${idx > 0 ? 'sm:pl-3 lg:pl-5' : ''}`}
               >
-                {/* Top Bright Royal Burgundy & Radiant Gold Header Bar */}
-                <div className="bg-[#9B112C] px-6 py-4 border-b border-[#E5B842]/40 flex items-center justify-between relative overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-gradient-to-r from-[#6A0C1E]/70 via-transparent to-[#6A0C1E]/40 pointer-events-none"
-                    aria-hidden="true"
-                  />
-                  <div className="relative z-10 flex items-center gap-3">
-                    <span className="w-9 h-9 rounded-full bg-[#6A0C1E] border border-[#E5B842]/50 flex items-center justify-center shrink-0 shadow-xs">
-                      <PillarIcon className="w-4 h-4 text-[#E5B842]" aria-hidden="true" />
-                    </span>
-                    <span className="font-sans text-[11px] sm:text-[11.5px] uppercase tracking-[0.16em] font-bold text-[#E5B842]">
-                      {pillar.question}
-                    </span>
-                  </div>
-
-                  <span className="relative z-10 font-serif text-2xl sm:text-[1.75rem] font-semibold italic text-white/95 leading-none tabular-nums">
-                    {pillar.number}
-                  </span>
+                <div className="font-sans text-xl sm:text-2xl lg:text-[1.65rem] font-bold text-[#0F172A] tracking-tight leading-none mb-1 [font-variant-numeric:lining-nums]">
+                  {stat.value}
                 </div>
-
-                {/* Bright Clean White Editorial Body */}
-                <div className="p-6 sm:p-7 bg-white flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-serif text-2xl sm:text-[1.65rem] font-semibold text-[#0F172A] group-hover:text-[#9B112C] tracking-[-0.015em] leading-[1.15] transition-colors">
-                      {pillar.titleMain}{' '}
-                      <span className="italic font-medium text-[#9B112C]">
-                        {pillar.titleAccent}
-                      </span>
-                    </h3>
-
-                    {/* Signature Gold Accent Rule */}
-                    <div
-                      className="w-10 h-[1.5px] bg-[#E5B842] group-hover:w-16 group-hover:bg-[#9B112C] transition-all duration-300 my-3.5"
-                      aria-hidden="true"
-                    />
-
-                    <p className="font-sans text-[14.5px] sm:text-[15px] text-[#475569] leading-[1.65] font-normal">
-                      {pillar.description}
-                    </p>
-                  </div>
-
-                  {/* Subtle Chamber Scope Footer */}
-                  <div className="mt-6 pt-3.5 border-t border-slate-100 flex items-center justify-between">
-                    <span className="font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#9B112C]/90">
-                      {pillar.footerMeta}
-                    </span>
-                    <span
-                      className="w-1.5 h-1.5 rounded-full bg-[#E5B842]"
-                      aria-hidden="true"
-                    />
-                  </div>
+                <div className="font-sans text-[11px] sm:text-[11.5px] font-semibold uppercase tracking-[0.08em] text-[#9B112C] leading-tight">
+                  {stat.label}
                 </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
+
+        {/* ====================================================================
+            4. MOBILE INTERACTIVE PILLAR SWITCHER (Eliminates long scrolling!)
+               Designed specifically for mobile devices with high attraction
+            ==================================================================== */}
+        {/* ====================================================================
+            4. MOBILE INTERACTIVE PILLAR SWITCHER (Eliminates long scrolling!)
+               Designed specifically for mobile devices with high attraction
+            ==================================================================== */}
+        <div className="block md:hidden">
+          <div className="mb-4">
+            <div className="flex items-center justify-between mb-2 px-1">
+              <span className="font-sans text-[11px] uppercase tracking-[0.2em] font-bold text-[#9B112C]">
+                Core Practice Mandate
+              </span>
+              <span className="font-sans text-xs font-semibold text-[#64748B]">
+                {activePillarIndex + 1} of {CREDIBILITY_PILLARS.length}
+              </span>
+            </div>
+
+            {/* Segmented Control Pill Tabs */}
+            <div className="grid grid-cols-3 gap-1.5 p-1.5 bg-slate-100/90 rounded-2xl border border-slate-200/90 shadow-inner">
+              {CREDIBILITY_PILLARS.map((pillar, idx) => (
+                <button
+                  key={pillar.number}
+                  type="button"
+                  onClick={() => setActivePillarIndex(idx)}
+                  className={`py-2 px-2 rounded-xl font-sans text-[11.5px] font-bold transition-all text-center cursor-pointer ${
+                    activePillarIndex === idx
+                      ? 'bg-gradient-to-r from-[#850E24] to-[#9B112C] text-white shadow-sm ring-1 ring-[#E5B842]/40'
+                      : 'text-[#475569] hover:text-[#0F172A] hover:bg-white/60'
+                  }`}
+                >
+                  {pillar.tabLabel}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Interactive Mobile Pillar Card */}
+          <div className="relative rounded-2xl bg-gradient-to-b from-white via-[#FDFCFA] to-[#FAF8F5] border-2 border-[#9B112C]/25 shadow-xl overflow-hidden transition-all duration-300">
+            {/* Top Gilded Accent Filigree */}
+            <div className="h-[3px] bg-gradient-to-r from-[#9B112C] via-[#E5B842] to-[#9B112C]" aria-hidden="true" />
+
+            {/* Card Header Strip with Deep Royal Burgundy - Center Aligned */}
+            <div className="bg-gradient-to-r from-[#6A0C1E] via-[#850E24] to-[#9B112C] px-5 py-3.5 border-b border-[#E5B842]/30 flex items-center justify-center text-center relative overflow-hidden">
+              <span className="relative z-10 font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#E5B842] drop-shadow-xs whitespace-nowrap truncate text-center">
+                {activePillar.question}
+              </span>
+            </div>
+
+            {/* Card Body - Center Aligned & Same Height */}
+            <div className="p-5 flex flex-col items-center justify-between text-center relative">
+              <div className="w-full flex flex-col items-center text-center">
+                {/* Title - Single Line, Center Aligned, matching Hero typography */}
+                <h3 className="font-sans text-xl sm:text-2xl font-bold text-[#0F172A] tracking-[-0.02em] leading-normal text-center whitespace-nowrap truncate w-full mb-0">
+                  <span className="inline font-sans">{activePillar.titleMain} </span>
+                  <span className="font-sans italic font-semibold text-[#9B112C] inline">
+                    {activePillar.titleAccent}
+                  </span>
+                </h3>
+
+                {/* Symmetrical Dual-Tone Divider - Center Aligned */}
+                <div className="flex items-center justify-center gap-2 my-3.5 w-full" aria-hidden="true">
+                  <div className="h-[1.5px] w-8 bg-gradient-to-r from-transparent via-[#9B112C] to-[#E5B842]" />
+                  <div className="w-1.5 h-1.5 rotate-45 bg-[#E5B842] shrink-0" />
+                  <div className="h-[1.5px] w-8 bg-gradient-to-l from-transparent via-[#9B112C] to-[#E5B842]" />
+                </div>
+
+                {/* Focused Key Points - Single Line per item, Center Aligned */}
+                <ul className="space-y-2 mb-5 w-full text-center">
+                  {activePillar.bullets.map((bullet, bIdx) => (
+                    <li
+                      key={bIdx}
+                      className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-slate-50/80 border border-slate-100 text-[#1E293B] w-full overflow-hidden text-center"
+                    >
+                      <span className="w-1.5 h-1.5 rotate-45 bg-[#9B112C] border border-[#E5B842] shrink-0" />
+                      <span className="font-sans text-[12.5px] font-medium whitespace-nowrap truncate text-center">
+                        {bullet}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Mobile Actions: Navigation Controls & Consultation CTA */}
+              <div className="relative z-10 pt-3 border-t border-slate-200/80 flex items-center justify-between gap-3 w-full">
+                <div className="flex items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={handlePrevPillar}
+                    aria-label="Previous pillar"
+                    className="p-2 rounded-xl border border-slate-200 bg-white text-[#0F172A] hover:bg-slate-100 active:bg-slate-200 transition-colors cursor-pointer shadow-xs"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNextPillar}
+                    aria-label="Next pillar"
+                    className="p-2 rounded-xl border border-slate-200 bg-white text-[#0F172A] hover:bg-slate-100 active:bg-slate-200 transition-colors cursor-pointer shadow-xs"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={onOpenConsultation}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#850E24] to-[#9B112C] text-white font-sans text-xs font-bold uppercase tracking-[0.05em] hover:from-[#6A0C1E] hover:to-[#850E24] active:scale-98 transition-all cursor-pointer shadow-sm ring-1 ring-[#E5B842]/30"
+                >
+                  <span>Book Consultation</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#E5B842]" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ====================================================================
+            5. DESKTOP 3-COLUMN CREDIBILITY GRID (For tablet & desktop screens)
+            ==================================================================== */}
+        <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          {CREDIBILITY_PILLARS.map((pillar) => (
+            <div
+              key={pillar.number}
+              className="group relative h-full rounded-2xl bg-gradient-to-b from-white via-[#FDFCFA] to-[#FAF8F5] border border-slate-200/90 hover:border-[#E5B842]/80 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.06)] hover:shadow-[0_20px_45px_-12px_rgba(155,17,44,0.18),0_0_0_1px_rgba(229,184,66,0.35)] transition-all duration-300 hover:-translate-y-1.5 overflow-hidden flex flex-col justify-between"
+            >
+              {/* Top Gilded Accent Filigree */}
+              <div className="h-[3px] bg-gradient-to-r from-[#9B112C] via-[#E5B842] to-[#9B112C] group-hover:h-[4px] transition-all shrink-0" aria-hidden="true" />
+
+              {/* Royal Burgundy & Radiant Gold Header Bar - Center Aligned */}
+              <div className="bg-gradient-to-r from-[#6A0C1E] via-[#850E24] to-[#9B112C] px-5 py-3.5 border-b border-[#E5B842]/30 flex items-center justify-center text-center relative overflow-hidden shrink-0">
+                <div
+                  className="absolute inset-0 bg-gradient-to-r from-[#6A0C1E]/60 via-transparent to-[#6A0C1E]/30 pointer-events-none"
+                  aria-hidden="true"
+                />
+                
+                {/* Eyebrow Label - Center Aligned, Single Line, Font Matching Hero */}
+                <span className="relative z-10 font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#E5B842] drop-shadow-xs whitespace-nowrap truncate text-center">
+                  {pillar.question}
+                </span>
+              </div>
+
+              {/* Editorial Card Body - Equal Dimensions, Center Aligned, Single Line Text */}
+              <div className="p-6 sm:p-7 flex-1 flex flex-col items-center justify-between text-center relative">
+                <div className="w-full flex flex-col items-center text-center">
+                  {/* Card Title - Single Line, Center Aligned, matching Hero typography */}
+                  <h3 className="font-sans text-lg sm:text-xl lg:text-[1.35rem] font-bold text-[#0F172A] group-hover:text-[#9B112C] tracking-[-0.02em] leading-normal text-center whitespace-nowrap truncate w-full transition-colors mb-0">
+                    <span className="inline font-sans">{pillar.titleMain} </span>
+                    <span className="font-sans italic font-semibold text-[#9B112C] inline">
+                      {pillar.titleAccent}
+                    </span>
+                  </h3>
+
+                  {/* Symmetrical Dual-Tone Divider - Center Aligned */}
+                  <div className="flex items-center justify-center gap-2 my-4 w-full" aria-hidden="true">
+                    <div className="h-[1.5px] w-8 lg:w-10 bg-gradient-to-r from-transparent via-[#9B112C] to-[#E5B842]" />
+                    <div className="w-1.5 h-1.5 rotate-45 bg-[#E5B842] shrink-0" />
+                    <div className="h-[1.5px] w-8 lg:w-10 bg-gradient-to-l from-transparent via-[#9B112C] to-[#E5B842]" />
+                  </div>
+
+                  {/* Focused Practice Points - Single Line per item, Center Aligned, Font Matching Hero */}
+                  <ul className="space-y-2.5 w-full text-center">
+                    {pillar.bullets.map((bullet, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-slate-50/80 border border-slate-100/90 group-hover:bg-white group-hover:border-[#E5B842]/30 transition-all duration-300 w-full overflow-hidden text-center"
+                      >
+                        <span className="w-1.5 h-1.5 rotate-45 bg-[#9B112C] border border-[#E5B842] shrink-0 group-hover:bg-[#E5B842] group-hover:border-[#9B112C] transition-colors" />
+                        <span className="font-sans text-[12.5px] lg:text-[13px] font-medium text-[#1E293B] whitespace-nowrap truncate text-center">
+                          {bullet}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

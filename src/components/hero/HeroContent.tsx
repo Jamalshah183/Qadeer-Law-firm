@@ -24,9 +24,9 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) 
         2. Main Positioning Headline:
         LOCAL EXPERTISE. GLOBAL COUNSEL.
       */}
-      <h1 className="text-[2.3rem] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.45rem] font-serif font-semibold text-white leading-[1.03] tracking-[-0.02em] mb-3 sm:mb-4 drop-shadow-sm">
-        <span className="block whitespace-nowrap">{heroConfig.headline.line1}</span>
-        <span className="block whitespace-nowrap text-[#E5B842] italic font-medium">
+      <h1 className="text-[2.3rem] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.45rem] font-sans font-bold text-white leading-[1.03] tracking-[-0.02em] mb-3 sm:mb-4 drop-shadow-sm">
+        <span className="block whitespace-nowrap font-sans">{heroConfig.headline.line1}</span>
+        <span className="block whitespace-nowrap text-[#E5B842] italic font-semibold font-sans">
           {heroConfig.headline.line2}
         </span>
       </h1>
