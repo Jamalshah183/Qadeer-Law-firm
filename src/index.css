@@ -1,9 +1,75 @@
 @import "tailwindcss";
 
+/* =========================================================================
+   STRICT 2-FONT DESIGN SYSTEM:
+   1. Header Font: "Feature Display"
+   2. Body Font:   "Neue Haas Grotesk Display"
+   Strictly no 3rd font anywhere in the project.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Feature Display";
+  font-style: normal;
+  font-weight: 400 900;
+  src: local("Feature Display"), local("Feature Display Regular"), local("FeatureDisplay-Regular"), local("FeatureDisplay");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Feature Display";
+  font-style: italic;
+  font-weight: 400 900;
+  src: local("Feature Display Italic"), local("Feature Display-Italic"), local("FeatureDisplay-Italic");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  font-style: normal;
+  font-weight: 300 400;
+  src: local("Neue Haas Grotesk Display"), local("Neue Haas Grotesk Display Pro"), url("https://fonts.cdnfonts.com/s/47998/NeueHaasDisplayLight.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  font-style: italic;
+  font-weight: 300 400;
+  src: local("Neue Haas Grotesk Display Italic"), local("Neue Haas Grotesk Display Pro Italic"), url("https://fonts.cdnfonts.com/s/47998/NeueHaasDisplayLightItalic.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Neue Haas Grotesk Display Medium"), local("Neue Haas Grotesk Display Pro Medium"), url("https://fonts.cdnfonts.com/s/47998/NeueHaasDisplayMed.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  font-style: normal;
+  font-weight: 600 700;
+  src: local("Neue Haas Grotesk Display Bold"), local("Neue Haas Grotesk Display Pro Bold"), url("https://fonts.cdnfonts.com/s/47998/NeueHaasDisplayBold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display";
+  font-style: normal;
+  font-weight: 800 900;
+  src: local("Neue Haas Grotesk Display Black"), local("Neue Haas Grotesk Display Pro Black"), url("https://fonts.cdnfonts.com/s/47998/NeueHaasDisplayBlack.woff") format("woff");
+  font-display: swap;
+}
+
 @theme {
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-header: "Feature Display", Georgia, serif;
+  --font-serif: "Feature Display", Georgia, serif;
+  --font-display: "Feature Display", Georgia, serif;
+  
+  --font-body: "Neue Haas Grotesk Display", "Neue Haas Grotesk Display Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Neue Haas Grotesk Display", "Neue Haas Grotesk Display Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
   --color-burgundy: #9B112C;
   --color-burgundy-deep: #6A0C1E;
@@ -47,7 +113,7 @@ html.lenis body {
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-feature-settings: "kern" 1, "liga" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -55,9 +121,17 @@ body {
   color: #0F172A;
 }
 
-h1, h2, h3, .font-editorial {
-  font-family: var(--font-serif);
+h1, h2, h3, h4, h5, h6, .font-editorial, .font-serif, .font-display, .font-header {
+  font-family: var(--font-header);
   font-feature-settings: "kern" 1, "liga" 1;
+}
+
+h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
+  font-family: inherit;
+}
+
+p, span, li, a, label, small, time, td, th, caption, button, input, textarea, select, .font-sans, .font-body {
+  font-family: var(--font-body);
 }
 
 /* Custom scrollbar */

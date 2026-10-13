@@ -566,7 +566,7 @@ export const InsightsArchivePage: React.FC<InsightsArchivePageProps> = ({
 
                         {/* Direct Permalink Path Display & Copy Button */}
                         <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 text-[11.5px] font-sans text-[#64748B]">
-                          <span className="truncate font-mono text-[11px] text-[#9B112C]/80">
+                          <span className="truncate font-sans text-[11px] font-medium text-[#9B112C]/80">
                             /insights/{post.slug}
                           </span>
                           <button

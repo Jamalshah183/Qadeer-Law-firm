@@ -154,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-base font-serif text-[#0F172A] hover:text-[#9B112C] py-2 transition-colors border-b border-slate-100 flex items-center justify-between"
+                    className="text-base font-sans font-medium text-[#0F172A] hover:text-[#9B112C] py-2 transition-colors border-b border-slate-100 flex items-center justify-between"
                   >
                     <span>{item.label}</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B842]" />
