@@ -33,34 +33,34 @@ export const Testimonials: React.FC = () => {
   return (
     <section
       id="testimonials"
-      className="relative z-[15] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#FFF9EC] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#5B1111]/25 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.25)] overflow-hidden"
+      className="relative z-[15] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#FFFFFF] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#9B112C]/20 shadow-[0_-25px_50px_-15px_rgba(155,17,44,0.10)] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="h-[1px] w-6 bg-[#C6A15B]" aria-hidden="true" />
-            <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#5B1111]">
+            <span className="h-[1px] w-6 bg-[#E5B842]" aria-hidden="true" />
+            <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#9B112C]">
               CLIENT TESTIMONIALS
             </span>
-            <span className="h-[1px] w-6 bg-[#C6A15B]" aria-hidden="true" />
+            <span className="h-[1px] w-6 bg-[#E5B842]" aria-hidden="true" />
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-[#171313] leading-[1.08] tracking-[-0.02em] mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-[#0F172A] leading-[1.08] tracking-[-0.02em] mb-4">
             Trusted by Those We Represent
           </h2>
 
-          <p className="font-sans text-[16px] sm:text-[17px] text-[#171313]/80 leading-[1.65] font-normal">
+          <p className="font-sans text-[16px] sm:text-[17px] text-[#475569] leading-[1.65] font-normal">
             Reflections from clients regarding our strategic representation, discretion, and courtroom advocacy.
           </p>
         </div>
 
         {/* Carousel Container */}
         <div className="max-w-4xl mx-auto">
-          <div className="relative bg-[#FFF9EC] rounded-2xl p-8 sm:p-12 md:p-16 border border-[#5B1111]/20 shadow-lg">
+          <div className="relative bg-slate-50 rounded-2xl p-8 sm:p-12 md:p-16 border border-slate-200/90 shadow-xl">
             {/* Burgundy Quotation Mark Icon */}
             <div className="absolute top-6 left-8 sm:top-10 sm:left-12">
-              <Quote className="w-12 h-12 sm:w-16 sm:h-16 text-[#5B1111]/25 -scale-x-100" />
+              <Quote className="w-12 h-12 sm:w-16 sm:h-16 text-[#9B112C]/15 -scale-x-100" />
             </div>
 
             <div className="relative z-10 pt-4 sm:pt-6">
@@ -76,7 +76,7 @@ export const Testimonials: React.FC = () => {
                     <blockquote
                       key={item.id}
                       aria-hidden={!isActive}
-                      className={`col-start-1 row-start-1 font-serif text-xl sm:text-2xl md:text-[1.75rem] font-medium italic text-[#171313] leading-[1.45] tracking-[-0.01em] ${
+                      className={`col-start-1 row-start-1 font-serif text-xl sm:text-2xl md:text-[1.75rem] font-medium italic text-[#0F172A] leading-[1.45] tracking-[-0.01em] ${
                         isActive ? 'visible opacity-100' : 'invisible opacity-0 pointer-events-none select-none'
                       }`}
                     >
@@ -87,12 +87,12 @@ export const Testimonials: React.FC = () => {
               </div>
 
               {/* Client Info Lockup */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-[#5B1111]/15">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-slate-200">
                 <div>
-                  <div className="font-serif text-lg sm:text-xl font-semibold tracking-[-0.01em] text-[#5B1111]">
+                  <div className="font-serif text-lg sm:text-xl font-semibold tracking-[-0.01em] text-[#9B112C]">
                     {current.clientName}
                   </div>
-                  <div className="font-sans text-[12px] font-medium text-[#6D6260] tracking-[0.03em] mt-0.5">
+                  <div className="font-sans text-[12px] font-medium text-[#475569] tracking-[0.03em] mt-0.5">
                     {current.matterArea} {current.location ? `· ${current.location}` : ''}
                   </div>
                 </div>
@@ -102,20 +102,20 @@ export const Testimonials: React.FC = () => {
                   <button
                     type="button"
                     onClick={prevSlide}
-                    className="p-2.5 rounded-full bg-[#FDF0D5] hover:bg-[#5B1111] hover:text-[#FDF0D5] text-[#5B1111] border border-[#5B1111]/20 transition-colors focus:outline-none focus:ring-2 focus:ring-[#C6A15B] cursor-pointer"
+                    className="p-2.5 rounded-full bg-white hover:bg-[#9B112C] hover:text-white text-[#0F172A] border border-slate-200 shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-[#E5B842] cursor-pointer"
                     aria-label="Previous testimonial"
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </button>
 
-                  <span className="font-sans text-[12px] font-semibold tracking-[0.05em] text-[#6D6260] px-2 tabular-nums">
+                  <span className="font-sans text-[12px] font-semibold tracking-[0.05em] text-[#475569] px-2 tabular-nums">
                     0{currentIndex + 1} / 0{FIRM_CONFIG.testimonials.length}
                   </span>
 
                   <button
                     type="button"
                     onClick={nextSlide}
-                    className="p-2.5 rounded-full bg-[#FDF0D5] hover:bg-[#5B1111] hover:text-[#FDF0D5] text-[#5B1111] border border-[#5B1111]/20 transition-colors focus:outline-none focus:ring-2 focus:ring-[#C6A15B] cursor-pointer"
+                    className="p-2.5 rounded-full bg-white hover:bg-[#9B112C] hover:text-white text-[#0F172A] border border-slate-200 shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-[#E5B842] cursor-pointer"
                     aria-label="Next testimonial"
                   >
                     <ChevronRight className="w-4 h-4" />
@@ -133,7 +133,7 @@ export const Testimonials: React.FC = () => {
                 type="button"
                 onClick={() => setCurrentIndex(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  currentIndex === i ? 'w-8 bg-[#5B1111]' : 'w-2 bg-[#5B1111]/25 hover:bg-[#5B1111]/50'
+                  currentIndex === i ? 'w-8 bg-[#9B112C]' : 'w-2 bg-slate-300 hover:bg-[#9B112C]/50'
                 }`}
                 aria-label={`Go to slide ${i + 1}`}
               />

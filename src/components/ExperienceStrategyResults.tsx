@@ -20,11 +20,11 @@ export const ExperienceStrategyResults: React.FC = () => {
   return (
     <section
       id="approach"
-      className="relative z-[14] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#5B1111] text-[#FDF0D5] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#C6A15B]/35 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.35)] overflow-hidden"
+      className="relative z-[14] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-gradient-to-b from-[#8C0E26] via-[#750B1F] to-[#5C0818] text-white rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#E5B842]/40 shadow-[0_-25px_50px_-15px_rgba(106,12,30,0.35)] overflow-hidden"
     >
       {/* Subtle radial gold/burgundy ambient depth */}
       <div
-        className="absolute inset-0 bg-radial from-[#C6A15B]/8 via-transparent to-[#3E0808]/50 pointer-events-none"
+        className="absolute inset-0 bg-radial from-[#E5B842]/10 via-transparent to-black/30 pointer-events-none"
         aria-hidden="true"
       />
 
@@ -32,20 +32,20 @@ export const ExperienceStrategyResults: React.FC = () => {
         {/* Centered Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
           <div className="inline-flex items-center gap-3 mb-4">
-            <span className="h-[1px] w-8 bg-[#C6A15B]" aria-hidden="true" />
-            <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#C6A15B]">
+            <span className="h-[1px] w-8 bg-[#E5B842]" aria-hidden="true" />
+            <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#E5B842]">
               WHY CHOOSE QADEER LEGAL CHAMBERS
             </span>
-            <span className="h-[1px] w-8 bg-[#C6A15B]" aria-hidden="true" />
+            <span className="h-[1px] w-8 bg-[#E5B842]" aria-hidden="true" />
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-[#FDF0D5] leading-[1.08] tracking-[-0.02em] mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-white leading-[1.08] tracking-[-0.02em] mb-4">
             Experience.{' '}
-            <span className="text-[#C6A15B]">Strategy.</span>{' '}
-            <span className="italic font-normal text-[#FFF9EC]">Results.</span>
+            <span className="text-[#E5B842]">Strategy.</span>{' '}
+            <span className="italic font-normal text-white">Results.</span>
           </h2>
 
-          <p className="font-sans text-[16px] sm:text-[17px] text-[#FDF0D5]/85 leading-[1.65] font-normal max-w-2xl mx-auto">
+          <p className="font-sans text-[16px] sm:text-[17px] text-white/90 leading-[1.65] font-normal max-w-2xl mx-auto">
             Why Pakistani clients, commercial enterprises, overseas Pakistanis, and international law firms instruct our chambers for contentious and advisory mandates.
           </p>
         </div>
@@ -57,21 +57,21 @@ export const ExperienceStrategyResults: React.FC = () => {
             return (
               <div
                 key={benefit.id}
-                className="bg-[#3E0808]/75 border border-[#C6A15B]/30 rounded-2xl p-6 flex flex-col justify-between"
+                className="bg-[#5C0818]/70 border border-[#E5B842]/30 rounded-2xl p-6 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="w-10 h-10 rounded-xl bg-[#5B1111] border border-[#C6A15B]/40 flex items-center justify-center text-[#C6A15B]">
+                    <span className="w-10 h-10 rounded-xl bg-[#8C0E26] border border-[#E5B842]/50 flex items-center justify-center text-[#E5B842]">
                       <IconComp className="w-5 h-5" aria-hidden="true" />
                     </span>
-                    <span className="font-serif text-xl font-bold text-[#C6A15B] tabular-nums">
+                    <span className="font-serif text-xl font-bold text-[#E5B842] tabular-nums">
                       0{idx + 1}
                     </span>
                   </div>
-                  <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#FDF0D5] leading-snug mb-2">
+                  <h3 className="font-serif text-xl sm:text-2xl font-semibold text-white leading-snug mb-2">
                     {benefit.title}
                   </h3>
-                  <p className="font-sans text-[14px] text-[#FDF0D5]/80 leading-[1.6] font-normal">
+                  <p className="font-sans text-[14px] text-white/85 leading-[1.6] font-normal">
                     {benefit.description}
                   </p>
                 </div>
@@ -81,16 +81,16 @@ export const ExperienceStrategyResults: React.FC = () => {
         </div>
 
         {/* Connected 3-Stage Path Layout */}
-        <div className="relative pt-10 sm:pt-12 border-t border-[#C6A15B]/25">
+        <div className="relative pt-10 sm:pt-12 border-t border-[#E5B842]/30">
           {/* Desktop Horizontal Connecting Path Line & Curve (lg and above) */}
           <div
             className="hidden lg:block absolute top-[88px] left-[16%] right-[16%] h-[2px] z-0"
             aria-hidden="true"
           >
             {/* Dashed gold track */}
-            <div className="w-full h-full border-t-2 border-dashed border-[#C6A15B]/55" />
+            <div className="w-full h-full border-t-2 border-dashed border-[#E5B842]/55" />
             {/* Glowing solid overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#C6A15B]/20 via-[#C6A15B] to-[#C6A15B]/20 opacity-40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#E5B842]/20 via-[#E5B842] to-[#E5B842]/20 opacity-40" />
           </div>
 
           {/* 3 Path Milestones */}
@@ -107,26 +107,26 @@ export const ExperienceStrategyResults: React.FC = () => {
                   {/* Path Node Medallion */}
                   <div className="relative flex items-center justify-center mb-6">
                     <div
-                      className="w-[88px] h-[88px] rounded-full bg-[#3E0808] border-2 border-[#C6A15B] shadow-[0_0_30px_rgba(198,161,91,0.22)] flex flex-col items-center justify-center transition-transform duration-300 group-hover:scale-105"
+                      className="w-[88px] h-[88px] rounded-full bg-[#5C0818] border-2 border-[#E5B842] shadow-[0_0_30px_rgba(229,184,66,0.30)] flex flex-col items-center justify-center transition-transform duration-300 group-hover:scale-105"
                     >
-                      <StepIcon className="w-7 h-7 text-[#FDF0D5]" aria-hidden="true" />
+                      <StepIcon className="w-7 h-7 text-white" aria-hidden="true" />
                     </div>
                   </div>
 
                   {/* Milestone Card */}
-                  <div className="w-full flex-1 bg-[#3E0808]/60 hover:bg-[#3E0808]/80 border border-[#C6A15B]/30 group-hover:border-[#C6A15B]/70 rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 flex flex-col justify-between">
+                  <div className="w-full flex-1 bg-[#5C0818]/70 hover:bg-[#5C0818]/90 border border-[#E5B842]/35 group-hover:border-[#E5B842]/75 rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 flex flex-col justify-between">
                     <div>
-                      <div className="font-sans text-[11px] uppercase tracking-[0.15em] text-[#C6A15B] font-bold mb-2">
+                      <div className="font-sans text-[11px] uppercase tracking-[0.15em] text-[#E5B842] font-bold mb-2">
                         {PATH_PHASES[index]}
                       </div>
 
-                      <h3 className="font-serif text-2xl sm:text-[1.85rem] font-semibold text-[#FDF0D5] tracking-[-0.01em] leading-[1.15] mb-3">
+                      <h3 className="font-serif text-2xl sm:text-[1.85rem] font-semibold text-white tracking-[-0.01em] leading-[1.15] mb-3">
                         {principle.title.charAt(0) + principle.title.slice(1).toLowerCase()}
                       </h3>
 
-                      <div className="w-10 h-[1.5px] bg-[#C6A15B]/60 mx-auto mb-4" aria-hidden="true" />
+                      <div className="w-10 h-[1.5px] bg-[#E5B842]/70 mx-auto mb-4" aria-hidden="true" />
 
-                      <p className="font-sans text-[15px] sm:text-[16px] text-[#FDF0D5]/85 leading-[1.65] font-normal">
+                      <p className="font-sans text-[15px] sm:text-[16px] text-white/90 leading-[1.65] font-normal">
                         {principle.description}
                       </p>
                     </div>
@@ -135,10 +135,10 @@ export const ExperienceStrategyResults: React.FC = () => {
                   {/* Mobile / Tablet Vertical Path Connector */}
                   {!isLast && (
                     <div
-                      className="lg:hidden flex flex-col items-center my-2 text-[#C6A15B]"
+                      className="lg:hidden flex flex-col items-center my-2 text-[#E5B842]"
                       aria-hidden="true"
                     >
-                      <div className="w-[2px] h-5 border-l-2 border-dashed border-[#C6A15B]/60" />
+                      <div className="w-[2px] h-5 border-l-2 border-dashed border-[#E5B842]/60" />
                       <ArrowDown className="w-4 h-4 -mt-1" />
                     </div>
                   )}

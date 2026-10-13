@@ -5,13 +5,15 @@
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
-  --color-burgundy: #5B1111;
-  --color-burgundy-deep: #3E0808;
-  --color-cream: #FDF0D5;
-  --color-cream-soft: #FFF9EC;
-  --color-gold: #C6A15B;
-  --color-dark: #171313;
-  --color-muted: #6D6260;
+  --color-burgundy: #9B112C;
+  --color-burgundy-deep: #6A0C1E;
+  --color-burgundy-vibrant: #B81D3C;
+  --color-cream: #FFFFFF;
+  --color-cream-soft: #F8FAFC;
+  --color-gold: #E5B842;
+  --color-gold-bright: #F5D061;
+  --color-dark: #0F172A;
+  --color-muted: #475569;
 }
 
 :root {
@@ -49,8 +51,8 @@ body {
   font-feature-settings: "kern" 1, "liga" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FDF0D5;
-  color: #171313;
+  background-color: #FFFFFF;
+  color: #0F172A;
 }
 
 h1, h2, h3, .font-editorial {
@@ -64,14 +66,14 @@ h1, h2, h3, .font-editorial {
 }
 
 ::-webkit-scrollbar-track {
-  background: #FDF0D5;
+  background: #F8FAFC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #5B1111;
+  background: #9B112C;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3E0808;
+  background: #6A0C1E;
 }

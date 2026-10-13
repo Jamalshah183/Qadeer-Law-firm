@@ -27,19 +27,19 @@ export const HeroBackground: React.FC = () => {
           aria-hidden="true"
         />
 
-        {/* Layer 2: Warm Cream / Subtle Gold gradient overlay */}
+        {/* Layer 2: Luminous Bright / Pearl highlight gradient overlay */}
         <div
           className="absolute inset-0 w-full h-full"
           style={{
             background:
-              'linear-gradient(180deg, #FDF0D5 0%, rgba(253, 240, 213, 0.45) 45%, #FDF0D5 95%)',
+              'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.70) 45%, #F8FAFC 95%)',
           }}
           aria-hidden="true"
         />
 
         {/* Soft radial highlight behind scales */}
         <div
-          className="absolute inset-0 w-full h-full bg-radial from-transparent via-[#FDF0D5]/20 to-[#FDF0D5]/70 pointer-events-none"
+          className="absolute inset-0 w-full h-full bg-radial from-white/30 via-white/50 to-[#F8FAFC]/90 pointer-events-none"
           aria-hidden="true"
         />
       </div>

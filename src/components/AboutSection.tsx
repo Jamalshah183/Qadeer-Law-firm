@@ -67,7 +67,7 @@ export const AboutSection: React.FC<AboutSectionProps> = () => {
   return (
     <section
       id="about"
-      className="relative z-[10] -mt-16 sm:-mt-20 lg:-mt-24 xl:-mt-28 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#FFF9EC] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#5B1111]/25 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.25)] overflow-hidden"
+      className="relative z-[10] -mt-16 sm:-mt-20 lg:-mt-24 xl:-mt-28 pt-20 sm:pt-24 md:pt-28 pb-28 md:pb-36 bg-[#FFFFFF] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] border-t-2 border-[#9B112C]/20 shadow-[0_-25px_50px_-15px_rgba(155,17,44,0.12)] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -75,15 +75,15 @@ export const AboutSection: React.FC<AboutSectionProps> = () => {
           <div className="lg:col-span-5 relative order-2 lg:order-1">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div
-                className="absolute -top-3 -left-3 w-full h-full border border-[#C6A15B]/50 rounded-2xl -z-10"
+                className="absolute -top-3 -left-3 w-full h-full border border-[#E5B842]/55 rounded-2xl -z-10"
                 aria-hidden="true"
               />
               <div
-                className="absolute -bottom-3 -right-3 w-full h-full bg-[#5B1111]/10 rounded-2xl -z-10"
+                className="absolute -bottom-3 -right-3 w-full h-full bg-[#9B112C]/10 rounded-2xl -z-10"
                 aria-hidden="true"
               />
 
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#5B1111]/20 aspect-[4/3.2] bg-[#3E0808] group">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#9B112C]/20 aspect-[4/3.2] bg-[#6A0C1E] group">
                 <img
                   src={FIRM_CONFIG.images.about}
                   alt="Legal counsel reviewing case documents at Qadeer Legal Chambers"
@@ -91,12 +91,12 @@ export const AboutSection: React.FC<AboutSectionProps> = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3E0808]/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#6A0C1E]/85 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-5 right-5 text-left">
-                  <div className="font-sans text-[11px] uppercase tracking-[0.14em] text-[#C6A15B] font-bold">
+                  <div className="font-sans text-[11px] uppercase tracking-[0.14em] text-[#E5B842] font-bold">
                     Sialkot · Lahore · Pakistan
                   </div>
-                  <div className="font-serif text-lg text-[#FDF0D5] font-medium">
+                  <div className="font-serif text-lg text-white font-medium">
                     High Court & District Court Chambers
                   </div>
                 </div>
@@ -107,16 +107,16 @@ export const AboutSection: React.FC<AboutSectionProps> = () => {
           {/* Right Column: About & Credibility Overview */}
           <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col gap-6">
             <div>
-              <div className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#5B1111] mb-2">
+              <div className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#9B112C] mb-2">
                 ABOUT THE CHAMBERS · CREDIBILITY & MANDATE
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-semibold text-[#171313] tracking-[-0.015em] leading-[1.12] mb-3.5">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-semibold text-[#0F172A] tracking-[-0.015em] leading-[1.12] mb-3.5">
                 About Qadeer Legal Chambers —{' '}
-                <span className="italic font-medium text-[#5B1111]">
+                <span className="italic font-medium text-[#9B112C]">
                   Established Pakistani Legal Practice
                 </span>
               </h2>
-              <p className="font-sans text-[15px] sm:text-[16px] text-[#6D6260] leading-[1.65] font-normal">
+              <p className="font-sans text-[15px] sm:text-[16px] text-[#475569] leading-[1.65] font-normal">
                 Qadeer Legal Chambers provides strategic courtroom litigation, Pakistani-law advisory, and local-counsel representation across Pakistan—serving domestic clients, commercial businesses, overseas Pakistanis, and instructing international law firms.
               </p>
             </div>
@@ -128,16 +128,16 @@ export const AboutSection: React.FC<AboutSectionProps> = () => {
                 return (
                   <li
                     key={index}
-                    className="flex items-start gap-3 font-sans text-[15px] sm:text-[16px] text-[#171313] leading-[1.4]"
+                    className="flex items-start gap-3 font-sans text-[15px] sm:text-[16px] text-[#0F172A] leading-[1.4]"
                   >
-                    <span className="w-8 h-8 rounded-full bg-[#5B1111] text-[#FDF0D5] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-                      <IconComponent className="w-4 h-4 text-[#C6A15B]" aria-hidden="true" />
+                    <span className="w-8 h-8 rounded-full bg-[#9B112C] text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+                      <IconComponent className="w-4 h-4 text-[#E5B842]" aria-hidden="true" />
                     </span>
                     <div>
-                      <div className="font-semibold tracking-[0.01em] text-[#171313]">
+                      <div className="font-semibold tracking-[0.01em] text-[#0F172A]">
                         {point.title}
                       </div>
-                      <div className="text-[13px] text-[#6D6260] font-normal mt-0.5">
+                      <div className="text-[13px] text-[#475569] font-normal mt-0.5">
                         {point.subtitle}
                       </div>
                     </div>
@@ -147,18 +147,18 @@ export const AboutSection: React.FC<AboutSectionProps> = () => {
             </ul>
 
             {/* Burgundy Firm Metrics Container */}
-            <div className="bg-[#5B1111] text-[#FDF0D5] p-5 sm:p-6 rounded-2xl border border-[#C6A15B]/30 shadow-lg relative overflow-hidden">
+            <div className="bg-gradient-to-br from-[#9B112C] via-[#850E23] to-[#6A0C1E] text-white p-5 sm:p-6 rounded-2xl border border-[#E5B842]/40 shadow-xl relative overflow-hidden">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 items-stretch">
                 {FIRM_CONFIG.statistics.map((stat) => (
                   <div
                     key={stat.id}
-                    className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 rounded-xl bg-[#3E0808]/40 border border-[#C6A15B]/25 gap-2.5"
+                    className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 rounded-xl bg-[#6A0C1E]/50 border border-[#E5B842]/30 gap-2.5"
                   >
-                    <div className="font-serif text-[2.35rem] sm:text-[2.75rem] lg:text-[3rem] font-semibold text-[#FDF0D5] leading-none tracking-[-0.02em] lining-nums tabular-nums flex items-center justify-center">
+                    <div className="font-serif text-[2.35rem] sm:text-[2.75rem] lg:text-[3rem] font-semibold text-white leading-none tracking-[-0.02em] lining-nums tabular-nums flex items-center justify-center">
                       {stat.value}
                     </div>
-                    <div className="w-6 h-[1.5px] bg-[#C6A15B] shrink-0" aria-hidden="true" />
-                    <div className="font-sans text-[12.5px] sm:text-[13.5px] font-medium tracking-[0.02em] text-[#FDF0D5]/95 leading-[1.35] flex items-center justify-center">
+                    <div className="w-6 h-[1.5px] bg-[#E5B842] shrink-0" aria-hidden="true" />
+                    <div className="font-sans text-[12.5px] sm:text-[13.5px] font-medium tracking-[0.02em] text-white/95 leading-[1.35] flex items-center justify-center">
                       {stat.label}
                     </div>
                   </div>
@@ -169,62 +169,62 @@ export const AboutSection: React.FC<AboutSectionProps> = () => {
         </div>
 
         {/* 3-Column Chamber Positioning & Credibility Strip (Who We Are · What We Excel At · Who We Represent) */}
-        <div className="mt-14 sm:mt-16 pt-10 sm:pt-12 border-t border-[#5B1111]/15 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="mt-14 sm:mt-16 pt-10 sm:pt-12 border-t border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {CREDIBILITY_PILLARS.map((pillar) => {
             const PillarIcon = pillar.Icon;
             return (
               <div
                 key={pillar.number}
-                className="group relative rounded-2xl bg-[#FFF9EC] border border-[#5B1111]/25 hover:border-[#C6A15B] shadow-[0_14px_34px_-12px_rgba(62,8,8,0.16)] hover:shadow-[0_22px_44px_-12px_rgba(62,8,8,0.28)] transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col justify-between"
+                className="group relative rounded-2xl bg-white border border-slate-200 hover:border-[#E5B842] shadow-[0_10px_30px_-10px_rgba(15,23,42,0.08)] hover:shadow-[0_20px_40px_-10px_rgba(155,17,44,0.18)] transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col justify-between"
               >
-                {/* Top Deep Burgundy & Antique Gold Architectural Header Bar */}
-                <div className="bg-[#5B1111] px-6 py-4 border-b border-[#C6A15B]/40 flex items-center justify-between relative overflow-hidden">
+                {/* Top Bright Royal Burgundy & Radiant Gold Header Bar */}
+                <div className="bg-[#9B112C] px-6 py-4 border-b border-[#E5B842]/40 flex items-center justify-between relative overflow-hidden">
                   <div
-                    className="absolute inset-0 bg-gradient-to-r from-[#3E0808]/65 via-transparent to-[#3E0808]/40 pointer-events-none"
+                    className="absolute inset-0 bg-gradient-to-r from-[#6A0C1E]/70 via-transparent to-[#6A0C1E]/40 pointer-events-none"
                     aria-hidden="true"
                   />
                   <div className="relative z-10 flex items-center gap-3">
-                    <span className="w-9 h-9 rounded-full bg-[#3E0808] border border-[#C6A15B]/45 flex items-center justify-center shrink-0 shadow-xs">
-                      <PillarIcon className="w-4 h-4 text-[#C6A15B]" aria-hidden="true" />
+                    <span className="w-9 h-9 rounded-full bg-[#6A0C1E] border border-[#E5B842]/50 flex items-center justify-center shrink-0 shadow-xs">
+                      <PillarIcon className="w-4 h-4 text-[#E5B842]" aria-hidden="true" />
                     </span>
-                    <span className="font-sans text-[11px] sm:text-[11.5px] uppercase tracking-[0.16em] font-bold text-[#C6A15B]">
+                    <span className="font-sans text-[11px] sm:text-[11.5px] uppercase tracking-[0.16em] font-bold text-[#E5B842]">
                       {pillar.question}
                     </span>
                   </div>
 
-                  <span className="relative z-10 font-serif text-2xl sm:text-[1.75rem] font-semibold italic text-[#FDF0D5]/90 leading-none tabular-nums">
+                  <span className="relative z-10 font-serif text-2xl sm:text-[1.75rem] font-semibold italic text-white/95 leading-none tabular-nums">
                     {pillar.number}
                   </span>
                 </div>
 
-                {/* Warm Cream Editorial Body */}
-                <div className="p-6 sm:p-7 bg-gradient-to-b from-[#FFF9EC] to-[#FDF0D5]/55 flex-1 flex flex-col justify-between">
+                {/* Bright Clean White Editorial Body */}
+                <div className="p-6 sm:p-7 bg-white flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-serif text-2xl sm:text-[1.65rem] font-semibold text-[#171313] group-hover:text-[#5B1111] tracking-[-0.015em] leading-[1.15] transition-colors">
+                    <h3 className="font-serif text-2xl sm:text-[1.65rem] font-semibold text-[#0F172A] group-hover:text-[#9B112C] tracking-[-0.015em] leading-[1.15] transition-colors">
                       {pillar.titleMain}{' '}
-                      <span className="italic font-medium text-[#5B1111]">
+                      <span className="italic font-medium text-[#9B112C]">
                         {pillar.titleAccent}
                       </span>
                     </h3>
 
                     {/* Signature Gold Accent Rule */}
                     <div
-                      className="w-10 h-[1.5px] bg-[#C6A15B] group-hover:w-16 group-hover:bg-[#5B1111] transition-all duration-300 my-3.5"
+                      className="w-10 h-[1.5px] bg-[#E5B842] group-hover:w-16 group-hover:bg-[#9B112C] transition-all duration-300 my-3.5"
                       aria-hidden="true"
                     />
 
-                    <p className="font-sans text-[14.5px] sm:text-[15px] text-[#6D6260] leading-[1.65] font-normal">
+                    <p className="font-sans text-[14.5px] sm:text-[15px] text-[#475569] leading-[1.65] font-normal">
                       {pillar.description}
                     </p>
                   </div>
 
                   {/* Subtle Chamber Scope Footer */}
-                  <div className="mt-6 pt-3.5 border-t border-[#5B1111]/12 flex items-center justify-between">
-                    <span className="font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#5B1111]/85">
+                  <div className="mt-6 pt-3.5 border-t border-slate-100 flex items-center justify-between">
+                    <span className="font-sans text-[11px] uppercase tracking-[0.12em] font-bold text-[#9B112C]/90">
                       {pillar.footerMeta}
                     </span>
                     <span
-                      className="w-1.5 h-1.5 rounded-full bg-[#C6A15B]"
+                      className="w-1.5 h-1.5 rounded-full bg-[#E5B842]"
                       aria-hidden="true"
                     />
                   </div>

@@ -291,7 +291,7 @@ const TeamMemberCard: React.FC<{
         }
       }}
       aria-label={`View profile of ${member.fullName}`}
-      className="group relative w-full max-w-[295px] mx-auto aspect-[3/3.66] select-none overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded-tl-[38px] rounded-b-xl transition-transform duration-300 hover:-translate-y-1"
+      className="group relative w-full max-w-[295px] mx-auto aspect-[3/3.66] select-none overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-tl-[38px] rounded-b-xl transition-transform duration-300 hover:-translate-y-1"
     >
       {/* 
         1. Left Vertical Burgundy Pillar (Matches reference card's red left bar):
@@ -300,7 +300,7 @@ const TeamMemberCard: React.FC<{
            - Contains vertical outlined watermark text
       */}
       <div
-        className="absolute top-0 left-0 bottom-0 w-[46%] bg-[#5B1111] rounded-tl-[38px] z-[1] overflow-hidden flex items-start justify-center pt-5"
+        className="absolute top-0 left-0 bottom-0 w-[46%] bg-[#9B112C] rounded-tl-[38px] z-[1] overflow-hidden flex items-start justify-center pt-5"
         aria-hidden="true"
       >
         <span
@@ -308,7 +308,7 @@ const TeamMemberCard: React.FC<{
           style={{
             writingMode: 'vertical-rl',
             transform: 'rotate(180deg)',
-            WebkitTextStroke: '1.25px rgba(253, 240, 213, 0.34)',
+            WebkitTextStroke: '1.25px rgba(229, 184, 66, 0.35)',
             color: 'transparent',
           }}
         >
@@ -318,7 +318,7 @@ const TeamMemberCard: React.FC<{
 
       {/* 
         2. Foreground Cutout Portrait:
-           - Overlaps both the left Burgundy pillar and the right Cream space
+           - Overlaps both the left Burgundy pillar and the right space
       */}
       <div className="absolute inset-x-0 bottom-0 top-2.5 z-[2] flex items-end justify-center pointer-events-none">
         <img
@@ -333,30 +333,30 @@ const TeamMemberCard: React.FC<{
 
       {/* 
         3. Bottom Full-Width Burgundy Gradient Fade & Member Info Lockup:
-           - Smoothly fades upward from solid Primary Burgundy (#5B1111) at the bottom edge
+           - Smoothly fades upward from solid vibrant burgundy (#6A0C1E) at the bottom edge
            - Displays Name, Designation, and subtle View Profile arrow
       */}
       <div
         className="absolute inset-x-0 bottom-0 h-[36%] z-[3] pointer-events-none"
         style={{
           background:
-            'linear-gradient(to top, #5B1111 0%, rgba(91, 17, 17, 0.92) 38%, rgba(91, 17, 17, 0.45) 72%, transparent 100%)',
+            'linear-gradient(to top, #6A0C1E 0%, rgba(106, 12, 30, 0.92) 38%, rgba(106, 12, 30, 0.45) 72%, transparent 100%)',
         }}
         aria-hidden="true"
       />
 
       <div className="absolute bottom-3.5 left-4 right-3.5 z-[4] flex items-end justify-between gap-2 text-left">
         <div>
-          <h3 className="font-sans font-bold text-[18px] sm:text-[19px] text-[#FDF0D5] tracking-[-0.01em] leading-tight">
+          <h3 className="font-sans font-bold text-[18px] sm:text-[19px] text-white tracking-[-0.01em] leading-tight">
             {member.name}
           </h3>
-          <p className="font-sans font-normal text-[12px] sm:text-[12.5px] text-[#FDF0D5]/90 tracking-[0.02em] mt-0.5">
+          <p className="font-sans font-normal text-[12px] sm:text-[12.5px] text-white/90 tracking-[0.02em] mt-0.5">
             {member.designation}
           </p>
         </div>
 
         <span
-          className="w-7 h-7 rounded-full bg-[#C6A15B]/20 group-hover:bg-[#C6A15B] text-[#FDF0D5] group-hover:text-[#171313] border border-[#C6A15B]/50 flex items-center justify-center transition-all duration-200 shrink-0"
+          className="w-7 h-7 rounded-full bg-[#E5B842] group-hover:bg-white text-[#0F172A] flex items-center justify-center transition-all duration-200 shrink-0 shadow-xs"
           aria-hidden="true"
         >
           <ArrowUpRight className="w-3.5 h-3.5" />
@@ -389,12 +389,20 @@ export const TeamSection: React.FC = () => {
   return (
     <section
       id="team"
-      className="relative z-[18] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-24 md:pb-32 bg-[#FFF9EC] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] rounded-b-[50px] sm:rounded-b-[65px] lg:rounded-b-[80px] border-t-2 border-b-2 border-[#5B1111]/25 shadow-[0_-25px_50px_-15px_rgba(62,8,8,0.25),0_30px_60px_-15px_rgba(30,4,4,0.55)] overflow-hidden"
+      className="relative z-[18] -mt-10 sm:-mt-12 lg:-mt-14 pt-20 sm:pt-24 md:pt-28 pb-24 md:pb-32 bg-[#FFFFFF] rounded-t-[50px] sm:rounded-t-[65px] lg:rounded-t-[80px] rounded-b-[50px] sm:rounded-b-[65px] lg:rounded-b-[80px] border-t-2 border-b-2 border-[#9B112C]/20 shadow-[0_-25px_50px_-15px_rgba(155,17,44,0.10),0_30px_60px_-15px_rgba(15,23,42,0.12)] overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Heading */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-[#171313] leading-[1.08] tracking-[-0.02em]">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="h-[1px] w-6 bg-[#E5B842]" aria-hidden="true" />
+            <span className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.16em] font-bold text-[#9B112C]">
+              LEADERSHIP & PARTNERS
+            </span>
+            <span className="h-[1px] w-6 bg-[#E5B842]" aria-hidden="true" />
+          </div>
+
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-[#0F172A] leading-[1.08] tracking-[-0.02em]">
             Board Of Directors
           </h2>
         </div>
@@ -411,7 +419,7 @@ export const TeamSection: React.FC = () => {
         </div>
 
         {/* Bottom Centered Description Text matching the reference layout */}
-        <p className="mt-10 sm:mt-12 max-w-4xl mx-auto text-center font-sans text-[15px] sm:text-[16px] text-[#171313]/80 leading-[1.65] font-normal">
+        <p className="mt-10 sm:mt-12 max-w-4xl mx-auto text-center font-sans text-[15px] sm:text-[16px] text-[#475569] leading-[1.65] font-normal">
           Our chambers are led by seasoned partners and senior advocates bringing decades of courtroom trial experience, corporate governance advisory, and constitutional advocacy to every client mandate.
         </p>
       </div>
@@ -428,16 +436,16 @@ export const TeamSection: React.FC = () => {
           >
             {/* Backdrop */}
             <div
-              className="fixed inset-0 bg-[#171313]/80 backdrop-blur-xs transition-opacity"
+              className="fixed inset-0 bg-[#0F172A]/80 backdrop-blur-xs transition-opacity"
               onClick={() => setSelectedProfile(null)}
               aria-hidden="true"
             />
 
             {/* Executive Profile Dossier Card */}
-            <div className="relative bg-[#FFF9EC] rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[calc(100dvh-1.5rem)] sm:max-h-[90dvh] flex flex-col border-2 border-[#C6A15B]/45 shadow-[0_30px_80px_-15px_rgba(23,19,19,0.7)] overflow-hidden z-10">
+            <div className="relative bg-white rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[calc(100dvh-1.5rem)] sm:max-h-[90dvh] flex flex-col border-2 border-[#E5B842]/50 shadow-[0_30px_80px_-15px_rgba(15,23,42,0.6)] overflow-hidden z-10">
               {/* Top Gold Accent Bar */}
               <div
-                className="h-1.5 w-full shrink-0 bg-gradient-to-r from-[#5B1111] via-[#C6A15B] to-[#5B1111]"
+                className="h-1.5 w-full shrink-0 bg-gradient-to-r from-[#9B112C] via-[#E5B842] to-[#9B112C]"
                 aria-hidden="true"
               />
 
@@ -445,7 +453,7 @@ export const TeamSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setSelectedProfile(null)}
-                className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-30 w-9 h-9 rounded-full bg-[#5B1111] text-[#FDF0D5] hover:bg-[#3E0808] border border-[#C6A15B]/40 flex items-center justify-center transition-colors shadow-md cursor-pointer"
+                className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-30 w-9 h-9 rounded-full bg-[#9B112C] text-white hover:bg-[#750B1F] border border-[#E5B842]/50 flex items-center justify-center transition-colors shadow-md cursor-pointer"
                 aria-label="Close profile modal"
               >
                 <X className="w-4.5 h-4.5" />
@@ -454,21 +462,19 @@ export const TeamSection: React.FC = () => {
               <div className="flex flex-col md:grid md:grid-cols-12 flex-1 min-h-0 overflow-y-auto overscroll-contain">
                 {/* 
                   Left Column (4 Cols): Tailored Executive Portrait Frame & Chamber Seal
-                  Fixes floating/uncropped bottom edge by housing the portrait inside a
-                  bespoke, fixed-aspect-ratio framed card with a bottom burgundy nameplate fade.
                 */}
-                <div className="md:col-span-5 bg-[#5B1111] pt-10 pb-6 px-5 sm:p-8 flex flex-col items-center justify-between relative shrink-0 border-b md:border-b-0 md:border-r border-[#C6A15B]/30">
+                <div className="md:col-span-5 bg-gradient-to-b from-[#8C0E26] via-[#750B1F] to-[#5C0818] pt-10 pb-6 px-5 sm:p-8 flex flex-col items-center justify-between relative shrink-0 border-b md:border-b-0 md:border-r border-[#E5B842]/30 text-white">
                   {/* Subtle radial ambient glow */}
                   <div
-                    className="absolute inset-0 bg-radial from-[#C6A15B]/12 via-transparent to-[#3E0808]/70 pointer-events-none"
+                    className="absolute inset-0 bg-radial from-[#E5B842]/15 via-transparent to-black/30 pointer-events-none"
                     aria-hidden="true"
                   />
 
-                  {/* Framed Executive Portrait Card (Matches the exact Board of Directors card geometry) */}
-                  <div className="relative z-10 w-[215px] h-[276px] sm:w-[235px] sm:h-[302px] rounded-2xl bg-[#FFF9EC] border-2 border-[#C6A15B]/60 shadow-2xl overflow-hidden shrink-0">
+                  {/* Framed Executive Portrait Card */}
+                  <div className="relative z-10 w-[215px] h-[276px] sm:w-[235px] sm:h-[302px] rounded-2xl bg-white border-2 border-[#E5B842]/60 shadow-2xl overflow-hidden shrink-0">
                     {/* Left Vertical Burgundy Pillar inside portrait frame */}
                     <div
-                      className="absolute top-0 left-0 bottom-0 w-[44%] bg-[#3E0808] z-[1] flex items-start justify-center pt-6"
+                      className="absolute top-0 left-0 bottom-0 w-[44%] bg-[#6A0C1E] z-[1] flex items-start justify-center pt-6"
                       aria-hidden="true"
                     >
                       <span
@@ -476,7 +482,7 @@ export const TeamSection: React.FC = () => {
                         style={{
                           writingMode: 'vertical-rl',
                           transform: 'rotate(180deg)',
-                          WebkitTextStroke: '1px rgba(253, 240, 213, 0.30)',
+                          WebkitTextStroke: '1px rgba(229, 184, 66, 0.35)',
                           color: 'transparent',
                         }}
                       >
@@ -493,33 +499,33 @@ export const TeamSection: React.FC = () => {
                       />
                     </div>
 
-                    {/* Smooth Bottom Burgundy Gradient Anchor (Eliminates any cut-off bottom edge) */}
+                    {/* Smooth Bottom Burgundy Gradient Anchor */}
                     <div
                       className="absolute inset-x-0 bottom-0 h-[32%] z-[3] pointer-events-none"
                       style={{
                         background:
-                          'linear-gradient(to top, #3E0808 0%, rgba(62, 8, 8, 0.88) 40%, transparent 100%)',
+                          'linear-gradient(to top, #6A0C1E 0%, rgba(106, 12, 30, 0.88) 40%, transparent 100%)',
                       }}
                       aria-hidden="true"
                     />
 
                     {/* Framed Portrait Caption */}
                     <div className="absolute bottom-3 left-3.5 right-3.5 z-[4] text-left">
-                      <div className="font-serif font-semibold text-[16px] text-[#FDF0D5] leading-tight">
+                      <div className="font-serif font-semibold text-[16px] text-white leading-tight">
                         {selectedProfile.member.fullName}
                       </div>
-                      <div className="font-sans text-[10.5px] uppercase tracking-[0.12em] text-[#C6A15B] font-bold mt-0.5">
+                      <div className="font-sans text-[10.5px] uppercase tracking-[0.12em] text-[#E5B842] font-bold mt-0.5">
                         {selectedProfile.member.designation} · {FIRM_CONFIG.firmName}
                       </div>
                     </div>
                   </div>
 
                   {/* Chamber Credentials & Direct WhatsApp Action */}
-                  <div className="relative z-10 w-full mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-[#C6A15B]/25 text-center">
-                    <div className="font-sans text-[11px] uppercase tracking-[0.14em] text-[#C6A15B] font-bold mb-1">
+                  <div className="relative z-10 w-full mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-[#E5B842]/30 text-center">
+                    <div className="font-sans text-[11px] uppercase tracking-[0.14em] text-[#E5B842] font-bold mb-1">
                       Chambers Jurisdiction
                     </div>
-                    <div className="font-serif text-[15px] sm:text-[16px] text-[#FDF0D5]/90 mb-4">
+                    <div className="font-serif text-[15px] sm:text-[16px] text-white/95 mb-4">
                       Pakistan Courts & International Advisory
                     </div>
 
@@ -529,9 +535,9 @@ export const TeamSection: React.FC = () => {
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-full bg-[#C6A15B] hover:bg-[#b8924b] text-[#171313] font-sans text-[12px] uppercase tracking-[0.06em] font-bold shadow-lg transition-all duration-200 cursor-pointer"
+                      className="w-full inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-full bg-[#E5B842] hover:bg-[#d4a833] text-[#0F172A] font-sans text-[12px] uppercase tracking-[0.06em] font-bold shadow-lg transition-all duration-200 cursor-pointer"
                     >
-                      <MessageSquare className="w-4 h-4 text-[#171313]" />
+                      <MessageSquare className="w-4 h-4 text-[#0F172A]" />
                       <span>Consult via WhatsApp</span>
                     </a>
                   </div>
@@ -540,33 +546,33 @@ export const TeamSection: React.FC = () => {
                 {/* 
                   Right Column (7 Cols): Executive Legal Dossier & Specializations
                 */}
-                <div className="md:col-span-7 p-5 sm:p-8 lg:p-10 flex flex-col justify-between bg-[#FFF9EC]">
+                <div className="md:col-span-7 p-5 sm:p-8 lg:p-10 flex flex-col justify-between bg-white text-[#0F172A]">
                   <div>
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#5B1111]/10 border border-[#5B1111]/20 text-[#5B1111] font-sans text-[11px] uppercase tracking-[0.14em] font-bold mb-3.5">
-                      <Award className="w-3.5 h-3.5 text-[#C6A15B]" aria-hidden="true" />
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#9B112C]/10 border border-[#9B112C]/20 text-[#9B112C] font-sans text-[11px] uppercase tracking-[0.14em] font-bold mb-3.5">
+                      <Award className="w-3.5 h-3.5 text-[#E5B842]" aria-hidden="true" />
                       <span>Professional Profile</span>
                     </div>
 
                     <h3
                       id="profile-modal-title"
-                      className="font-serif text-2xl sm:text-4xl font-bold text-[#171313] tracking-[-0.02em] leading-[1.08]"
+                      className="font-serif text-2xl sm:text-4xl font-bold text-[#0F172A] tracking-[-0.02em] leading-[1.08]"
                     >
                       {selectedProfile.member.fullName}
                     </h3>
 
-                    <p className="font-sans text-[12.5px] sm:text-[14px] uppercase tracking-[0.08em] font-bold text-[#5B1111] mt-1.5 mb-5 pb-4 border-b border-[#5B1111]/15">
+                    <p className="font-sans text-[12.5px] sm:text-[14px] uppercase tracking-[0.08em] font-bold text-[#9B112C] mt-1.5 mb-5 pb-4 border-b border-slate-200">
                       {selectedProfile.member.credentials}
                     </p>
 
                     {/* Editorial Bio Paragraphs with Gold Left Rule on Lead Paragraph */}
-                    <div className="space-y-4 font-sans text-[14.5px] sm:text-[15.5px] text-[#171313]/85 leading-[1.68]">
+                    <div className="space-y-4 font-sans text-[14.5px] sm:text-[15.5px] text-[#334155] leading-[1.68]">
                       {selectedProfile.member.bioParagraphs.map((paragraph, idx) => (
                         <p
                           key={idx}
                           className={
                             idx === 0
-                              ? 'border-l-2 border-[#C6A15B] pl-4 font-medium text-[#171313]'
-                              : 'text-[#6D6260]'
+                              ? 'border-l-2 border-[#E5B842] pl-4 font-medium text-[#0F172A]'
+                              : 'text-[#475569]'
                           }
                         >
                           {paragraph}
@@ -576,17 +582,17 @@ export const TeamSection: React.FC = () => {
 
                     {/* Specializations */}
                     <div className="mt-6 sm:mt-7">
-                      <h4 className="font-sans text-[11px] uppercase tracking-[0.16em] text-[#5B1111] font-bold mb-3">
+                      <h4 className="font-sans text-[11px] uppercase tracking-[0.16em] text-[#9B112C] font-bold mb-3">
                         Areas of Specialization
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {selectedProfile.member.specializations.map((spec) => (
                           <div
                             key={spec}
-                            className="flex items-center gap-2.5 bg-[#FDF0D5] px-3.5 py-2.5 rounded-xl border border-[#5B1111]/15 shadow-2xs"
+                            className="flex items-center gap-2.5 bg-slate-50 px-3.5 py-2.5 rounded-xl border border-slate-200/90 shadow-2xs"
                           >
-                            <CheckCircle2 className="w-4 h-4 text-[#5B1111] shrink-0" />
-                            <span className="font-sans text-[13px] font-semibold text-[#171313] leading-snug">
+                            <CheckCircle2 className="w-4 h-4 text-[#9B112C] shrink-0" />
+                            <span className="font-sans text-[13px] font-semibold text-[#0F172A] leading-snug">
                               {spec}
                             </span>
                           </div>
@@ -596,12 +602,12 @@ export const TeamSection: React.FC = () => {
                   </div>
 
                   {/* Bottom Dossier Footer */}
-                  <div className="mt-6 sm:mt-7 pt-4 border-t border-[#5B1111]/15 flex items-center justify-between gap-2 text-[12px] font-sans text-[#6D6260]">
+                  <div className="mt-6 sm:mt-7 pt-4 border-t border-slate-200 flex items-center justify-between gap-2 text-[12px] font-sans text-[#64748B]">
                     <span>{FIRM_CONFIG.firmName} · Verified Chamber Profile</span>
                     <button
                       type="button"
                       onClick={() => setSelectedProfile(null)}
-                      className="px-4 py-1.5 rounded-full bg-[#5B1111]/10 hover:bg-[#5B1111] text-[#5B1111] hover:text-[#FDF0D5] font-semibold transition-colors cursor-pointer shrink-0"
+                      className="px-4 py-1.5 rounded-full bg-slate-100 hover:bg-[#9B112C] text-[#475569] hover:text-white font-semibold transition-colors cursor-pointer shrink-0"
                     >
                       Close Profile
                     </button>

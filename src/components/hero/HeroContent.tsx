@@ -15,8 +15,8 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) 
         1. Chamber Identity Eyebrow:
         QADEER LEGAL CHAMBERS
       */}
-      <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 h-[36px] sm:h-[38px] rounded-full bg-white/15 border border-[#C6A15B]/35 text-[#FDF0D5] font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.16em] mb-4 sm:mb-5 w-fit shadow-xs">
-        <Scale className="w-4 h-4 text-[#C6A15B] shrink-0" aria-hidden="true" />
+      <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 h-[36px] sm:h-[38px] rounded-full bg-white/20 border border-[#E5B842]/50 text-white font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.16em] mb-4 sm:mb-5 w-fit shadow-sm">
+        <Scale className="w-4 h-4 text-[#F5C542] shrink-0" aria-hidden="true" />
         <span>{heroConfig.eyebrow.text}</span>
       </div>
 
@@ -24,9 +24,9 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) 
         2. Main Positioning Headline:
         LOCAL EXPERTISE. GLOBAL COUNSEL.
       */}
-      <h1 className="text-[2.3rem] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.45rem] font-serif font-semibold text-[#FDF0D5] leading-[1.03] tracking-[-0.02em] mb-3 sm:mb-4">
+      <h1 className="text-[2.3rem] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.45rem] font-serif font-semibold text-white leading-[1.03] tracking-[-0.02em] mb-3 sm:mb-4 drop-shadow-sm">
         <span className="block whitespace-nowrap">{heroConfig.headline.line1}</span>
-        <span className="block whitespace-nowrap text-[#C6A15B] italic font-medium">
+        <span className="block whitespace-nowrap text-[#E5B842] italic font-medium">
           {heroConfig.headline.line2}
         </span>
       </h1>
@@ -36,8 +36,8 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) 
         Advocates • Litigation • Legal Advisory
       */}
       <div className="flex items-center gap-3 mb-4 sm:mb-5">
-        <span className="h-[1.5px] w-7 bg-[#C6A15B] shrink-0" aria-hidden="true" />
-        <p className="font-sans text-[11.5px] sm:text-[13px] lg:text-[13.5px] uppercase tracking-[0.16em] text-[#FDF0D5] font-bold">
+        <span className="h-[1.5px] w-7 bg-[#E5B842] shrink-0" aria-hidden="true" />
+        <p className="font-sans text-[11.5px] sm:text-[13px] lg:text-[13.5px] uppercase tracking-[0.16em] text-white font-bold tracking-[0.14em]">
           {heroConfig.headline.line3}
         </p>
       </div>
@@ -46,7 +46,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) 
         4. Short Explanatory Sentence:
         Explaining that the chambers provides litigation, advisory, and local-counsel services in Pakistan.
       */}
-      <p className="font-sans text-[15px] sm:text-[16.5px] lg:text-[17px] text-[#FDF0D5]/90 max-w-[520px] leading-[1.6] sm:leading-[1.65] mb-6 sm:mb-8 font-normal">
+      <p className="font-sans text-[15px] sm:text-[16.5px] lg:text-[17px] text-white/95 max-w-[520px] leading-[1.6] sm:leading-[1.65] mb-6 sm:mb-8 font-normal">
         {heroConfig.supportingText}
       </p>
 

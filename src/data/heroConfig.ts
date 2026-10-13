@@ -66,14 +66,14 @@ export const heroConfig: HeroConfig = {
 
   // Brand Palette
   colors: {
-    primaryBurgundy: "#5B1111",
-    deepBurgundy: "#3E0808",
-    primaryCream: "#FDF0D5",
-    softCream: "#FFF9EC",
-    warmGold: "#C6A15B",
-    darkText: "#171313",
-    mutedText: "#6D6260",
-    leftOverlayOpacity: 0.88, // 88% burgundy overlay
+    primaryBurgundy: "#9B112C",
+    deepBurgundy: "#6A0C1E",
+    primaryCream: "#FFFFFF",
+    softCream: "#F8FAFC",
+    warmGold: "#E5B842",
+    darkText: "#0F172A",
+    mutedText: "#475569",
+    leftOverlayOpacity: 0.90, // Rich, vibrant royal ruby burgundy overlay
   },
 
   // Eyebrow badge

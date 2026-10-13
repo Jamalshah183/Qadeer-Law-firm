@@ -45,7 +45,7 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(true)}
-                  className="p-2 rounded-lg bg-white/15 text-[#FDF0D5] hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-[#C6A15B] transition-colors cursor-pointer"
+                  className="p-2 rounded-lg bg-white/20 text-white hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-[#E5B842] transition-colors cursor-pointer"
                   aria-label="Open mobile menu"
                 >
                   <Menu className="w-6 h-6" />
@@ -60,12 +60,12 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
             ====================================================================
           */}
           <div className="hidden lg:flex items-center lg:ml-[5%] xl:ml-[6%] pl-8 xl:pl-12">
-            <div className="flex items-center gap-7 xl:gap-9 font-sans text-[14.5px] font-semibold tracking-[0.03em] text-[#171313]">
+            <div className="flex items-center gap-7 xl:gap-9 font-sans text-[14.5px] font-semibold tracking-[0.03em] text-[#0F172A]">
               {heroConfig.navigation.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="hover:text-[#5B1111] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[#5B1111] hover:after:w-full after:transition-all whitespace-nowrap"
+                  className="hover:text-[#9B112C] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[#9B112C] hover:after:w-full after:transition-all whitespace-nowrap"
                 >
                   {item.label}
                 </a>
@@ -79,14 +79,14 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true">
           <div
-            className="fixed inset-0 bg-[#3E0808]/75 backdrop-blur-xs transition-opacity"
+            className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
 
-          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-[#FFF9EC] border-l border-[#5B1111]/20 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-white border-l border-slate-200 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
             <div className="space-y-6 pt-6">
-              <div className="flex items-center justify-between pb-4 border-b border-[#5B1111]/15">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-2">
                   <img
                     src={logoSrc}
@@ -94,10 +94,10 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                     className="h-9 sm:h-10 w-auto object-contain shrink-0"
                   />
                   <div>
-                    <span className="font-serif font-semibold text-base sm:text-lg tracking-[-0.01em] text-[#5B1111] leading-tight block">
+                    <span className="font-serif font-semibold text-base sm:text-lg tracking-[-0.01em] text-[#9B112C] leading-tight block">
                       Qadeer Legal Chambers
                     </span>
-                    <span className="font-sans text-[9.5px] uppercase tracking-[0.14em] text-[#6D6260] font-semibold block">
+                    <span className="font-sans text-[9.5px] uppercase tracking-[0.14em] text-[#64748B] font-semibold block">
                       Advocates • Litigation • Legal Advisory
                     </span>
                   </div>
@@ -105,7 +105,7 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-1 rounded-full text-[#171313] hover:bg-[#5B1111]/10"
+                  className="p-1.5 rounded-full text-[#0F172A] hover:bg-slate-100 transition-colors"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -118,23 +118,23 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                     key={item.label}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-sans text-[15px] font-semibold tracking-[0.03em] text-[#171313] hover:text-[#5B1111] py-2 transition-colors border-b border-[#5B1111]/10 flex items-center justify-between"
+                    className="font-sans text-[15px] font-semibold tracking-[0.03em] text-[#0F172A] hover:text-[#9B112C] py-2 transition-colors border-b border-slate-100 flex items-center justify-between"
                   >
                     <span>{item.label}</span>
-                    <ArrowUpRight className="w-4 h-4 text-[#C6A15B]" />
+                    <ArrowUpRight className="w-4 h-4 text-[#E5B842]" />
                   </a>
                 ))}
               </div>
             </div>
 
-            <div className="pt-6 border-t border-[#5B1111]/15">
+            <div className="pt-6 border-t border-slate-100">
               <button
                 type="button"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenConsultation();
                 }}
-                className="w-full py-3 bg-[#5B1111] hover:bg-[#3E0808] text-[#FDF0D5] font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded-full text-center block shadow transition-colors"
+                className="w-full py-3 bg-[#9B112C] hover:bg-[#800C22] text-white font-sans text-[13px] uppercase tracking-[0.06em] font-bold rounded-full text-center block shadow-md transition-colors cursor-pointer"
               >
                 Free Consultation
               </button>
