@@ -156,3 +156,33 @@ p, span, li, a, label, small, time, td, th, caption, button, input, textarea, se
 ::-webkit-scrollbar-thumb:hover {
   background: #6A0C1E;
 }
+
+/* Automated Pillar Card Progress & Transition */
+@keyframes pillarProgress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.animate-pillar-progress {
+  animation: pillarProgress 4.5s linear forwards;
+  transform-origin: left;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-fade-in {
+  animation: cardFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

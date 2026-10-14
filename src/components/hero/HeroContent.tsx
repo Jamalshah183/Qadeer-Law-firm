@@ -1,5 +1,4 @@
 import React from 'react';
-import { Scale } from 'lucide-react';
 import { heroConfig } from '../../data/heroConfig';
 import { HeroCTA } from './HeroCTA';
 
@@ -12,16 +11,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) 
     <div className="w-full lg:w-[53%] xl:w-[52%] px-6 sm:px-10 lg:pl-12 lg:pr-2 xl:pr-4 z-[5] flex justify-center lg:justify-end pt-0 pb-4 sm:pb-6 shrink-0 self-start">
       <div className="w-full max-w-[580px] xl:max-w-[620px] flex flex-col justify-start text-left">
       {/* 
-        1. Chamber Identity Eyebrow:
-        QADEER LEGAL CHAMBERS
-      */}
-      <div className="inline-flex items-center gap-2.5 px-4 sm:px-4.5 h-[36px] sm:h-[38px] rounded-full bg-white/20 border border-[#E5B842]/50 text-white font-sans text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.16em] mb-4 sm:mb-5 w-fit shadow-sm">
-        <Scale className="w-4 h-4 text-[#F5C542] shrink-0" aria-hidden="true" />
-        <span>{heroConfig.eyebrow.text}</span>
-      </div>
-
-      {/* 
-        2. Main Positioning Headline:
+        1. Main Positioning Headline:
         LOCAL EXPERTISE. GLOBAL COUNSEL.
       */}
       <h1 className="text-[2.3rem] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.45rem] font-sans font-bold text-white leading-[1.03] tracking-[-0.02em] mb-3 sm:mb-4 drop-shadow-sm">
@@ -32,12 +22,11 @@ export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) 
       </h1>
 
       {/* 
-        3. Core Practice Positioning Line:
+        2. Core Practice Positioning Line:
         Advocates • Litigation • Legal Advisory
       */}
-      <div className="flex items-center gap-3 mb-4 sm:mb-5">
-        <span className="h-[1.5px] w-7 bg-[#E5B842] shrink-0" aria-hidden="true" />
-        <p className="font-sans text-[11.5px] sm:text-[13px] lg:text-[13.5px] uppercase tracking-[0.16em] text-white font-bold tracking-[0.14em]">
+      <div className="flex items-center mb-4 sm:mb-5">
+        <p className="font-sans text-[11.5px] sm:text-[13px] lg:text-[13.5px] uppercase tracking-[0.14em] text-white font-bold">
           {heroConfig.headline.line3}
         </p>
       </div>
