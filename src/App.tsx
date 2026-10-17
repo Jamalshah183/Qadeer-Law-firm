@@ -280,7 +280,11 @@ export default function App() {
             />
 
             {/* 5. International Counsel — Pakistan Legal Partner Section */}
-            <InternationalCounsel />
+            <InternationalCounsel
+              onOpenConsultation={() =>
+                handleOpenConsultation('International Counsel Services')
+              }
+            />
 
             {/* 6. Why Choose Us — Experience / Strategy / Results Section */}
             <ExperienceStrategyResults />

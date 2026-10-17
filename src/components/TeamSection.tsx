@@ -402,8 +402,8 @@ export const TeamSection: React.FC = () => {
             <span className="h-[1px] w-6 bg-[#E5B842]" aria-hidden="true" />
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-[#0F172A] leading-[1.08] tracking-[-0.02em]">
-            Board Of Directors
+          <h2 className="font-sans text-3xl sm:text-4xl lg:text-[3.15rem] xl:text-[3.4rem] font-bold text-[#0F172A] leading-[1.08] tracking-[-0.02em]">
+            Board Of <span className="font-sans italic font-semibold text-[#9B112C]">Directors</span>
           </h2>
         </div>
 
@@ -511,7 +511,7 @@ export const TeamSection: React.FC = () => {
 
                     {/* Framed Portrait Caption */}
                     <div className="absolute bottom-3 left-3.5 right-3.5 z-[4] text-left">
-                      <div className="font-serif font-semibold text-[16px] text-white leading-tight">
+                      <div className="font-sans font-bold text-[16px] text-white leading-tight">
                         {selectedProfile.member.fullName}
                       </div>
                       <div className="font-sans text-[10.5px] uppercase tracking-[0.12em] text-[#E5B842] font-bold mt-0.5">
@@ -525,7 +525,7 @@ export const TeamSection: React.FC = () => {
                     <div className="font-sans text-[11px] uppercase tracking-[0.14em] text-[#E5B842] font-bold mb-1">
                       Chambers Jurisdiction
                     </div>
-                    <div className="font-serif text-[15px] sm:text-[16px] text-white/95 mb-4">
+                    <div className="font-sans text-[14px] sm:text-[15px] font-semibold text-white/95 mb-4">
                       Pakistan Courts & International Advisory
                     </div>
 
@@ -555,7 +555,7 @@ export const TeamSection: React.FC = () => {
 
                     <h3
                       id="profile-modal-title"
-                      className="font-serif text-2xl sm:text-4xl font-bold text-[#0F172A] tracking-[-0.02em] leading-[1.08]"
+                      className="font-sans text-2xl sm:text-4xl font-bold text-[#0F172A] tracking-[-0.02em] leading-[1.08]"
                     >
                       {selectedProfile.member.fullName}
                     </h3>

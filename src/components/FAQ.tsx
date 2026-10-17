@@ -25,8 +25,8 @@ export const FAQ: React.FC = () => {
             <span className="h-[1px] w-6 bg-[#E5B842]" aria-hidden="true" />
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-white leading-[1.08] tracking-[-0.02em] mb-4">
-            Questions, Answered.
+          <h2 className="font-sans text-3xl sm:text-4xl lg:text-[3.25rem] xl:text-[3.5rem] font-bold text-white leading-[1.08] tracking-[-0.02em] mb-4">
+            Questions, <span className="font-sans italic font-semibold text-[#E5B842]">Answered.</span>
           </h2>
 
           <p className="font-sans text-[16px] sm:text-[17px] text-white/90 leading-[1.65] font-normal">

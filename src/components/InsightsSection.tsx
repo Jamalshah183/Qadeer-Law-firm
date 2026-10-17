@@ -109,9 +109,9 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
             <span className="h-[1px] w-6 bg-[#E5B842]" aria-hidden="true" />
           </div>
 
-          <h2 className="font-serif text-[2.05rem] sm:text-4xl font-semibold text-[#0F172A] leading-[1.06] tracking-[-0.02em]">
+          <h2 className="font-sans text-3xl sm:text-4xl font-bold text-[#0F172A] leading-[1.08] tracking-[-0.02em]">
             Chamber Briefings &{' '}
-            <span className="italic font-normal text-[#9B112C]">
+            <span className="font-sans italic font-semibold text-[#9B112C]">
               Legal Perspectives.
             </span>
           </h2>
@@ -149,7 +149,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
               >
                 <span className="truncate">{label}</span>
                 <span
-                  className={`text-[10px] font-serif font-bold px-1.5 py-0.5 rounded-md shrink-0 tabular-nums ${
+                  className={`text-[10px] font-sans font-bold px-1.5 py-0.5 rounded-md shrink-0 tabular-nums ${
                     isActive
                       ? 'bg-[#E5B842] text-[#0F172A]'
                       : 'bg-slate-200 text-[#475569]'
@@ -187,7 +187,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
                       type="button"
                       onClick={() => setMobileSpotlightIndex(idx)}
                       aria-label={`Preview briefing ${post.number}`}
-                      className={`w-6 h-6 rounded-full font-serif text-[11px] font-bold transition-all flex items-center justify-center cursor-pointer tabular-nums ${
+                      className={`w-6 h-6 rounded-full font-sans text-[11px] font-bold transition-all flex items-center justify-center cursor-pointer tabular-nums ${
                         isCurrent
                           ? 'bg-[#E5B842] text-[#0F172A] shadow-xs'
                           : 'bg-white/10 text-white/75 hover:bg-white/20'
@@ -229,7 +229,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
                 </span>
               </div>
 
-              <span className="font-serif text-3xl font-bold text-[#E5B842] leading-none drop-shadow">
+              <span className="font-sans text-3xl font-bold text-[#E5B842] leading-none drop-shadow">
                 {mobileSpotlightPost.number}
               </span>
             </div>
@@ -242,7 +242,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
               onClick={(e) => handlePostClick(e, mobileSpotlightPost.slug)}
               className="block focus:outline-none"
             >
-              <h3 className="font-serif text-[1.35rem] sm:text-2xl font-semibold text-white leading-[1.16] tracking-[-0.01em] mb-2">
+              <h3 className="font-sans text-[1.25rem] sm:text-xl font-bold text-white leading-[1.2] tracking-[-0.01em] mb-2">
                 {mobileSpotlightPost.title}
               </h3>
 
@@ -305,7 +305,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
               <span className="font-sans text-[10.5px] uppercase tracking-[0.15em] font-bold text-[#9B112C]">
                 MORE CHAMBER PUBLICATIONS
               </span>
-              <span className="font-serif italic text-[12px] text-[#64748B]">
+              <span className="font-sans italic text-[12px] text-[#64748B]">
                 Tap to read
               </span>
             </div>
@@ -331,12 +331,12 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
                       className="absolute inset-0 bg-gradient-to-t from-[#5C0818]/85 via-transparent to-transparent"
                       aria-hidden="true"
                     />
-                    <span className="absolute bottom-1 left-1.5 font-serif text-xs font-bold text-[#E5B842] leading-none">
+                    <span className="absolute bottom-1 left-1.5 font-sans text-xs font-bold text-[#E5B842] leading-none">
                       {post.number}
                     </span>
                   </div>
 
-                  {/* Center: Unboxed Metadata & 2-Line Serif Headline */}
+                  {/* Center: Unboxed Metadata & 2-Line Headline */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 font-sans text-[10.5px] text-[#9B112C] font-semibold truncate mb-0.5">
                       <span className="truncate">{post.category}</span>
@@ -348,7 +348,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
                       </span>
                     </div>
 
-                    <h4 className="font-serif text-[16px] font-semibold text-[#0F172A] leading-[1.2] line-clamp-2">
+                    <h4 className="font-sans text-[15px] font-bold text-[#0F172A] leading-[1.25] line-clamp-2">
                       {post.title}
                     </h4>
                   </div>
@@ -395,9 +395,9 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
               <span className="h-[1px] w-7 bg-[#E5B842]" aria-hidden="true" />
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-[#0F172A] leading-[1.08] tracking-[-0.02em]">
+            <h2 className="font-sans text-3xl sm:text-4xl lg:text-[3.15rem] xl:text-[3.4rem] font-bold text-[#0F172A] leading-[1.08] tracking-[-0.02em]">
               Chamber Briefings &{' '}
-              <span className="italic font-normal text-[#9B112C]">
+              <span className="font-sans italic font-semibold text-[#9B112C]">
                 Legal Perspectives.
               </span>
             </h2>
@@ -470,7 +470,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
                   className="absolute inset-0 bg-gradient-to-t from-[#5C0818]/85 via-[#5C0818]/25 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-[#5C0818]/20 lg:to-[#5C0818]/90 pointer-events-none"
                   aria-hidden="true"
                 />
-                <div className="absolute top-5 left-5 font-serif text-3xl sm:text-4xl font-bold text-[#E5B842] drop-shadow-md">
+                <div className="absolute top-5 left-5 font-sans text-3xl sm:text-4xl font-bold text-[#E5B842] drop-shadow-md tabular-nums">
                   {leadPost.number}
                 </div>
               </div>
@@ -489,7 +489,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
                     <span className="text-white/80 font-normal">{leadPost.readTime}</span>
                   </div>
 
-                  <h3 className="font-serif text-2xl sm:text-3xl lg:text-[2.2rem] font-semibold text-white group-hover:text-[#E5B842] leading-[1.14] tracking-[-0.015em] transition-colors mb-3.5">
+                  <h3 className="font-sans text-2xl sm:text-3xl lg:text-[2rem] font-bold text-white group-hover:text-[#E5B842] leading-[1.15] tracking-[-0.015em] transition-colors mb-3.5">
                     {leadPost.title}
                   </h3>
 
@@ -540,7 +540,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
                     className="absolute inset-0 bg-gradient-to-t from-[#5C0818]/75 via-transparent to-transparent pointer-events-none"
                     aria-hidden="true"
                   />
-                  <span className="absolute bottom-3 left-4 font-serif text-2xl font-bold text-white drop-shadow">
+                  <span className="absolute bottom-3 left-4 font-sans text-2xl font-bold text-white drop-shadow tabular-nums">
                     {post.number}
                   </span>
                 </div>
@@ -556,7 +556,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
                     <span className="text-[#64748B] font-normal">{post.readTime}</span>
                   </div>
 
-                  <h3 className="font-serif text-[1.45rem] sm:text-[1.55rem] font-semibold text-[#0F172A] group-hover:text-[#9B112C] leading-[1.2] tracking-[-0.01em] transition-colors mb-2.5">
+                  <h3 className="font-sans text-xl sm:text-[1.35rem] font-bold text-[#0F172A] group-hover:text-[#9B112C] leading-[1.22] tracking-[-0.01em] transition-colors mb-2.5">
                     {post.title}
                   </h3>
 
@@ -590,7 +590,7 @@ export const InsightsSection: React.FC<InsightsSectionProps> = ({
               <BookOpen className="w-4.5 h-4.5" aria-hidden="true" />
             </div>
             <div>
-              <div className="font-serif text-lg sm:text-xl font-semibold text-[#0F172A]">
+              <div className="font-sans text-base sm:text-lg font-bold text-[#0F172A]">
                 Explore the Complete Qadeer Legal Chambers Publication Archive
               </div>
               <div className="font-sans text-[13px] text-[#64748B]">

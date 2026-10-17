@@ -29,11 +29,11 @@ export const PracticeAreasSection: React.FC<PracticeAreasSectionProps> = ({
             <span className="h-[1px] w-7 bg-[#E5B842]" aria-hidden="true" />
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-[#0F172A] tracking-[-0.02em] leading-[1.08] mb-4">
-            Our Practice <span className="italic font-normal text-[#9B112C]">Areas</span>
+          <h2 className="font-sans text-3xl sm:text-4xl lg:text-[3.15rem] xl:text-[3.4rem] font-bold text-[#0F172A] tracking-[-0.02em] leading-[1.08] mb-3.5 sm:mb-4">
+            Our Practice <span className="font-sans italic font-semibold text-[#9B112C]">Areas</span>
           </h2>
 
-          <p className="font-sans text-[15.5px] sm:text-[17px] text-[#475569] leading-[1.65] font-normal">
+          <p className="font-sans text-[15px] sm:text-[16.5px] text-[#475569] leading-[1.65] font-normal">
             Comprehensive litigation, transactional counsel, and Pakistani-law advisory tailored for domestic clients, commercial enterprises, overseas Pakistanis, and instructing foreign firms.
           </p>
         </div>
@@ -54,12 +54,12 @@ export const PracticeAreasSection: React.FC<PracticeAreasSectionProps> = ({
               }}
               className="group py-6 sm:py-8 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-10 cursor-pointer transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5B842] rounded-lg"
             >
-              {/* Left Column: Editorial Number + Serif Practice Area Title */}
+              {/* Left Column: Editorial Number + Sans Practice Area Title matching upper section */}
               <div className="md:w-[38%] lg:w-[36%] shrink-0 flex items-baseline gap-3.5">
-                <span className="font-serif text-lg sm:text-xl font-bold text-[#E5B842] tabular-nums shrink-0">
+                <span className="font-sans text-lg sm:text-xl font-bold text-[#E5B842] tabular-nums shrink-0 [font-variant-numeric:lining-nums]">
                   0{index + 1}.
                 </span>
-                <h3 className="font-serif text-2xl sm:text-[1.85rem] font-semibold tracking-[-0.01em] leading-[1.15] text-[#0F172A] group-hover:text-[#9B112C] transition-colors">
+                <h3 className="font-sans text-2xl sm:text-[1.75rem] lg:text-[1.85rem] font-bold tracking-[-0.02em] leading-[1.15] text-[#0F172A] group-hover:text-[#9B112C] transition-colors">
                   {practice.title}
                 </h3>
               </div>

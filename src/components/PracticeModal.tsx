@@ -72,7 +72,7 @@ export const PracticeModal: React.FC<PracticeModalProps> = ({
             </span>
             <h3
               id="practice-modal-title"
-              className="font-serif text-2xl sm:text-3xl font-semibold tracking-[-0.015em] text-white"
+              className="font-sans text-2xl sm:text-3xl font-bold tracking-[-0.02em] text-white"
             >
               {practice.title}
             </h3>
