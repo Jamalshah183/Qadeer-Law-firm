@@ -87,9 +87,7 @@ export const InsightDetailPage: React.FC<InsightDetailPageProps> = ({
             <img
               src={logoSrc}
               alt="Qadeer Legal Chambers"
-              className={`h-16 sm:h-20 w-auto object-contain shrink-0 ${
-                isProcessed ? '' : 'mix-blend-screen'
-              }`}
+              className="h-12 sm:h-14 lg:h-16 w-auto object-contain shrink-0"
             />
           </a>
 

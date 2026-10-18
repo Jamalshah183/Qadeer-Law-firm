@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X, CheckCircle2, ArrowUpRight, Award, MessageSquare } from 'lucide-react';
 import { FIRM_CONFIG } from '../data/firmData';
-import qadeerCeoImg from '../assets/images/qadeer_hussain_ceo.png';
+import qadeerCeoImg from '../assets/images/principal_advocate_studio_opt.webp';
 import arfanImg from '../assets/images/arfan_shahzad.png';
 
 interface TeamMember {

@@ -1,21 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { Quote } from 'lucide-react';
 import { FIRM_CONFIG } from '../data/firmData';
 
 export const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? FIRM_CONFIG.testimonials.length - 1 : prev - 1
-    );
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === FIRM_CONFIG.testimonials.length - 1 ? 0 : prev + 1
-    );
-  };
 
   // Automatically step through reviews one by one with zero heavy animation
   useEffect(() => {
@@ -119,39 +107,12 @@ export const Testimonials: React.FC = () => {
               </div>
 
               {/* Client Info Lockup */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-[#E5B842]/25">
-                <div>
-                  <div className="font-sans text-base sm:text-lg font-bold tracking-[-0.01em] text-[#E5B842]">
-                    {current.clientName}
-                  </div>
-                  <div className="font-sans text-[12px] font-medium text-white/80 tracking-[0.03em] mt-0.5">
-                    {current.matterArea} {current.location ? `· ${current.location}` : ''}
-                  </div>
+              <div className="pt-6 border-t border-[#E5B842]/25">
+                <div className="font-sans text-base sm:text-lg font-bold tracking-[-0.01em] text-[#E5B842]">
+                  {current.clientName}
                 </div>
-
-                {/* Carousel Controls */}
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={prevSlide}
-                    className="p-2.5 rounded-full bg-[#6A0C1E] hover:bg-[#800F24] text-[#E5B842] border border-[#E5B842]/40 shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-[#E5B842] cursor-pointer"
-                    aria-label="Previous testimonial"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-
-                  <span className="font-sans text-[12px] font-semibold tracking-[0.05em] text-[#E5B842] px-2 tabular-nums">
-                    0{currentIndex + 1} / 0{FIRM_CONFIG.testimonials.length}
-                  </span>
-
-                  <button
-                    type="button"
-                    onClick={nextSlide}
-                    className="p-2.5 rounded-full bg-[#6A0C1E] hover:bg-[#800F24] text-[#E5B842] border border-[#E5B842]/40 shadow-xs transition-colors focus:outline-none focus:ring-2 focus:ring-[#E5B842] cursor-pointer"
-                    aria-label="Next testimonial"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                <div className="font-sans text-[12px] font-medium text-white/80 tracking-[0.03em] mt-0.5">
+                  {current.matterArea} {current.location ? `· ${current.location}` : ''}
                 </div>
               </div>
             </div>

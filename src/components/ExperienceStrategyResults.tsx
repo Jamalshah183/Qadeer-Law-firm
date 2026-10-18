@@ -98,19 +98,22 @@ export const ExperienceStrategyResults: React.FC = () => {
         </svg>
       </div>
 
-      {/* Neoclassical Marble Corinthian Column Background Asset
-          - Mobile: Spans full width and height to cover all borders without partial cut-offs, with softened brightness
-          - Desktop: Anchored elegantly to the right edge with directional feathering
+      {/* Neoclassical Marble Corinthian Column
+          - Hidden on mobile version only (hidden sm:flex)
+          - Desktop / Tablet: Full width (lg:w-[460px]), high opacity (lg:opacity-80), and balanced directional feathering
       */}
-      <div className="absolute inset-0 w-full sm:left-auto sm:right-0 sm:w-[320px] md:w-[420px] lg:w-[480px] pointer-events-none select-none z-0 opacity-10 sm:opacity-25 lg:opacity-30 overflow-hidden flex items-center justify-center sm:justify-end">
+      <div className="hidden sm:flex absolute inset-y-0 right-0 sm:w-[280px] md:w-[380px] lg:w-[460px] pointer-events-none select-none z-0 overflow-hidden items-center justify-end">
         <img
           src={marbleColumnImg}
           alt=""
           aria-hidden="true"
-          className="w-full h-full min-h-full object-cover object-center sm:object-left-bottom mix-blend-multiply"
+          className="h-full w-full object-cover object-left-bottom mix-blend-multiply sm:opacity-70 lg:opacity-80"
+          style={{
+            filter: 'brightness(0.85) contrast(1.15) saturate(0.9)',
+          }}
         />
-        {/* Soft balanced overlay to eliminate harsh glare and ensure flawless readability across mobile and desktop */}
-        <div className="absolute inset-0 bg-white/60 sm:bg-gradient-to-r sm:from-white sm:via-white/50 sm:to-transparent" />
+        {/* Directional white feathering on desktop */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/60 to-transparent" />
       </div>
 
       {/* ======================================================================

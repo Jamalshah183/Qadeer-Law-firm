@@ -106,9 +106,7 @@ export const Footer: React.FC<FooterProps> = ({
               <img
                 src={logoSrc}
                 alt="Qadeer Legal Chambers Logo"
-                className={`h-16 sm:h-24 w-auto object-contain drop-shadow-md ${
-                  isProcessed ? '' : 'mix-blend-screen'
-                }`}
+                className="h-12 sm:h-16 lg:h-18 w-auto object-contain drop-shadow-md"
               />
             </a>
 

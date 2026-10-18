@@ -34,9 +34,7 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
                 <img
                   src={logoSrc}
                   alt="Qadeer Legal Chambers Logo"
-                  className={`h-16 sm:h-20 lg:h-24 w-auto object-contain object-left drop-shadow-md shrink-0 ${
-                    isProcessed ? '' : 'mix-blend-screen'
-                  }`}
+                  className="h-12 sm:h-14 lg:h-16 w-auto object-contain object-left drop-shadow-md shrink-0"
                 />
               </a>
 
@@ -88,18 +86,12 @@ export const HeroNavigation: React.FC<HeroNavigationProps> = ({ onOpenConsultati
             <div className="space-y-6 pt-6">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-2">
-                  <img
-                    src={logoSrc}
-                    alt="Qadeer Legal Chambers"
-                    className="h-9 sm:h-10 w-auto object-contain shrink-0"
-                  />
-                  <div>
-                    <span className="font-serif font-semibold text-base sm:text-lg tracking-[-0.01em] text-[#9B112C] leading-tight block">
-                      Qadeer Legal Chambers
-                    </span>
-                    <span className="font-sans text-[9.5px] uppercase tracking-[0.14em] text-[#64748B] font-semibold block">
-                      Advocates • Litigation • Legal Advisory
-                    </span>
+                  <div className="p-1.5 px-3 rounded-lg bg-[#6A0C1E] border border-[#E5B842]/30 flex items-center shrink-0">
+                    <img
+                      src={logoSrc}
+                      alt="Qadeer Legal Chambers"
+                      className="h-8 w-auto object-contain shrink-0"
+                    />
                   </div>
                 </div>
                 <button

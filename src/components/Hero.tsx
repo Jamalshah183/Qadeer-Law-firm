@@ -32,7 +32,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
         - Center-Split Statue of Justice: Straddles the boundary between the 2 containers,
           top edge level with the writing, lower edge extending behind the second section.
       */}
-      <div className="w-full flex-1 flex flex-col justify-start relative pt-4 sm:pt-8 lg:pt-12 xl:pt-14">
+      <div className="w-full flex-1 flex flex-col justify-start relative pt-10 sm:pt-8 lg:pt-12 xl:pt-14">
         <div className="w-full relative flex flex-col lg:flex-row items-center lg:items-start justify-start">
           {/* Hero Content (Positioned over Burgundy side with left spacing, top-aligned) */}
           <HeroContent onOpenConsultation={onOpenConsultation} />
