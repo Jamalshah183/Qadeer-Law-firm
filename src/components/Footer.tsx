@@ -95,9 +95,9 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        {/* Middle Row: Brand Logo + Chamber Jurisdictions & Practice Lockup on Left, Social Icons on Right */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pb-4 sm:pb-6">
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center sm:text-left">
+        {/* Middle Row: Brand Logo on Left, Social Icons on Right */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 pb-4 sm:pb-6">
+          <div className="flex items-center">
             <a
               href="#hero"
               aria-label="Qadeer Legal Chambers - Home"
@@ -109,26 +109,6 @@ export const Footer: React.FC<FooterProps> = ({
                 className="h-12 sm:h-16 lg:h-18 w-auto object-contain drop-shadow-md"
               />
             </a>
-
-            {/* Compact single-line positioning badge on mobile */}
-            <div className="sm:hidden font-sans text-[10.5px] uppercase tracking-[0.14em] text-[#E5B842] font-bold">
-              ADVOCATES • LITIGATION • LEGAL ADVISORY
-            </div>
-
-            {/* Full Chamber Identity Lockup on tablet/desktop */}
-            <div className="hidden sm:block sm:border-l sm:border-[#E5B842]/35 sm:pl-6">
-              <div className="font-serif text-xl sm:text-2xl font-semibold text-white tracking-[0.02em] leading-snug">
-                Qadeer Legal Chambers
-              </div>
-              <div className="mt-1 font-sans text-[11.5px] sm:text-[12px] uppercase tracking-[0.14em] text-[#E5B842] font-bold">
-                ADVOCATES • LITIGATION • LEGAL ADVISORY
-              </div>
-              <div className="mt-1 flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1 font-sans text-[12px] sm:text-[12.5px] text-white/85 font-normal">
-                <span>Sialkot | Lahore | Pakistan</span>
-                <span className="text-[#E5B842]" aria-hidden="true">·</span>
-                <span>Local Expertise. Global Counsel.</span>
-              </div>
-            </div>
           </div>
 
           {/* Circular Social Icon Buttons */}

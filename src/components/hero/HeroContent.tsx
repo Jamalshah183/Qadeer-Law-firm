@@ -8,8 +8,8 @@ interface HeroContentProps {
 
 export const HeroContent: React.FC<HeroContentProps> = ({ onOpenConsultation }) => {
   return (
-    <div className="w-full lg:w-[53%] xl:w-[52%] px-6 sm:px-10 lg:pl-12 lg:pr-2 xl:pr-4 z-[5] flex justify-center lg:justify-end pt-0 pb-4 sm:pb-6 shrink-0 self-start">
-      <div className="w-full max-w-[580px] xl:max-w-[620px] flex flex-col justify-start text-left">
+    <div className="w-full lg:w-[53%] xl:w-[52%] px-6 sm:px-10 lg:pl-12 lg:pr-2 xl:pr-4 z-[5] flex justify-center lg:justify-end pt-0 pb-4 sm:pb-6 shrink-0 self-center my-auto">
+      <div className="w-full max-w-[580px] xl:max-w-[620px] flex flex-col justify-center text-left my-auto">
       {/* 
         1. Main Positioning Headline:
         LOCAL EXPERTISE. GLOBAL COUNSEL.
