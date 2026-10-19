@@ -11,11 +11,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const y = window.scrollY;
+          if (y > 80) {
+            setIsScrolled(true);
+          } else if (y < 40) {
+            setIsScrolled(false);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -25,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transform-gpu transition-all duration-300 will-change-transform ${
           isScrolled
             ? 'opacity-100 translate-y-0 pointer-events-auto bg-white/95 backdrop-blur-md shadow-md border-b border-slate-200/80 py-3.5'
             : 'opacity-0 -translate-y-full pointer-events-none py-3.5'

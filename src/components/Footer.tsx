@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer
       id="contact"
-      className="sticky bottom-0 z-[1] w-full bg-[#6A0C1E] text-white -mt-12 sm:-mt-16 lg:-mt-20 pt-24 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 overflow-hidden select-none"
+      className="relative z-[1] w-full bg-[#6A0C1E] text-white -mt-12 sm:-mt-16 lg:-mt-20 pt-24 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 overflow-hidden select-none"
     >
       {/* Background Legal Desk & Gavel Photograph (Person-Free Still Life) */}
       <div

@@ -63,7 +63,7 @@ export default function App() {
 
     if (cleanHash === '#hero' || cleanHash === '#home') {
       if (lenis) {
-        lenis.scrollTo(0, { lerp: 0.1 });
+        lenis.scrollTo(0, { duration: 1.15 });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -78,13 +78,12 @@ export default function App() {
           document.body.scrollHeight
         );
         if (lenisRef.current) {
-          lenisRef.current.scrollTo(maxScroll, { lerp: 0.1 });
+          lenisRef.current.scrollTo(maxScroll, { duration: 1.15 });
         } else {
           window.scrollTo({ top: maxScroll, behavior: 'smooth' });
         }
       };
       scrollToBottom();
-      window.setTimeout(scrollToBottom, 140);
       return;
     }
 
@@ -94,7 +93,7 @@ export default function App() {
     const offset = 0;
 
     if (lenis) {
-      lenis.scrollTo(targetEl, { offset, lerp: 0.1 });
+      lenis.scrollTo(targetEl, { offset, duration: 1.15 });
     } else {
       const top = targetEl.getBoundingClientRect().top + window.scrollY + offset;
       window.scrollTo({ top, behavior: 'smooth' });
@@ -160,17 +159,27 @@ export default function App() {
     return () => window.removeEventListener('popstate', onPopState);
   }, [scrollToSectionHash, scrollToTopImmediate]);
 
-  // Smooth scrolling engine with zero start/end transform shake
+  // Ultra-smooth, jitter-free scrolling engine with VSync synchronization
   useEffect(() => {
     const lenis = new Lenis({
-      autoRaf: true,
-      lerp: 0.12,
+      duration: 1.15,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+      syncTouch: false,
       infinite: false,
     });
     lenisRef.current = lenis;
+
+    let rafId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
 
     if (window.location.pathname === '/' && window.location.hash) {
       window.setTimeout(() => {
@@ -222,6 +231,7 @@ export default function App() {
 
     return () => {
       document.removeEventListener('click', onAnchorClick);
+      cancelAnimationFrame(rafId);
       lenis.destroy();
       lenisRef.current = null;
     };

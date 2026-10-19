@@ -86,8 +86,8 @@
   color-scheme: light;
 }
 
-html,
-body {
+html {
+  scroll-behavior: auto !important;
   overflow-x: clip;
 }
 
@@ -113,6 +113,8 @@ html.lenis body {
 }
 
 body {
+  overflow-x: clip;
+  overscroll-behavior-y: none;
   font-family: var(--font-body);
   font-feature-settings: "kern" 1, "liga" 1;
   -webkit-font-smoothing: antialiased;
